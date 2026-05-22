@@ -1,0 +1,162 @@
+@use '../../../../../assets/scss/mixins/scrollbar' as *;
+@use '../../../../../assets/scss/variables/breakpoints' as *;
+
+:host {
+  --card-border-radius: var(--border-radius);
+  --card-border-color: var(--color-secondary-15);
+  --card-border: 0.1rem solid var(--card-border-color);
+  --card-background-color: var(--color-light);
+  --card-shadow: var(--shadow-light);
+  --card-shadow-hover: var(--shadow-hover);
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: var(--card-border-radius);
+  border: var(--card-border);
+  background-color: var(--card-background-color);
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.2s ease;
+
+  &.is-clickable {
+    cursor: pointer;
+    @media(hover: hover) {
+      &:hover {
+        box-shadow: var(--card-shadow-hover);
+      }
+    }
+  }
+
+  &:not(.c-card--responsive) {
+    &.c-card--no-shadows {
+      box-shadow: none;
+      @media(hover: hover) {
+        &.is-clickable {
+          &:hover {
+            --card-border-color: var(--color-primary);
+            --card-shadow: none;
+          }
+        }
+      }
+    }
+  }
+
+  &.c-card--grey {
+    --card-background-color: var(--color-secondary-10);
+    --card-shadow: none;
+    --card-border: none;
+  }
+
+  &.c-card--brand {
+    --card-background-color: var(--color-primary-5);
+    --card-shadow: none;
+    --card-border: none;
+  }
+
+  &.is-selected {
+    --card-border-color: var(--color-primary);
+  }
+
+  &.is-focusable {
+    &:hover,
+    &:focus,
+    &:focus-within {
+      --card-border-color: var(--color-primary);
+    }
+  }
+
+  &.c-card--2xs,
+  &.c-card--xs {
+    ::ng-deep .c-card-content {
+      --card-content-padding: 1.6rem;
+    }
+  }
+
+  .c-card:not(.enable-on-desktop).has-borders,
+  .c-card:not(.enable-on-desktop).has-inner-borders {
+    ::ng-deep .c-card-content {
+      padding-top: var(--card-content-padding);
+    }
+  }
+
+  .c-card:not(.enable-on-desktop).has-borders {
+    ::ng-deep .c-card-content {
+      --card-content-border: 0.1rem solid var(--card-content-border-color);
+      &:not(:last-child) {
+        border-bottom: var(--card-content-border);
+      }
+    }
+  }
+
+  .c-card:not(.enable-on-desktop).has-inner-borders {
+    ::ng-deep .c-card-content {
+      &:not(:last-child) {
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: var(--card-content-padding);
+          right: var(--card-content-padding);
+          height: 0.1rem;
+          background-color: var(--card-content-border-color);
+        }
+      }
+    }
+  }
+
+}
+
+
+@media (max-width: ($bp-md - 1px)) {
+  :host {
+    &.enable-on-desktop {
+      --card-shadow: none;
+      --card-border: 0;
+      --card-background-color: transparent;
+      ::ng-deep > .c-card-content {
+        --card-content-padding: 0;
+      }
+    }
+  }
+}
+
+@media (min-width: $bp-md) {
+  :host {
+    ::ng-deep .c-card-content {
+      --card-content-padding: 3.2rem;
+    }
+
+    &.c-card--2xs {
+      ::ng-deep .c-card-content {
+        --card-content-padding: 1.6rem;
+      }
+    }
+
+    &.c-card--xs,
+    &.c-card--sm {
+      ::ng-deep .c-card-content {
+        --card-content-padding: 2.4rem;
+      }
+    }
+
+    &.enable-on-desktop {
+      ::ng-deep > .c-card-content > .c-card {
+        --card-shadow: none;
+        --card-border: 0;
+        --card-background-color: transparent;
+      }
+    }
+    &.c-card--responsive {
+      --card-shadow: none;
+      &.is-clickable {
+        &:hover {
+          --card-shadow: none;
+          --card-border-color: var(--color-primary);
+        }
+      }
+    }
+  }
+
+
+}
+

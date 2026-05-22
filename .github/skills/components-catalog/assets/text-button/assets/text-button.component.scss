@@ -1,0 +1,82 @@
+:host {
+  --gap: 0.8rem;
+  --btn-text-color: var(--color-quaternary);
+  display: inline-flex;
+  gap: var(--gap);
+  align-items: center;
+  font-weight: normal;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: var(--btn-text-color);
+  cursor: pointer;
+
+  &:is(.c-btn-text--xs),
+  &:is(.c-btn-text--sm) {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+  }
+
+  @media (hover: hover) {
+    &:not(.is-disabled) {
+      &:hover {
+        --btn-text-color: var(--color-secondary);
+
+        .c-btn-text__text {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+
+  .c-btn-text__text:empty {
+    display: none;
+  }
+
+  &.is-disabled {
+    cursor: default;
+    color: var(--color-secondary-40);
+  }
+
+  &.is-active {
+    font-weight: bold;
+  }
+
+  &:is(.c-btn-text--xs) {
+    --gap: 0.4rem;
+  }
+
+  &.c-btn-text--secondary {
+    --btn-text-color: var(--color-secondary-60);
+
+    @media (hover: hover) {
+      &:hover {
+        --btn-text-color: var(--color-secondary);
+      }
+    }
+  }
+
+  ::ng-deep > .c-icon {
+    font-size: 2.4rem;
+  }
+
+  &.is-icon-right {
+    ::ng-deep > .c-icon {
+      order: 2;
+    }
+  }
+
+  &.c-btn-text--lg {
+    font-size: 2rem;
+    line-height: 2.8rem;
+    ::ng-deep > .c-icon {
+      font-size: 3.2rem;
+    }
+  }
+
+  &.c-btn-text--xs {
+    ::ng-deep > .c-icon {
+      font-size: 1.6rem;
+    }
+  }
+}

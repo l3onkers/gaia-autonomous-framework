@@ -1,0 +1,33 @@
+:host {
+  &.is-selected {
+    pointer-events: none;
+    ::ng-deep button {
+      color: var(--color-secondary);
+      border-color: var(--color-primary-90);
+    }
+  }
+  &.is-disabled {
+    pointer-events: none;
+  }
+
+  ::ng-deep button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--color-secondary-40);
+    border: 0.1rem solid transparent;
+    border-radius: 50%;
+    color: var(--color-secondary-40);
+    user-select: none;
+
+    &:hover {
+      font-weight: bold;
+      color: var(--color-secondary);
+      border-color: var(--color-secondary);
+    }
+  }
+}

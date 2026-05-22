@@ -1,0 +1,65 @@
+@use '../../../../../assets/scss/variables/breakpoints' as *;
+
+:host {
+  display: inline-flex;
+  align-items: stretch;
+
+  &.l-grid-wrapper {
+    display: grid;
+  }
+
+  &.c-menu--vertical,
+  &.c-menu--contextual {
+    flex-direction: column;
+    gap: 1.6rem;
+    ::ng-deep {
+      > .c-menu-item {
+        --menu-item-padding: 0;
+        > .c-menu-item__inner {
+          justify-content: flex-start;
+          .c-menu-item__label {
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+
+  &.c-menu--contextual {
+    padding: 1.6rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    background-color: var(--color-light);
+    border: 0.1rem solid var(--color-secondary-15);
+  }
+
+  @media (hover: hover) {
+    ::ng-deep {
+      > .c-menu-item {
+        &:hover {
+          > .c-menu-item__inner {
+            color: var(--color-quaternary);
+          }
+        }
+      }
+    }
+  }
+
+  &.is-fullwidth {
+    display: flex;
+
+    &.l-grid-wrapper {
+      width: 100%
+    }
+
+    ::ng-deep {
+      .c-menu-item {
+        flex: 1
+      }
+
+      .c-menu-item__inner {
+        justify-content: center;
+      }
+    }
+  }
+}

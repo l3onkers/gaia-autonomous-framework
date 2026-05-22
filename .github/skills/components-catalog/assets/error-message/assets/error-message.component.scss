@@ -1,0 +1,22 @@
+
+:host {
+  display: none;
+  flex: 0 0 100%;
+  margin: 0.8rem 0 0 0 ;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  color: var(--color-primary);
+  opacity: 0;
+  order: 10;
+
+  &.is-visible {
+    display: flex;
+    align-items: flex-start;
+    opacity: 1;
+  }
+
+  .c-error-message__icon {
+    margin-right: 0.8rem;
+    font-size: 1.6rem
+  }
+}

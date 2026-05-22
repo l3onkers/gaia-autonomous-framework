@@ -1,0 +1,364 @@
+@use '../../../../../assets/scss/mixins/scrollbar' as *;
+@use '../../../../../assets/scss/variables/breakpoints' as *;
+
+:host {
+  display: inline-block;
+
+  &.is-fullwidth {
+    display: block;
+    width: 100%;
+  }
+
+  &:has(.c-input-select__dropdown.is-open) {
+    > .c-input-text {
+      .c-input-text__inner {
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+      }
+      .c-btn-text {
+        transform: rotate(180deg);
+      }
+    }
+
+  }
+
+  &:has(select:disabled) {
+    pointer-events: none;
+    > button {
+      opacity: 0.5;
+    }
+  }
+
+  > button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+    }
+    .c-icon {
+      color: var(--color-primary);
+      opacity: 0;
+    }
+    &:hover {
+      .c-icon {
+        opacity: 1
+      }
+    }
+  }
+
+  &:has(.c-input-select__dropdown.is-open) {
+    > button {
+      .c-icon {
+        opacity: 1;
+      }
+    }
+  }
+
+  ::ng-deep select {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0;
+  }
+
+  &.is-invalid {
+    ::ng-deep .c-error-message {
+      display: flex;
+      align-items: flex-start;
+      opacity: 1;
+    }
+  }
+
+  > .c-input-text {
+    cursor: pointer;
+
+    ::ng-deep {
+      input {
+        cursor: pointer;
+      }
+
+      .c-btn-text {
+        color: var(--color-primary);
+        cursor: pointer;
+
+      }
+
+      .c-input-text__icon:is(.c-icon),
+      .c-input-text__input[readonly] {
+        cursor: pointer;
+      }
+
+      .c-input-text__input[disabled] {
+        cursor: default;
+      }
+    }
+  }
+
+  &:has(select:disabled) {
+    > .c-input-text {
+      .c-btn-text {
+        color: var(--color-secondary-40);
+        pointer-events: none;
+      }
+    }
+  }
+
+  .c-input-select__dropdown {
+    position: fixed;
+    z-index: var(--z-index-xs);
+    top: 0;
+    left: -100vw;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-light);
+    opacity: 0;
+    overflow: hidden;
+
+    header {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.8rem;
+      background-color: var(--color-light);
+      padding: 1.6rem;
+      border-bottom: 0.1rem solid var(--color-secondary-15);
+    }
+
+
+    &.is-open {
+      left: 0;
+      z-index: var(--z-index-xl);
+      opacity: 1;
+    }
+  }
+
+  .c-input-select__list {
+    overflow: hidden auto;
+  }
+
+  .c-input-select__listitem {
+    border-bottom: 0.1rem solid var(--color-secondary-15);
+
+    &:first-child[data-value=""]:not(.is-label) {
+      display: none;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &.is-label .c-input-select__itemlabel {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      padding-block: 0.8rem;
+      font-weight: bold;
+      background-color: var(--color-secondary-10);
+      pointer-events: none;
+    }
+
+    &.is-disabled .c-input-select__itemlabel {
+      color: var(--color-secondary-40);
+      pointer-events: none;
+    }
+
+
+    &.is-selected .c-input-select__itemlabel {
+      border-color: var(--color-primary);
+    }
+
+    &.is-hidden {
+      display: none;
+    }
+
+    &:not(.is-label.is-disabled) {
+      &:hover {
+        .c-input-select__itemlabel {
+          border-left-width: 0.4rem;
+        }
+      }
+    }
+
+    ::ng-deep {
+      input[type="radio"],
+      input[type="checkbox"] {
+        display: none;
+
+        &:checked + .c-input-select__itemlabel {
+          border-left-width: 0.4rem;
+        }
+      }
+    }
+  }
+
+  .c-input-select__itemlabel {
+    display: flex;
+    padding: 1.2rem 1.6rem 1.2rem 1.2rem;
+    border-left: 0.4rem solid transparent;
+    cursor: pointer;
+  }
+
+  .c-input-select__close:is(.c-btn-text) {
+    cursor: pointer;
+  }
+
+  &.c-input-select--inline {
+    display: inline-block;
+
+    > .c-input-text {
+      display: none;
+    }
+
+
+    .c-input-select__dropdown {
+      border: 0;
+      border-radius: 0;
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        width: 100%;
+        height: 4.8rem;
+      }
+
+    }
+
+    &:hover,
+    &:has(.c-input-select__dropdown.is-open) {
+      ::ng-deep {
+        > .c-input-text {
+          .c-input-text__inner {
+            &:has(.c-btn-text) {
+              .c-btn-text {
+                opacity: 1;
+                transform: rotateZ(0) translateX(50%)
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .c-input-select__listitem {
+      &.is-selected {
+        .c-input-select__itemlabel {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $bp-md) {
+
+  :host {
+    --dropdown-border: var(--border-solid);
+    --dropdown-border-radius: var(--border-radius);
+    --dropdown-border-focus-color: var(--color-tertiary);
+
+    .c-input-select__dropdown {
+      position: absolute;
+      z-index: var(--z-index-xs);
+      top: 4.7rem;
+      width: 100%;
+      height: auto;
+      max-height: 21.2rem;
+      border: var(--dropdown-border);
+      border-radius: var(--dropdown-border-radius);
+    }
+
+    &:has(> .c-input-text:focus-within) {
+
+      .c-input-select__dropdown {
+        border-color: var(--dropdown-border-focus-color);
+      }
+    }
+
+    &:not(.is-disabled.c-input-select--inline) {
+      &:has(.c-input-select__dropdown.is-open) {
+        > .c-input-text .c-input-text__inner,
+        .c-input-select__dropdown {
+          border-color: var(--dropdown-border-focus-color);
+        }
+        > .c-input-text .c-input-text__inner {
+          border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+      }
+      .c-input-select__itemlabel {
+        &:hover {
+          color: var(--color-quaternary);
+        }
+      }
+    }
+
+    .c-input-select__list {
+      @include scrollbar(.6rem, var(--color-light), var(--color-secondary-15));
+    }
+
+    .c-input-select__itemlabel {
+      padding: 1.6rem 1.6rem;
+    }
+
+    .c-input-select__close:is(.c-btn-text) {
+      display: none;
+    }
+
+
+
+    &.c-input-select--inline {
+      --input-width: auto;
+      --input-text-align: left;
+      --input-font-weight: normal;
+      --input-background-color: transparent;
+
+      --dropdown-border: 0.1rem solid var(--color-light);
+      --dropdown-border-radius: 0 0 var(--border-radius) var(--border-radius);
+      --dropdown-border-focus-color: var(--color-light);
+
+      > button {
+        text-align: var(--input-text-align);
+        font-weight: var(--input-font-weight);
+        background-color: var(--input-background-color);
+        width: var(--input-width);
+      }
+
+      .c-input-select__dropdown {
+        border: var(--dropdown-border);
+        border-radius: var(--dropdown-border-radius);
+
+        &.is-open {
+          left: -1.6rem;
+          width: calc(100% + 3.2rem);
+        }
+        .c-input-select__listitem {
+          &:hover {
+            .c-input-select__itemlabel {
+              background-color: var(--color-secondary-5);
+            }
+          }
+
+          .c-input-select__itemlabel {
+            padding: 1.2rem 1.6rem;
+            text-align: center;
+            justify-content: center;
+          }
+          &.is-selected .c-input-select__itemlabel {
+            border-color: transparent
+          }
+        }
+      }
+    }
+  }
+
+}

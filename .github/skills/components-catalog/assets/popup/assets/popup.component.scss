@@ -1,0 +1,195 @@
+@use '../../../../assets/scss/mixins/scrollbar' as *;
+@use '../../../../assets/scss/variables/breakpoints' as *;
+
+:host {
+  padding: 0;
+
+  &:is(dialog) {
+    &::backdrop {
+      background-color: var(--color-secondary);
+      opacity: .95;
+    }
+  }
+
+  &:not(dialog) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    max-width: 100%;
+    max-height: 100%;
+
+    top: -200vw;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-secondary);
+      opacity: .95;
+    }
+
+    &.is-visible {
+      z-index: var(--z-index-xl);
+      top: 0;
+      opacity: 1;
+
+      .c-popup__inner {
+        opacity: 1;
+      }
+    }
+
+  }
+
+  .c-popup__inner {
+    position: relative;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 2.4rem;
+    background-color: var(--color-light);
+
+    &:has(.c-popup__footer) {
+      padding-bottom: 0;
+    }
+  }
+
+  &:not(.is-no-scroll) {
+    .c-popup__inner {
+      overflow: auto;
+      @include scrollbar;
+    }
+  }
+  .c-popup__close-bar {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-index-sm);
+    display: flex;
+    justify-content: flex-end;
+    padding: 2.4rem 2.4rem 1.6rem 2.4rem;
+    background-color: var(--color-light);
+  }
+
+  .c-popup__close {
+    display: flex;
+    color: var(--color-secondary-60)
+  }
+
+  ::ng-deep {
+    .c-popup__header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding-bottom: 2.4rem;
+      padding-inline: 2.4rem;
+
+      > * {
+        &:not(:last-child) {
+          margin-bottom: 0.8rem;
+        }
+      }
+
+      > .c-icon {
+        &:not([class*='u-color']) {
+          color: var(--color-primary);
+        }
+      }
+    }
+
+
+    .c-popup__content {
+      padding-inline: 2.4rem;
+      > * {
+        &:not(:last-child) {
+          margin-bottom: 1.6rem;
+        }
+      }
+
+      .t-subtitle {
+        color: var(--color-secondary-60);
+      }
+    }
+
+    .c-popup__footer {
+      position: sticky;
+      bottom: 0;
+      padding: 2.4rem;
+      margin-top: auto;
+      background-color: var(--color-light);
+    }
+  }
+}
+
+
+
+@media (max-width: ($bp-md - 1px)) {
+  :host {
+    &:is(dialog) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      max-width: 100%;
+      max-height: 100%;
+      border: 0;
+    }
+    &:not(dialog) {
+      .c-popup__inner {
+        position: absolute;
+        opacity: 0;
+      }
+    }
+  }
+}
+
+@media (min-width: $bp-md) {
+  :host {
+    .c-popup__inner {
+      position: relative;
+      transform: none;
+      margin: auto;
+      height: auto;
+      max-height: 92vh;
+      padding-bottom: 7.2rem;
+      border-radius: var(--border-radius);
+      width: 80.8rem;
+    }
+    &.c-popup--sm {
+      .c-popup__inner {
+        width: 60rem;
+      }
+    }
+    .c-popup__close-bar {
+      padding: 2.4rem;
+    }
+
+    ::ng-deep {
+      .c-popup__header {
+        padding-bottom: 3.2rem;
+        padding-inline: 7.2rem;
+      }
+      .c-popup__content {
+        padding-inline: 7.2rem;
+      }
+      .c-popup__footer {
+        padding: 3.2rem 7.2rem 7.2rem 7.2rem;
+      }
+    }
+  }
+
+
+}

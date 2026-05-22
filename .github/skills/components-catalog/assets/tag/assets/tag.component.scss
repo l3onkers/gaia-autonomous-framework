@@ -1,0 +1,68 @@
+@use '../../../../../assets/scss/variables/breakpoints' as *;
+
+:host {
+  --padding: 0.4rem 1.2rem;
+  --border-color: var(--color-primary);
+  --background-color:  var(--color-primary);
+  --borer-radius: 10rem;
+  --color: var(--color-light);
+  --font-size: 1.6rem;
+  --line-height: 2rem;
+
+  display: inline-flex;
+  gap: 0.8rem;
+  padding: var(--padding);
+
+
+  border: 0.1rem solid var(--border-color);
+  border-radius: var(--borer-radius);
+  background-color: var(--background-color);
+  color: var(--color);
+
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+
+  &.c-tag--sm {
+    --padding: 0.8rem 1.6rem;
+    --font-size: 1.2rem;
+    --line-height: 1.6rem;
+  }
+
+  &.c-tag--xs {
+    --padding: 0.4rem 0.8rem;
+    --font-size: 1.2rem;
+    --line-height: 1.6rem;
+  }
+
+  &.c-tag--secondary {
+    --border-color: var(--color-secondary);
+    --background-color: var(--color-secondary);
+  }
+
+  &.c-tag--tertiary {
+    --border-color: var(--color-quaternary);
+    --background-color: var(--color-quaternary);
+  }
+
+  &.c-tag--quaternary {
+    --border-color: var(--color-tertiary);
+    --background-color: var(--color-tertiary);
+  }
+  &.c-tag--bordered {
+    --background-color: transparent;
+    --border-color: var(--color-secondary-15);
+    --color: var(--color-secondary-70);
+  }
+}
+
+@media (min-width: $bp-md) {
+  :host {
+    --padding: 0.8rem 1.6rem;
+    &.c-tag--xs {
+      --padding: 0.4rem 0.8rem;
+    }
+    &.c-tag--sm {
+      --padding: 0.8rem 1.6rem;
+    }
+  }
+}

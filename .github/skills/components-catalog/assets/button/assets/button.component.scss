@@ -1,0 +1,280 @@
+@use '../../../../../assets/scss/variables/breakpoints' as *;
+
+@keyframes btn-dots {
+  0% {
+    opacity: .1;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: .1;
+  }
+};
+
+:host {
+  --btn-height: 6.4rem;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  justify-content: center;
+  height: var(--btn-height);
+  min-width: 12rem;
+  padding: 0 2.4rem;
+  border-radius: var(--border-radius);
+
+  line-height: 1;
+  font-size: 2.4rem;
+  font-weight: bold;
+
+  background-color: var(--color-primary);
+  color: var(--color-light);
+
+  cursor: pointer;
+
+  &:active {
+    background-color: var(--color-primary);
+  }
+
+  &:is(:disabled, [disabled], .is-disabled) {
+    pointer-events: none;
+    cursor: default;
+    background-color: var(--color-secondary-10);
+    border-color: var(--color-secondary-10);
+    color: var(--color-secondary-40);
+  }
+
+  &:is(&.c-btn--secondary, &.c-btn--tertiary, &.c-btn--quaternary) {
+    &:is(:disabled, [disabled], .is-disabled) {
+      background-color: transparent;
+      border-color: var(--color-secondary-15);
+      color: var(--color-secondary-15);
+    }
+  }
+
+  &.is-loading:not(&.c-btn--text) {
+    pointer-events: none;
+
+    .c-btn__dots,
+    .c-btn__dots::before,
+    .c-btn__dots::after {
+      animation-name: btn-dots;
+      animation-duration: .8s;
+      animation-iteration-count: infinite;
+      animation-fill-mode: both;
+    }
+
+    .c-btn__dots {
+      z-index: 1;
+      opacity: 1;
+    }
+
+    .c-btn__text,
+    > .c-icon {
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+
+  &.is-fullwidth {
+    width: 100%;
+  }
+
+  &.c-btn--sm {
+    --btn-height: 4.8rem;
+
+    padding: 0 2.4rem;
+    font-size: 1.6rem;
+
+  }
+
+  &.c-btn--secondary {
+    border: 0.2rem solid var(--color-primary);
+    color: var(--color-primary);
+    background-color: transparent;
+
+    &.is-loading {
+      .c-btn__dots {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  &.c-btn--tertiary {
+    border: 0.2rem solid var(--color-tertiary);
+    color: var(--color-tertiary);
+    background-color: transparent;
+
+    &.is-loading {
+      .c-btn__dots {
+        color: var(--color-tertiary);
+      }
+    }
+  }
+
+  &.c-btn--quaternary {
+    border: 0.2rem solid var(--color-secondary-60);
+    color: var(--color-secondary-60);
+    background-color: transparent;
+
+    &.is-loading {
+      .c-btn__dots {
+        color: var(--color-secondary-60)
+      }
+    }
+  }
+
+  &.c-btn--apple {
+    background-color: var(--color-apple);
+  }
+
+  &.c-btn--facebook {
+    background-color: var(--color-facebook)
+  }
+  &.c-btn--paypal {
+    background-color: var(--color-paypal);
+    .c-btn__text {
+      display: flex;
+      gap: 0.8rem;
+      .c-icon {
+        top: 0.1rem;
+        font-size: 8rem;
+      }
+      .c-icon__src {
+        height: 2.4rem;
+      }
+    }
+
+    &.c-btn--sm {
+      .c-btn__text {
+        top: auto;
+        gap: 0.4rem;
+        .c-icon {
+          font-size: 6.2rem;
+        }
+        .c-icon__src {
+          height: 1.7rem;
+        }
+      }
+    }
+  }
+
+  ::ng-deep > .c-icon {
+    font-size: 2.4rem;
+    color: currentColor;
+  }
+  .c-btn__text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .c-btn__dots {
+    z-index: -1;
+    animation-delay: .2s;
+    color: var(--color-light)
+  }
+
+  .c-btn__dots,
+  .c-btn__dots:before,
+  .c-btn__dots:after {
+    content: '';
+    position: absolute;
+    top: calc(50% - .4rem);
+    left: 50%;
+    // transform: translateX(-50%);
+    display: block;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 100%;
+    background-color: currentColor;
+    opacity: 0;
+    transition: opacity .2s ease, z-index .2s step-end;
+
+  }
+
+  .c-btn__dots:before {
+    top: 0;
+    left: -1.2rem;
+  }
+
+  .c-btn__dots:after {
+    top: 0;
+    left: 1.2rem;
+    animation-delay: .4s;
+  }
+
+  @media(hover: hover) {
+
+    &:not(.is-disabled) {
+      .c-card.is-clickable:hover &,
+      &:hover {
+        background-color: var(--color-primary-90);
+
+        &.c-btn--secondary {
+          border: 0.2rem solid var(--color-primary-120);
+          color: var(--color-primary-120);
+          background-color: transparent;
+
+          &:before {
+            opacity: 1;
+          }
+        }
+
+        &.c-btn--tertiary {
+          border: 0.2rem solid var(--color-secondary-80);
+          color: var(--color-secondary-80);
+          background-color: transparent;
+        }
+
+        &.c-btn--quaternary {
+          border: 0.2rem solid var(--color-secondary);
+          color: var(--color-secondary);
+          background-color: transparent;
+        }
+
+        &.c-btn--apple {
+          background-color: var(--color-light);
+          color: var(--color-apple);
+          border: 0.2rem solid black;
+        }
+
+        &.c-btn--facebook {
+          background-color: var(--color-facebook-dark);
+        }
+
+        &.c-btn--paypal {
+          background-color: var(--color-paypal-hover);
+        }
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: ($bp-md - 1px)) {
+  :host {
+    &.c-btn--responsive {
+      --btn-height: 6.4rem;
+      padding: 0 2.4rem;
+      font-size: 1.6rem;
+
+      &.c-btn--paypal {
+        .c-btn__text {
+          top: auto;
+          gap: 0.4rem;
+          .c-icon {
+            font-size: 6.2rem;
+          }
+          .c-icon__src {
+            height: 1.7rem;
+          }
+        }
+      }
+    }
+  }
+}

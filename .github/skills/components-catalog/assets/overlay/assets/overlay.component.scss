@@ -1,0 +1,68 @@
+:host,
+:host:after,
+:host:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+:host {
+  &:before {
+    background-color: var(--color-primary);
+    opacity: 0.2;
+  }
+
+  &:after {
+    background-color: var(--color-secondary);
+    opacity: 0.55;
+  }
+
+  &.o-overlay--light {
+    &:before {
+      background-color: var(--color-primary);
+      opacity: 0.1;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+
+  &.o-overlay--regular {
+    &:before {
+      background-color: var(--color-primary);
+      opacity: 0.15;
+    }
+
+    &:after {
+      background-color: var(--color-secondary);
+      opacity: 0.1;
+    }
+  }
+
+  &.o-overlay--dark {
+    &:before {
+      background-color: var(--color-secondary);
+      opacity: 0.6;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+
+  &.o-overlay--heavy {
+    &:before {
+      background-color: var(--color-primary);
+      opacity: 0.45;
+    }
+
+    &:after {
+      background-color: var(--color-secondary);
+      opacity: 0.9;
+    }
+  }
+}

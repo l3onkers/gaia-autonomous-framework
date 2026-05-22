@@ -1,0 +1,113 @@
+
+:host {
+  --menu-item-padding: 0rem 1rem;
+  &.is-disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .c-menu-item__inner {
+    --gap: 0.8rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: var(--gap);
+    padding: var(--menu-item-padding);
+    color: var(--color-secondary-60);
+
+    ::ng-deep > .c-icon {
+      font-size: 2.4rem;
+      order: -1;
+
+    }
+  }
+
+  // .c-menu-item__label {
+  //   text-align: center;
+  //   width: 100%
+  // }
+
+  &.is-icon-right {
+    .c-menu-item__inner {
+      ::ng-deep > .c-icon {
+        order: initial;
+      }
+    }
+  }
+
+  &.is-active {
+    border-color: var(--color-primary);
+    font-weight: 700;
+
+    > .c-menu-item__inner,
+    .c-menu-item__legend {
+      color: var(--color-secondary);
+    }
+  }
+
+  &:not(.is-disabled) {
+    &.is-active {
+      > .c-menu-item__inner {
+        color: var(--color-secondary)
+      }
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      ::ng-deep {
+        .c-menu-layer {
+          z-index: var(--z-index-sm);
+          top: 100%;
+          opacity: 1;
+
+          &.is-help-layer {
+            top: calc(100% - 0.9rem);
+          }
+
+          .c-menu-layer__inner {
+            transform: translateY(0);
+          }
+
+          + .c-menu-item__arrow-layer {
+            transform: scale(1) rotate(45deg);
+          }
+        }
+      }
+    }
+  }
+
+  .c-menu-item__arrow {
+    display: flex;
+  }
+
+  .c-menu-item__arrow-layer {
+    position: absolute;
+    top: calc(100% + 0.8em);
+    left: calc(50% - 1.5rem);
+    z-index: var(--z-index-sm);
+    transform: scale(1, 0) rotate(45deg);
+    transform-origin: 50% 100%;
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--color-light);
+    border: 0.1rem solid var(--color-secondary-15);
+    border-radius: var(--border-radius);
+    border-right-color: var(--color-light);
+    border-bottom-color: var(--color-light);
+    clip-path: polygon(0 0, 0% 100%, 100% 0);
+  }
+
+  .c-menu-item__legend {
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.6rem;
+    text-align: center;
+    color: var(--color-secondary-40);
+    margin-bottom: 0.8rem;
+  }
+}

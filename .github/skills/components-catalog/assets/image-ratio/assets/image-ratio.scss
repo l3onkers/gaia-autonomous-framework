@@ -1,0 +1,131 @@
+@use '../../../../../../assets/scss/variables/breakpoints' as *;
+
+:host {
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+
+  &.u-image-ratio--2x1 {
+    aspect-ratio: 2/1;
+  }
+
+  &.u-image-ratio--2x3 {
+    aspect-ratio: 2/3;
+  }
+
+  &.u-image-ratio--3x2 {
+    aspect-ratio: 3/2;
+  }
+
+  &.u-image-ratio--4x3 {
+    aspect-ratio: 4/3;
+  }
+
+  &.u-image-ratio--16x9 {
+    aspect-ratio: 16/9;
+  }
+
+  &.is-checkin-summary {
+    aspect-ratio: 38/13;
+    margin-bottom: -4rem;
+    z-index: -1;
+  }
+
+  &.u-image-ratio--absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  ::ng-deep {
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+
+  &.u-image-ratio--is-top {
+    ::ng-deep {
+      > img,
+      .u-image-filter > img {
+        object-position: center top;
+      }
+    }
+  }
+
+  &.u-image-ratio--is-bottom {
+    ::ng-deep {
+      > img,
+      .u-image-filter > img {
+        object-position: center bottom;
+      }
+    }
+  }
+
+  &.u-image-ratio--is-left {
+    ::ng-deep {
+      > img,
+      .u-image-filter > img {
+        object-position: left center;
+      }
+    }
+  }
+
+  &.u-image-ratio--is-right {
+    ::ng-deep {
+      > img,
+      .u-image-filter > img {
+        object-position: right center;
+      }
+    }
+  }
+
+  &.u-image-ratio--is-left-top {
+    ::ng-deep {
+      > img,
+      .u-image-filter > img {
+        object-position: left top;
+      }
+    }
+  }
+
+  &.u-image-ratio--is-right-top {
+    ::ng-deep {
+      > img,
+      .u-image-filter > img {
+        object-position: right top;
+      }
+    }
+  }
+
+  &.u-image-ratio--is-left-bottom {
+    ::ng-deep {
+      > img,
+      .u-image-filter > img {
+        object-position: left bottom;
+      }
+    }
+  }
+
+  &.u-image-ratio--is-right-bottom {
+    ::ng-deep {
+      > img,
+      .u-image-filter > img {
+        object-position: right bottom;
+      }
+    }
+  }
+}
+
+
+@media (min-width: $bp-md) {
+  :host {
+    &.is-checkin-summary {
+      display: none;
+    }
+  }
+}

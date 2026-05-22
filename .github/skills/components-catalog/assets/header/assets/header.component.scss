@@ -1,0 +1,346 @@
+@use '../../../../assets/scss/variables/breakpoints' as *;
+
+:host {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-index-md);
+  display: block;
+  border-bottom: 1px solid var(--color-secondary-15);
+  background-color: var(--color-light);
+
+
+  .c-header__main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 9rem;
+
+    &:not(.c-header--sm &) {
+      padding: 2rem 0.8rem;
+    }
+  }
+
+  &:not(.c-header--sm) {
+    .c-header__main {
+      padding: 2rem 0.8rem;
+    }
+    ::ng-deep .c-logo {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &.c-header--sm {
+    .c-header__main{
+      height: 6.4rem;
+    }
+  }
+
+  // .c-header__left-btn,
+  ::ng-deep [slot="leftButton"] {
+    display: flex;
+    color: var(--color-tertiary);
+    margin-right: 1.6rem;
+
+  }
+
+  ::ng-deep [slot="title"] {
+    margin-right: auto;
+    padding-right: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  ::ng-deep .c-logo {
+    display: none;
+    margin-right: auto;
+    margin-left: 1.6rem;
+    top: -0.8rem;
+  }
+
+  ::ng-deep .t-strapline-title {
+    display: none;
+  }
+
+  .c-header__right {
+    display: flex;
+    align-items: center;
+    color: var(--color-secondary-40);
+
+    ::ng-deep [slot="rightOption"] {
+      &:not(:first-child) {
+        margin-left: 1.6rem;
+      }
+    }
+  }
+
+  .c-header__login-btn {
+    display: flex;
+    align-items: center;
+
+    ::ng-deep .c-avatar {
+      margin-left: 0.8rem;
+    }
+
+    ::ng-deep .c-tooltip {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  .c-header__topbar {
+    display: none;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      height: 0.1rem;
+      background-color: var(--color-secondary-10);
+    }
+  }
+
+  .c-header__top-menu-left {
+    ::ng-deep  {
+      > .c-menu-item:first-child {
+        .c-menu-item__inner {
+          padding-left: 1.6rem
+        }
+      }
+    }
+  }
+
+  .c-header__top-menu-right {
+    margin-left: auto;
+
+    ::ng-deep  {
+      > .c-menu-item:not(:first-child) {
+        border-left: 0.1rem solid var(--color-secondary-15);
+      }
+    }
+
+  }
+
+  [class*='c-header__top-menu-'] {
+    ::ng-deep  {
+      .c-menu-item .c-menu-item__label {
+        padding: 0.8rem 0;
+      }
+    }
+  }
+
+  ::ng-deep {
+    .c-tooltip.is-header-user {
+      .c-tooltip__inner {
+        padding: 2.4rem 2.4rem 1.6rem 2.4rem;
+      }
+
+      .c-menu {
+        width: 100%;
+        margin-top: 2.4rem;
+      }
+
+      .c-menu-item {
+        &:not(:last-child) {
+          padding-bottom: 1.6rem;
+          border-bottom: 0.1rem solid var(--color-secondary-15);
+        }
+
+        &:last-child {
+          margin-top: 0;
+        }
+
+        .c-menu-item__inner {
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+
+        }
+
+        &.is-logout {
+          .c-menu-item__inner {
+            justify-content: flex-end;
+          }
+
+          &:hover {
+            .c-menu-item__icon {
+              color: var(--color-primary)
+            }
+          }
+        }
+      }
+
+      .c-btn-text {
+        margin-left: auto
+      }
+  }
+  }
+}
+
+
+
+@media (max-width: ($bp-sm - 1px)) {
+  :host {
+    ::ng-deep {
+      .c-tooltip.is-header-user {
+        &:before {
+          border: .1rem solid var(--color-secondary-15);
+        }
+
+        .c-tooltip__inner {
+          box-shadow: none;
+        }
+      }
+    }
+
+    .c-header__menu {
+      display: none
+    }
+
+    .c-header__right {
+      ::ng-deep {
+        .c-btn-text {
+          &.is-icon-right {
+            .c-btn-text__icon:is(.c-icon) {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (min-width: $bp-md) {
+  :host {
+    position: relative;
+    top: auto;
+    border-bottom: 0;
+
+    ::ng-deep {
+      .c-tooltip.is-header-user {
+        top: 100%;
+      }
+    }
+
+    &:has(.c-header__login-btn:hover) {
+      z-index: var(--z-index-lg);
+    }
+
+    .c-header__login-btn {
+      padding-bottom: 2rem;
+      top: 2rem;
+
+      ::ng-deep .c-tooltip.is-header-user {
+        top: calc(100% - 3.75rem);
+        padding-top: 4.3rem;
+
+        &:before {
+          top: calc(50% + 1.6rem);
+          border: 0.1rem solid var(--color-secondary-15);
+        }
+
+        &:after {
+          bottom: -0.3rem;
+        }
+      }
+    }
+
+    .c-header__main {
+      align-items: center;
+      height: 15.1rem;
+      padding: 2rem 0rem;
+    }
+
+    &.c-header--sm {
+      .c-header__login-btn {
+        top: 1.5rem;
+        &:before {
+          left: calc(50% - 0.7rem)
+        }
+
+        &:after {
+          left: calc(50% + 0.3rem)
+        }
+      }
+
+      .c-header__main {
+        align-items: center;
+        height: 6.4rem;
+        padding: 0;
+        margin-bottom: 0;
+      }
+      .c-header__menu {
+        .c-menu-tab {
+          border-bottom: none;
+        }
+      }
+      ::ng-deep .c-logo ::ng-deep  .c-icon {
+        font-size: 12.8rem;
+      }
+    }
+
+    &:not(.c-header--sm) {
+      .c-header__login-btn {
+        ::ng-deep .c-avatar {
+          width: 4.8rem;
+          height: 4.8rem;
+          margin-left: 1.6rem;
+          font-size: 1.6rem;
+        }
+      }
+      .c-header__main {
+        padding: 0rem 0rem 2rem 0rem;
+      }
+      ::ng-deep .c-logo {
+        margin-top: 2.5rem;
+      }
+      .c-header__right {
+        margin-top: auto;
+        margin-bottom: 0.8rem;
+      }
+      .c-header__menu {
+        &:has(.c-menu-tab) {
+          transform: translate(-50%, 0);
+          bottom: 3.1rem;
+        }
+      }
+    }
+
+    ::ng-deep [slot="leftButton"],
+    ::ng-deep [slot="title"] {
+      display: none;
+    }
+
+    ::ng-deep .c-logo {
+      display: flex;
+      top: auto;
+      margin-left: 0;
+    }
+
+    ::ng-deep .t-strapline-title {
+      font-size: 1.5rem;
+    }
+
+    .c-header__menu {
+      display: inline-flex;
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+
+      &:has(.c-menu-tab) {
+        bottom: 0;
+        transform: translate(-50%, 0);
+      }
+    }
+
+    ::ng-deep .c-logo .c-icon {
+      font-size: 20.1rem;
+    }
+  }
+}

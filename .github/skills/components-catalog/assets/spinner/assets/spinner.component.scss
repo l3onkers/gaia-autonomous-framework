@@ -1,0 +1,227 @@
+@use 'sass:math';
+
+$spinner-ease: cubic-bezier(0.785, 0.135, 0.150, 0.860);
+
+:host {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 12.8rem;
+  height: 12.8rem;
+  margin-right: auto;
+  margin-left: auto;
+
+  ::ng-deep {
+    .t-body-text[slot="value"],
+    .t-body-text[slot="unit"] {
+      color: var(--color-secondary)
+    }
+
+    .t-body-text[slot="value"] {
+      font-size: 3.2rem;
+      line-height: 1;
+      font-weight: bold;
+    }
+
+    .t-body-text[slot="unit"] {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+    }
+  }
+
+
+  &.c-spinner--sm {
+    width: 6.4rem;
+    height: 6.4rem;
+
+    ::ng-deep {
+      .t-body-text[slot="value"] {
+        font-size: 1.6rem;
+        font-weight: bold;
+      }
+
+      .t-body-text[slot="unit"] {
+        font-size: 1.2rem;
+        line-height: 1;
+      }
+    }
+  }
+
+  &[class*="is-timer"] {
+    .c-spinner__progress {
+      transform: rotate(180deg);
+
+      .c-spinner__path {
+        animation-name: spinner-loading;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+
+  &.c-spinner--is-15s {
+    .c-spinner__progress {
+      transform: rotate(180deg);
+
+      .c-spinner__path {
+        animation: spinner-loading 15s linear forwards;
+      }
+    }
+  }
+
+  &.c-spinner--is-30s {
+    .c-spinner__progress {
+      transform: rotate(180deg);
+
+      .c-spinner__path {
+        animation: spinner-loading 30s linear forwards;
+      }
+    }
+  }
+
+  &.c-spinner--is-loading {
+    .c-spinner__progress {
+      transform: rotate(180deg);
+
+      .c-spinner__path {
+        animation: spinner-loading 3s $spinner-ease forwards;
+      }
+    }
+  }
+
+  &.c-spinner--is-waiting {
+    .c-spinner__progress {
+      animation: spinner-rotate 2.8s $spinner-ease forwards infinite;
+
+      .c-spinner__path {
+        animation: spinner-dash 2.8s $spinner-ease forwards infinite;
+      }
+    }
+  }
+
+  &.c-spinner--is-loaded {
+    .c-spinner__path {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @for $i from 0 through 20 {
+    &.c-spinner--is-#{$i * 5}-percent {
+      transform: rotate(-180deg);
+
+      .c-spinner__inner,
+      ::ng-deep > .c-icon {
+        transform: rotate(180deg);
+      }
+
+      ::ng-deep {
+        .t-body-text[slot="value"],
+        .t-body-text[slot="unit"] {
+          transform: rotateZ(180deg);
+        }
+
+        .t-body-text[slot="value"] {
+          order: 2
+        }
+      }
+
+      .c-spinner__svg,
+      .c-spinner__path {
+        transform-origin: 50% 50%;
+      }
+
+      .c-spinner__progress {
+        $unit: math.div(300, 100);
+
+        .c-spinner__path {
+          transition: stroke-dashoffset 0.3s $spinner-ease;
+          stroke-dashoffset: 300 - ($unit * $i * 5);
+        }
+      }
+    }
+  }
+
+  .c-spinner__bg,
+  .c-spinner__progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+  }
+
+  .c-spinner__svg {
+    display: block;
+    width: inherit;
+    height: inherit;
+  }
+
+  .c-spinner__path {
+    stroke: var(--color-primary);
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    stroke-width: 0.25rem;
+  }
+  .c-spinner__bg {
+    .c-spinner__path {
+      stroke-dashoffset: 0;
+      stroke: var(--color-secondary-10);
+    }
+  }
+
+  ::ng-deep > .c-icon {
+    color: var(--color-primary);
+  }
+
+  &.c-spinner--sm {
+    ::ng-deep>.c-icon {
+      font-size: 2.4rem;
+    }
+  }
+
+  // Dash offset loading animation
+  @keyframes spinner-loading {
+    0% {
+      stroke-dashoffset: 300;
+    }
+
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  // Dash offset spinning animation
+  @keyframes spinner-dash {
+    0% {
+      stroke-dashoffset: 300;
+    }
+
+    45% {
+      stroke-dashoffset: 0;
+    }
+
+    100% {
+      stroke-dashoffset: 300;
+    }
+  }
+
+  // Rotate animation
+  @keyframes spinner-rotate {
+    0% {
+      transform: rotate(0);
+    }
+
+    45% {
+      transform: rotate(185deg);
+    }
+
+    100% {
+      transform: rotate(720deg);
+    }
+  }
+}
+

@@ -1,0 +1,231 @@
+@use '../../../../../assets/scss/variables/breakpoints' as *;
+@use '../../../../../assets/scss/mixins/scrollbar' as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+
+  &.no-shadow {
+    box-shadow: none;
+  }
+
+  ::ng-deep {
+    table {
+      width: 100%;
+      border-radius: var(--border-radius);
+      background-color: var(--color-light);
+    }
+
+    th {
+      --padding: 2.4rem 1.2rem;
+      padding: var(--padding);
+      text-align: left;
+      vertical-align: middle;
+
+      .t-strapline-title {
+        color: var(--color-secondary);
+      }
+    }
+
+    td {
+      --padding: 1.6rem 1.2rem;
+      padding: var(--padding);
+      font-family: var(--font-main);
+      font-size: 1.4rem;
+      text-align: left;
+      vertical-align: middle;
+      color: var(--color-secondary-70);
+
+      > span > strong {
+        font-weight: normal;
+        color: var(--color-secondary);
+      }
+
+      .c-tooltip {
+        text-align: center;
+      }
+    }
+
+    th, td {
+      border-bottom: 0.1rem solid var(--color-secondary-10);
+
+      &:first-child {
+        padding-left: 2.4rem;
+      }
+      &:last-child {
+        padding-right: 2.4rem;
+      }
+
+      // &.is-align-left {
+      //   text-align: left;
+      // }
+      // &.is-align-center {
+      //   text-align: center;
+      // }
+      // &.is-align-right {
+      //   text-align: right;
+      // }
+      // &.is-valign-top {
+      //   vertical-align: top;
+      // }
+      // &.is-valign-middle {
+      //   vertical-align: middle;
+      // }
+      // &.is-valign-bottom {
+      //   vertical-align: bottom;
+      // }
+    }
+
+    tbody {
+      tr {
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: var(--color-secondary-5);
+        }
+      }
+
+      tr:last-child {
+        td {
+          border-bottom: none;
+        }
+      }
+
+      .c-table-row {
+        tr {
+          td, th {
+            border-bottom: 0.1rem solid var(--color-secondary-10);
+          }
+        }
+        &:last-child {
+          tr {
+            td, th {
+              border-bottom: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  &.c-table--zebra {
+    ::ng-deep {
+      tbody {
+        > :nth-child(even) tr {
+          background-color: var(--color-secondary-5);
+        }
+        td {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  &.enable-css-grid {
+    ::ng-deep {
+      table {
+        display: grid;
+
+        thead,
+        tbody,
+        tr {
+          display: grid;
+          grid-column: 1 / -1;
+          grid-template-columns: subgrid;
+        }
+
+        th, td {
+          width: 100%;
+        }
+
+        td {
+          display: flex;
+          align-items: center;
+
+          &.is-align-right {
+            justify-content: flex-end;
+          }
+          &.is-align-center {
+            justify-content: center;
+          }
+          &.is-valign-top {
+            align-items: flex-start;
+          }
+          &.is-valign-bottom {
+            align-items: flex-end;
+          }
+
+          .c-tooltip {
+            --background-color: var(--color-light);
+            --track-color: var(--color-secondary-20);
+
+            &--dark {
+              --background-color: var(--color-secondary);
+              --track-color: var(--color-secondary-60);
+            }
+
+            &:after {
+              top: -0.3rem;
+            }
+
+            bottom: 100%;
+            min-width: 25rem;
+            width: 100%;
+            max-width: 100%;
+            .c-tooltip__inner {
+              width: 100%;
+              max-height: 9.2rem;
+              overflow: auto;
+              padding-left: 0;
+              padding-top: 0;
+              padding-bottom: 0;
+              border-block: 1.2rem solid var(--background-color);
+              border-left: 1.6rem solid var(--background-color);
+              @include scrollbar(0.6rem, var(--background-color), var(--track-color));
+              font-weight: normal;
+            }
+          }
+
+          &.is-line-clamp-1 > span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          @for $i from 2 through 3 {
+            &.is-line-clamp-#{$i} {
+              > span {
+                display: -webkit-box;
+                -webkit-line-clamp: $i;
+                -webkit-box-orient: vertical;
+                line-clamp: $i;
+                box-orient: vertical;
+                overflow: hidden;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  ::ng-deep .c-paginator {
+    margin-left: auto;
+  }
+
+  .c-table__footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.6rem;
+    padding: 2.4rem;
+    border-top: 0.1rem solid var(--color-secondary-15);
+    background-color: var(--color-light);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    &:empty {
+      display: none;
+    }
+  }
+}

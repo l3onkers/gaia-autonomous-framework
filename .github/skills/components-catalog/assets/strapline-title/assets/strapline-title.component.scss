@@ -1,0 +1,38 @@
+@use '../../../../../assets/scss/variables/breakpoints' as *;
+
+:host {
+  display: block;
+  font-family: var(--font-main-condensed);
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  color: var(--color-secondary-70);
+  overflow-wrap: break-word;
+
+  &.t-strapline-title--stroke {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    gap: 2rem;
+
+
+    &:before,
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 100%;      // width: calc(50% - 2rem);
+      height: 0.1rem;
+      background-color: var(--color-secondary-15);
+    }
+  }
+
+  @media (min-width: $bp-md) {
+    &.t-strapline-title--lg {
+      font-size: 2.4rem;
+      line-height: 2.4rem;
+    }
+  }
+}

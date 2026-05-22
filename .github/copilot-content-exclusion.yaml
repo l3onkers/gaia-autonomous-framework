@@ -1,0 +1,15 @@
+# Content Exclusion Policy for GitHub Copilot
+#
+# Files and directories that agents and skills MUST NOT read or include in outputs.
+# Per Security Agent Ecosystem design (SECURITY-AGENT-PLAN.md §7.2).
+
+- ".env"
+- ".env.*"
+- "**/secrets/"
+- "**/credentials/"
+- "**/private/"
+- "**/internal-docs/"
+- "*.pem"
+- "*.key"
+- "*.p12"
+- "*.pfx"

@@ -1,0 +1,92 @@
+@use '../../../../../assets/scss/variables/breakpoints' as *;
+
+:host {
+  --gap: 0.8rem;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gap);
+  padding: 1.6rem;
+  border-radius: var(--border-radius);
+  text-align: left;
+  background-color: var(--color-secondary-10);
+  color: var(--color-secondary-60);
+  width: 100%;
+
+  ::ng-deep > .c-icon {
+    margin-top: -0.3rem;
+    margin-left: -0.4rem;
+  }
+
+  &.c-feedback-box--lg {
+    --gap: 1.6rem;
+    padding: 2.4rem;
+  }
+
+  &.c-feedback-box--success {
+    background-color: var(--color-tertiary-5);
+    color: var(--color-tertiary);
+  }
+
+  &.c-feedback-box--info {
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+  }
+
+  &.c-feedback-box--alert {
+    background-color: var(--color-primary-5);
+    color: var(--color-primary);
+  }
+
+  &.c-feedback-box--section {
+    background-color: var(--color-light);
+    color: var(--color-secondary);
+    box-shadow: var(--shadow-light);
+    border: 0.1rem solid var(--color-secondary-15);
+
+    ::ng-deep > .c-icon {
+      color: var(--color-primary);
+    }
+  }
+
+  .c-feedback-box__inner {
+    width: 100%;
+    margin-top: 0.2rem;
+    ::ng-deep p {
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      color: currentColor;
+
+      a {
+        .c-feedback-box--light &,
+        .c-feedback-box--section & {
+          color: var(--color-tertiary);
+
+          &:hover {
+            color: var(--color-quaternary)
+          }
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 0.8rem;
+      }
+    }
+  }
+}
+
+
+
+@media (min-width: $bp-md) {
+  :host {
+    --gap: 1.6rem;
+    .c-feedback-box__inner {
+      margin-top: -0.2rem;
+
+      ::ng-deep p {
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+      }
+    }
+  }
+
+}

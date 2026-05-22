@@ -1,0 +1,179 @@
+@use '../../../../assets/scss/variables/breakpoints' as *;
+@use '../../../../assets/scss/mixins/scrollbar' as *;
+
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 0;
+  padding: 0;
+  width: 100%;
+  height: 100dvh;
+
+  background-color: var(--color-secondary-5);
+  overflow: hidden auto;
+
+  &:not(dialog)  {
+    display: flex;
+    flex-direction: column;
+    left: -200vw;
+    z-index: -1;
+    opacity: 0;
+    // transition: opacity 0.3s ease, z-index 0.3s step-end;
+    &.is-visible {
+      z-index: var(--z-index-xl);
+      left: 0;
+      opacity: 1;
+      // transition: opacity 0.3s ease, z-index 0.3s step-start;
+
+      .c-popin__inner {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+
+  &:is(dialog) {
+    max-width: 100%;
+    max-height: 100%;
+    border: 0;
+  }
+
+  .is-sticky-subheader {
+    position: sticky;
+    top: 6.5rem;
+    z-index: var(--z-index-sm);
+  }
+
+  .c-popin__header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+    z-index: var(--z-index-sm);
+    justify-content: space-between;
+    width: 100%;
+    padding: 1.6rem;
+    margin-bottom: 0;
+    background-color: var(--color-light);
+    border-bottom: 0.1rem solid var(--color-secondary-15);
+
+    ::ng-deep .c-logo {
+      display: none;
+    }
+  }
+
+  &.c-popin--gray {
+    .c-popin__header {
+      background-color: var(--color-secondary-5);
+      border-bottom: 0.1rem solid var(--color-secondary-5);
+    }
+  }
+
+  .c-popin__title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.8rem;
+  }
+
+  ::ng-deep {
+    [slot="popinBackButton"] {
+      display: flex;
+      color: var(--color-tertiary);
+    }
+  }
+
+  .c-popin__close {
+    display: flex;
+    color: var(--color-tertiary);
+  }
+}
+
+@media(max-width: ($bp-md - 1px)) {
+  :host {
+    &:has([slot="popinBackButton"]) {
+      .c-popin__close {
+        display: none;
+      }
+    }
+  }
+}
+
+
+@media(min-width: $bp-md) {
+  :host {
+    @include scrollbar;
+
+    .is-sticky-subheader {
+      top: 9.7rem;
+    }
+
+    .c-popin__header {
+      justify-content: center;
+      padding: 3.2rem 0;
+
+      &:not(.c-popin.is-sticky &) {
+        position: relative;
+      }
+
+      ::ng-deep {
+        .c-logo {
+          position: absolute;
+          top: 50%;
+          left: 1.2rem;
+          transform: translateY(-50%);
+          display: inline-block;
+
+          .c-icon {
+            font-size: 15.1rem;
+          }
+
+          .t-strapline-title {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+
+    ::ng-deep {
+      [slot="popinBackButton"] {
+        display: none;
+      }
+    }
+
+
+    &.c-popin.is-sticky {
+      .c-popin__header {
+        z-index: var(--z-index-md);
+      }
+    }
+
+    .c-popin__title {
+      gap: 0;
+      place-content: center;
+      min-height: 3.2rem;
+    }
+
+    .c-popin__close {
+      position: absolute;
+      top: 2.4rem;
+      right: 3.2rem;
+
+      &:is(.c-btn-rounded--secondary, .c-btn-rounded--secondary:hover) {
+        background-color: var(--color-light);
+
+        &:before {
+          border: 0.1rem solid var(--color-tertiary);
+        }
+
+        ::ng-deep {
+          .c-btn-rounded__icon:is(.c-icon) {
+            color: var(--color-tertiary);
+          }
+        }
+      }
+    }
+  }
+}

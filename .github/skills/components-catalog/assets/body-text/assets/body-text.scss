@@ -1,0 +1,80 @@
+@use '../../../../../assets/scss/variables/breakpoints' as *;
+
+:host {
+  --font-size: 1.6rem;
+  --line-height: 2.4rem;
+  --font-color: var(--color-secondary-70);
+  --font-weight: 400;
+  display: block;
+  font-family: var(--font-main);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  overflow-wrap: break-word;
+
+  &:not([class*='u-color']) {
+    color: var(--font-color);
+  }
+
+  &.t-body-text--2xs {
+    --font-size: 1.2rem;
+    --line-height: 1.6rem;
+  }
+
+  &.t-body-text--xs {
+    --font-size: 1.2rem;
+    --line-height: 1.6rem;
+  }
+
+  &.t-body-text--sm {
+    --font-size: 1.6rem;
+    --line-height: 2.4rem;
+  }
+
+  &.t-body-text--lg {
+    --font-size: 2rem;
+    --line-height: 2.8rem;
+  }
+
+  &.t-body-text--xl {
+    --font-size: 2.4rem;
+    --line-height: 3.2rem;
+  }
+
+  ::ng-deep a {
+    font-weight: bold;
+    color: var(--color-tertiary);
+
+    &:hover {
+      color: var(--color-quaternary)
+    }
+  }
+
+  &.t-body-text--dark {
+    &:not([class*='u-color']) {
+      --font-color: var(--color-secondary);
+    }
+  }
+
+  @media (min-width: $bp-md) {
+    --font-size: 2rem;
+    --line-height: 2.8rem;
+
+    &.t-body-text--2xs {
+      --font-size: 1.2rem;
+      --line-height: 1.6rem;
+    }
+
+    &.t-body-text--xs,
+    &.t-body-text--sm {
+      --font-size: 1.6rem;
+      --line-height: 2.4rem;
+    }
+
+    &.t-body-text--lg,
+    &.t-body-text--xl {
+      --font-size: 2.4rem;
+      --line-height: 3.2rem;
+    }
+  }
+}
