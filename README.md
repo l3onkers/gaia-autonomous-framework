@@ -27,10 +27,15 @@ The GAIA (Global Autonomous Infrastructure Architecture) ecosystem abandons mono
 
 | Problem | GAIA Solution |
 |---------|----------|
-| Complex requests lack context | **GAIA Core** intelligently routes the user's intent to specialized sub-routines. |
+| Complex requests lack context | **GAIA** (Core) intelligently routes the user's intent to specialized sub-routines. |
 | Inconsistent project scaffolding | **ELEUTHIA** standardizes application scaffolding (.NET, Angular, Python). |
-| Manual and fragile infrastructure | **DEMETER** and **HEPHAESTUS** forge pipelines and clusters using IaC (Terraform, K8s). |
-| Reactive and monolithic security | **MINERVA** enforces dynamic audits and secret management with a Zero Trust approach. |
+| Manual and fragile infrastructure | **DEMETER** forges foundational infrastructure using IaC (Terraform, AWS, Azure). |
+| Ad-hoc and broken deployments | **HEPHAESTUS** standardizes CI/CD pipelines and deployment workflows. |
+| Insecure boundaries and routing | **AETHER** handles networking, API Gateways, and Service Mesh configurations. |
+| Uncontrolled database schemas | **POSEIDON** governs databases and idempotent SQL migrations (Flyway). |
+| Fragile production environments | **HADES** injects controlled faults (Chaos Engineering) to validate resilience. |
+| Manual validation & regressions | **ARTEMIS** enforces quality via automated load testing (k6) and E2E testing. |
+| Reactive and monolithic security | **MINERVA** enforces dynamic audits, secret scans, and Zero Trust PR reviews. |
 | Knowledge decay | **APOLLO** generates ADRs, Runbooks, and keeps observability alive. |
 
 ---
