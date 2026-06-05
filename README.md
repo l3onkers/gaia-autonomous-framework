@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
+    <img src="https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg" alt="License: CC BY-NC 4.0">
   </a>
   <a href="https://github.com/features/copilot">
     <img src="https://img.shields.io/badge/GitHub%20Copilot-Ready-8957e5?logo=github" alt="GitHub Copilot">
