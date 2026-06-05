@@ -11,5 +11,5 @@ user-invocable: false
 - Enforces strict mTLS at the mesh edge.
 
 ## Output Contract
-- k8s/istio/gateway.yaml
-- k8s/istio/virtualservice.yaml
+- `k8s/istio/gateway.yaml`
+- `k8s/istio/virtualservice.yaml`

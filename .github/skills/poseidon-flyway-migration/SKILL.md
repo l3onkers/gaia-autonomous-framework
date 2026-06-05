@@ -10,12 +10,12 @@ user-invocable: false
 - Generates idempotent SQL schema migrations following Flyway versioning standards.
 
 ## Output Contract
-- db/migration/V<version>__<description>.sql
+- `db/migration/V<version>__<description>.sql`
 
 ## Governance Rules
-- File MUST follow the format V[Version]__[Description].sql.
-- Destructive operations (DROP TABLE, DROP COLUMN) MUST include an explicit comment: -- WARNING: DESTRUCTIVE OPERATION.
+- File MUST follow the format `V[Version]__[Description].sql`.
+- Destructive operations (DROP TABLE, DROP COLUMN) MUST include an explicit comment: `-- WARNING: DESTRUCTIVE OPERATION`.
 
 ## Assets
-- ssets/poseidon-flyway.checklist.md
-- ssets/poseidon-migration.sql.tpl.md
+- `assets/poseidon-flyway.checklist.md`
+- `assets/poseidon-migration.sql.tpl.md`
