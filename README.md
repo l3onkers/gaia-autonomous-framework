@@ -1,4 +1,10 @@
-﻿# 🤖 GAIA: Autonomous Platform Engineering & Development Framework
+﻿<p align="center">
+  <img src="path/to/your/image_3.png" alt="G.A.I.A. Autonomous Platform Engineering Framework - Live Interface" width="100%">
+</p>
+
+# G.A.I.A.
+## Governance through Autonomous Infrastructure Agents
+### The Autonomous Platform Engineering & Development Framework
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![GitHub Copilot](https://img.shields.io/badge/GitHub%20Copilot-Ready-8957e5?logo=github)](https://github.com/features/copilot)
@@ -105,8 +111,8 @@ graph TB
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/l3onkers/copilot-governance-framework.git
-cd copilot-governance-framework
+git clone https://github.com/l3onkers/gaia-autonomous-framework.git
+cd gaia-autonomous-framework
 ```
 
 ### 2. Open in VS Code with GitHub Copilot
@@ -150,3 +156,4 @@ This project is licensed under the MIT License — see [LICENSE](LICENSE) for de
 
 Created and maintained by **[l3onkers](https://github.com/l3onkers)**.
 Evolved into the GAIA Architecture.
+

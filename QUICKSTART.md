@@ -12,8 +12,8 @@
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/l3onkers/copilot-governance-framework.git
-cd copilot-governance-framework
+git clone https://github.com/l3onkers/gaia-autonomous-framework.git
+cd gaia-autonomous-framework
 ```
 
 ### 2. Open in VS Code
@@ -156,3 +156,4 @@ If you're adapting this framework for your organization, see the [Customization 
 | Create your own agent | [docs/CREATING_AGENTS.md](docs/CREATING_AGENTS.md) |
 | Create your own skill | [docs/CREATING_SKILLS.md](docs/CREATING_SKILLS.md) |
 | Customize for your org | [docs/CUSTOMIZATION.md](docs/CUSTOMIZATION.md) |
+

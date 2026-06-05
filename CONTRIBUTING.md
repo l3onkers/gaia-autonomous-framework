@@ -6,7 +6,7 @@ First off, thank you for considering contributing! ðŸŽ‰
 
 ### ðŸ› Reporting Bugs
 
-- Use the [GitHub Issues](https://github.com/l3onkers/copilot-governance-framework/issues) tab
+- Use the [GitHub Issues](https://github.com/l3onkers/gaia-autonomous-framework/issues) tab
 - Include steps to reproduce, expected behavior, and actual behavior
 - Include your environment details (VS Code version, Copilot version)
 
@@ -97,4 +97,5 @@ This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.
 
 ## Questions?
 
-Open a [Discussion](https://github.com/l3onkers/copilot-governance-framework/discussions) for questions or ideas that aren't ready for an issue yet.
+Open a [Discussion](https://github.com/l3onkers/gaia-autonomous-framework/discussions) for questions or ideas that aren't ready for an issue yet.
+
