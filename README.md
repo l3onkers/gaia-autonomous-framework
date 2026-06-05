@@ -44,7 +44,7 @@ graph TB
         G --> ART[ARTEMIS]
     end
 
-    subgraph "Skills & Governance"
+    subgraph "Skills Layer — Owned Behaviors"
         HEPH --> CI[Pipelines & CI/CD]
         MIN --> SEC[SecOps & IAM]
         ELEU --> SCAF[Scaffolding & Code Generation]
@@ -54,6 +54,18 @@ graph TB
         HAD --> ROL[Chaos Mesh, Rollbacks]
         POS --> DAT[RDS, Flyway, Backups]
         ART --> QA[Load Testing & E2E]
+    end
+
+    subgraph "Governance — Shared Standards"
+        CI -.-> GOV[Zero Trust Rules & Core Standards]
+        SEC -.-> GOV
+        SCAF -.-> GOV
+        DOC -.-> GOV
+        IAC -.-> GOV
+        NET -.-> GOV
+        ROL -.-> GOV
+        DAT -.-> GOV
+        QA -.-> GOV
     end
 
     style U fill:#4CAF50,color:#fff
