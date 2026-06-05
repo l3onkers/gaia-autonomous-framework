@@ -48,7 +48,7 @@ The fastest way to create a new agent:
 The `hephaestus` agent will:
 1. Load the canonical scaffold from `.github/governance/bundles/agent/AGENT.base.tpl.md`
 2. Generate your agent entry point and companion files
-3. Validate the result through `supervise-agent`
+3. Validate the result through `apollo-supervise-agent`
 
 ---
 

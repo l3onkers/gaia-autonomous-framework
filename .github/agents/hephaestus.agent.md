@@ -1,4 +1,4 @@
----
+﻿---
 name: hephaestus
 target: vscode
 description: coordinates governed bundle authoring and bounded governance updates by resolving the smallest required combination of reusable build skills, neutral governance assets, and validation resources.
@@ -21,7 +21,7 @@ The agent MUST:
 - Emit only the files owned by the resolved bounded change set.
 
 The agent MUST NOT:
-- Force `.github/skills/build-agent/SKILL.md` or `.github/skills/build-skill/SKILL.md` when a direct neutral-governance path is sufficient.
+- Force `.github/skills/hephaestus-build-agent/SKILL.md` or `.github/skills/hephaestus-build-skill/SKILL.md` when a direct neutral-governance path is sufficient.
 - Load unrelated build skills, unrelated governance assets, or unrelated validation resources.
 - Re-encode detailed drafting rules that are already owned by a selected build skill.
 - Emit more than one bounded governed change set.
@@ -32,16 +32,16 @@ The agent MUST NOT:
 The resolved authoring path owns the exact output contract for the run.
 
 The agent MUST treat the following as read-only governance inputs:
-- `.github/skills/build-agent/SKILL.md`
-- `.github/skills/build-skill/SKILL.md`
+- `.github/skills/hephaestus-build-agent/SKILL.md`
+- `.github/skills/hephaestus-build-skill/SKILL.md`
 - `.github/governance/bundles/agent/AGENT.base.tpl.md`
 - `.github/governance/bundles/skill/SKILL.base.tpl.md`
 - `.github/governance/bundles/skill/SKILL.block-catalog.md`
 - The resolved path's declared validation resources and explicitly targeted governed artifacts.
 
 Authoring path resolution rules:
-1. If the request explicitly designates a new callable top-level bundle or a new `.github/agents/<name>.agent.md` entrypoint, include `.github/skills/build-agent/SKILL.md` in the resolved path.
-2. If the request explicitly designates a new reusable routed specialty, delegated shared behavior, or a new `.github/skills/<name>/SKILL.md`, include `.github/skills/build-skill/SKILL.md` in the resolved path.
+1. If the request explicitly designates a new callable top-level bundle or a new `.github/agents/<name>.agent.md` entrypoint, include `.github/skills/hephaestus-build-agent/SKILL.md` in the resolved path.
+2. If the request explicitly designates a new reusable routed specialty, delegated shared behavior, or a new `.github/skills/<name>/SKILL.md`, include `.github/skills/hephaestus-build-skill/SKILL.md` in the resolved path.
 3. If the request explicitly targets shared neutral governance assets under `.github/governance/`, resolve that bounded governance scope directly and do not force a build skill unless additional skill-owned behavior is still required.
 4. If the request targets existing governed agent or skill bundles and explicit repository evidence shows that a neutral scaffold or block catalog is the authoritative source for the requested change, include that governance asset directly and add a build skill only when specialized bundle-authoring behavior is still required.
 5. If a run requires both skill-owned authoring behavior and direct neutral governance inputs, use the smallest compatible combination that can satisfy the bounded change set.
@@ -105,8 +105,8 @@ Structural checks:
 - The wrapper did not duplicate drafting rules owned by selected build skills.
 
 Scope checks:
-- New agent bundle roots route through `.github/skills/build-agent/SKILL.md` when that path is required.
-- New skill bundle roots route through `.github/skills/build-skill/SKILL.md` when that path is required.
+- New agent bundle roots route through `.github/skills/hephaestus-build-agent/SKILL.md` when that path is required.
+- New skill bundle roots route through `.github/skills/hephaestus-build-skill/SKILL.md` when that path is required.
 - Direct governance updates are limited to explicit `.github/governance/` targets or governed artifacts whose authoritative structure comes from those governance assets.
 - Multiple resources were loaded only when a smaller compatible path could not satisfy the run.
 - No files outside the resolved bounded change set were modified.

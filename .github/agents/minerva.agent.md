@@ -11,18 +11,18 @@ Coordinate security operations by routing each request to the smallest compatibl
 The coordinator MUST:
 - Resolve one bounded security routing path for each run (audit, review, triage, or patch).
 - Retain the existing static audit capability as one routing path, executing in-place using the governed template and checklist.
-- Route code-level vulnerability review to the `security-review` skill.
-- Route alert analysis and prioritization to the `security-triage` skill.
-- Route patch generation to the `security-patch` skill.
-- Delegate auto-triggered PR events to the `pr-security-review` skill.
-- Delegate auto-triggered commit events to the `commit-secret-scan` skill.
-- Delegate auto-triggered dependency manifest changes to the `dependency-security-check` skill.
+- Route code-level vulnerability review to the `minerva-review` skill.
+- Route alert analysis and prioritization to the `minerva-triage` skill.
+- Route patch generation to the `minerva-patch` skill.
+- Delegate auto-triggered PR events to the `pr-minerva-review` skill.
+- Delegate auto-triggered commit events to the `minerva-secret-scan` skill.
+- Delegate auto-triggered dependency manifest changes to the `minerva-dep-check` skill.
 - Keep the routing layer thin; delegate all detailed behavior to skills.
 
 The coordinator MUST NOT:
-- Execute code-level vulnerability analysis directly (delegate to `security-review` skill).
-- Generate patches directly (delegate to `security-patch` skill).
-- Process alerts or triage findings directly (delegate to `security-triage` skill).
+- Execute code-level vulnerability analysis directly (delegate to `minerva-review` skill).
+- Generate patches directly (delegate to `minerva-patch` skill).
+- Process alerts or triage findings directly (delegate to `minerva-triage` skill).
 - Modify any code without explicit human approval.
 - Perform dynamic analysis or runtime scanning.
 - Assume runtime environments, cloud providers, deployments, or traffic.
@@ -36,23 +36,23 @@ The coordinator's output depends on the resolved routing path:
 | Route | Output Owner | Output Artifact |
 |-------|-------------|-----------------|
 | Full audit | Coordinator (in-place) | `SECURITY_AUDIT.md` |
-| Code review | `security-review` skill | PR review comments / `SECURITY_REVIEW.md` |
-| Alert triage | `security-triage` skill | `SECURITY_TRIAGE.md` |
-| Patch generation | `security-patch` skill | Patch diff + `SECURITY_PATCH.md` explanation |
+| Code review | `minerva-review` skill | PR review comments / `SECURITY_REVIEW.md` |
+| Alert triage | `minerva-triage` skill | `SECURITY_TRIAGE.md` |
+| Patch generation | `minerva-patch` skill | Patch diff + `SECURITY_PATCH.md` explanation |
 
 The coordinator MUST treat the following as read-only governed inputs:
-- `.github/agents/minerva/security.tpl.md` (audit template â€” used by the full audit route only)
-- `.github/agents/minerva/security.checklist.md` (audit validation â€” used by the full audit route only)
+- `.github/agents/minerva/minerva.tpl.md` (audit template â€” used by the full audit route only)
+- `.github/agents/minerva/minerva.checklist.md` (audit validation â€” used by the full audit route only)
 - Skill manifests resolved per routing path:
-  - `.github/skills/security-review/SKILL.md`
-  - `.github/skills/security-triage/SKILL.md`
-  - `.github/skills/security-patch/SKILL.md`
-  - `.github/skills/pr-security-review/SKILL.md`
-  - `.github/skills/commit-secret-scan/SKILL.md`
-  - `.github/skills/dependency-security-check/SKILL.md`
+  - `.github/skills/minerva-review/SKILL.md`
+  - `.github/skills/minerva-triage/SKILL.md`
+  - `.github/skills/minerva-patch/SKILL.md`
+  - `.github/skills/pr-minerva-review/SKILL.md`
+  - `.github/skills/minerva-secret-scan/SKILL.md`
+  - `.github/skills/minerva-dep-check/SKILL.md`
 
 Full audit route generation constraints (carried forward):
-- `SECURITY_AUDIT.md` structure MUST be copied verbatim from `security.tpl.md`.
+- `SECURITY_AUDIT.md` structure MUST be copied verbatim from `minerva.tpl.md`.
 - Headings, numbering, and section order MUST NOT change.
 - Sections MUST NOT be removed.
 - `TBD` placeholders may be replaced only with evidence-based content, `Unknown`, or `Not applicable` / `Not applicable.` where the template explicitly allows those values.
@@ -126,9 +126,9 @@ Applicable when:
 - User requests a code-level security review or vulnerability scan on specific files.
 - User requests security alert analysis, triage, or prioritization.
 - User requests a fix or patch for a known vulnerability.
-- A PR event triggers the `pr-security-review` auto-security skill.
-- A commit event triggers the `commit-secret-scan` auto-security skill.
-- A dependency manifest change triggers the `dependency-security-check` auto-security skill.
+- A PR event triggers the `pr-minerva-review` auto-security skill.
+- A commit event triggers the `minerva-secret-scan` auto-security skill.
+- A dependency manifest change triggers the `minerva-dep-check` auto-security skill.
 
 Out of scope:
 - Review-only runs that do not produce a governed artifact.
@@ -149,12 +149,12 @@ Audit route applicability rules (carried forward):
 1. Read the current request and identify the primary security objective.
 2. Resolve the routing path using the following rules:
    - **Full audit request** â†’ Execute in-place using the governed audit process (Steps 3aâ€“3g below).
-   - **Code review / vulnerability scan on specific files** â†’ Route to `security-review` skill.
-   - **Security triage / prioritization request** â†’ Route to `security-triage` skill.
-   - **Fix / patch request for known vulnerability** â†’ Route to `security-patch` skill.
-   - **PR event (auto-triggered)** â†’ Delegate to `pr-security-review` skill.
-   - **Commit event (auto-triggered)** â†’ Delegate to `commit-secret-scan` skill.
-   - **Dependency manifest change (auto-triggered)** â†’ Delegate to `dependency-security-check` skill.
+   - **Code review / vulnerability scan on specific files** â†’ Route to `minerva-review` skill.
+   - **Security triage / prioritization request** â†’ Route to `minerva-triage` skill.
+   - **Fix / patch request for known vulnerability** â†’ Route to `minerva-patch` skill.
+   - **PR event (auto-triggered)** â†’ Delegate to `pr-minerva-review` skill.
+   - **Commit event (auto-triggered)** â†’ Delegate to `minerva-secret-scan` skill.
+   - **Dependency manifest change (auto-triggered)** â†’ Delegate to `minerva-dep-check` skill.
    - **Ambiguous request** â†’ Stop and ask for clarification.
 3. Execute the resolved routing path:
    - **If route is full audit (in-place execution):**
@@ -163,7 +163,7 @@ Audit route applicability rules (carried forward):
      c. Security controls assessment: evaluate at least these control areas: security policy and disclosure, dependency and supply-chain hygiene, CI/CD hardening, secrets management, AuthN/AuthZ and session handling (if applicable), input validation and injection safety (if applicable), data protection (if applicable), logging and monitoring, build and release integrity (if applicable), container and IaC security (if applicable), security testing and automation.
      d. For each control, include: Status (`Found` / `Partial` / `Missing` / `Unknown` / `Not applicable`), Evidence, Notes, and Next step. If `Status` is `Not applicable`, Evidence must justify why the control cannot apply and `Next step` MUST be `Not applicable.`. If `Status` is `Unknown`, `Next step` SHOULD describe how to reduce uncertainty.
      e. Findings synthesis: generate a prioritized findings table with configuration-based findings only.
-     f. Report generation: copy `security.tpl.md` verbatim, replace only template placeholders and allowed status values with evidence-based content or canonical missing-evidence tokens, and write `SECURITY_AUDIT.md` while preserving headings and section order exactly.
+     f. Report generation: copy `minerva.tpl.md` verbatim, replace only template placeholders and allowed status values with evidence-based content or canonical missing-evidence tokens, and write `SECURITY_AUDIT.md` while preserving headings and section order exactly.
      g. Finalization: verify that `SECURITY_AUDIT.md` exists as the persisted report artifact before summarizing the result.
    - **If route targets a skill:** Load the resolved skill manifest, delegate execution, and collect the skill output.
    - **If route targets an auto-triggered skill:** Load the resolved skill manifest and delegate execution.
@@ -179,14 +179,14 @@ Routing checks:
 - No files outside the resolved routing path were modified.
 
 Audit route checks (when full audit is the resolved path):
-- Validate output against `.github/agents/minerva/security.checklist.md` before finalizing.
+- Validate output against `.github/agents/minerva/minerva.checklist.md` before finalizing.
 - Every checklist item MUST be evaluated.
 - Any failed checklist item MUST be corrected before output.
 - If a checklist item cannot be satisfied due to missing repository evidence, output MUST explicitly use `TBD` or `Unknown`.
 - If validation cannot be completed, the coordinator MUST NOT produce final output.
 - Output file is exactly `SECURITY_AUDIT.md`.
 - `SECURITY_AUDIT.md` exists as the persisted audit report artifact; completion MUST NOT rely on a review-only response.
-- Template is copied verbatim from `security.tpl.md`.
+- Template is copied verbatim from `minerva.tpl.md`.
 - Template headings and section order are preserved with no removed/reordered sections.
 - Every finding has explicit evidence in approved anchor format.
 - Any control marked `Not applicable` includes explicit justification in `Evidence` and `Next step: Not applicable.`.

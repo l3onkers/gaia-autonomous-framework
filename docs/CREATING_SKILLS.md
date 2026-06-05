@@ -50,7 +50,7 @@ The `hephaestus` agent will:
 1. Load the canonical scaffold from `.github/governance/bundles/skill/SKILL.base.tpl.md`
 2. Reference the block catalog from `.github/governance/bundles/skill/SKILL.block-catalog.md`
 3. Generate your skill manifest and companion files
-4. Validate the result through `supervise-skill`
+4. Validate the result through `apollo-supervise-skill`
 
 ---
 
@@ -201,7 +201,7 @@ Used by `eleuthia`, `eleuthia` â€” one profile per run.
 Agent resolves profile â†’ loads one profile skill â†’ skill generates scaffold
 ```
 
-**Examples:** `net-setup-api`, `ng-setup-spa`
+**Examples:** `eleuthia-net-api`, `eleuthia-ng-spa`
 
 ### Pattern 2: Layer Skill (composable, dependency-ordered)
 
@@ -211,7 +211,7 @@ Used by `eleuthia` â€” multiple layers per run in dependency order.
 Agent resolves layers â†’ expands dependencies â†’ executes skills in order
 ```
 
-**Examples:** `add-layer-py-environment`, `add-layer-py-api`
+**Examples:** `eleuthia-py-environment`, `eleuthia-py-api`
 
 ### Pattern 3: Specialist Skill (single-purpose)
 
@@ -221,7 +221,7 @@ Used by `minerva`, `apollo` â€” one specialized task.
 Agent routes request type â†’ specialist skill handles one concern
 ```
 
-**Examples:** `security-review`, `supervise-agent`
+**Examples:** `minerva-review`, `apollo-supervise-agent`
 
 ### Pattern 4: Reference Skill (provides data, not output)
 
@@ -231,7 +231,7 @@ Used by `eleuthia` for UI composition â€” consulted but doesn't produce fil
 Agent loads references â†’ skill provides component/layout/style data â†’ agent uses in output
 ```
 
-**Examples:** `components-catalog`, `mockup-layouts`, `global-styles`
+**Examples:** `eleuthia-ui-components`, `eleuthia-ui-mockups`, `eleuthia-ui-styles`
 
 ---
 
@@ -240,5 +240,5 @@ Agent loads references â†’ skill provides component/layout/style data â†
 - [ ] `SKILL.md` follows the governance structure
 - [ ] Template includes complete generation rules
 - [ ] Checklist covers structure, quality, and safety
-- [ ] Skill has been validated through `supervise-skill`
+- [ ] Skill has been validated through `apollo-supervise-skill`
 - [ ] Documentation is updated (README, AGENTS.md if agent-routed)

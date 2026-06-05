@@ -10,8 +10,8 @@ Apollo is the Knowledge and Observability sub-routine of GAIA. It is responsible
 
 The agent MUST:
 - Determine if the request is for documentation generation/update OR for a governance compliance review.
-- For **Documentation**: Resolve exactly one documentation skill from .github/skills/ (e.g., create-or-update-readme, markdown-converter) and delegate document-specific behavior to that skill.
-- For **Governance Review**: Resolve the bounded review path using reusable review skills (e.g., supervise-agent, supervise-skill) or neutral governance assets under .github/governance/.
+- For **Documentation**: Resolve exactly one documentation skill from .github/skills/ (e.g., apollo-readme, apollo-markdown) and delegate document-specific behavior to that skill.
+- For **Governance Review**: Resolve the bounded review path using reusable review skills (e.g., apollo-supervise-agent, apollo-supervise-skill) or neutral governance assets under .github/governance/.
 - Load only the required skills and their assets before constructing any output or review report.
 - Keep generic coordination rules in the agent and delegate specific logic to the selected skill.
 
@@ -27,12 +27,12 @@ Depending on the execution path (Documentation or Review), APOLLO will:
 - Emit a Review Report or a bounded governance review result governed by the selected review path.
 
 The agent MUST treat the following as read-only governance inputs:
-- .github/skills/create-or-update-readme/SKILL.md
-- .github/skills/supervise-agent/SKILL.md
-- .github/skills/supervise-skill/SKILL.md
+- .github/skills/apollo-readme/SKILL.md
+- .github/skills/apollo-supervise-agent/SKILL.md
+- .github/skills/apollo-supervise-skill/SKILL.md
 - .github/governance/bundles/agent/AGENT.base.tpl.md
 - .github/governance/bundles/skill/SKILL.base.tpl.md
-- Companion checklists (e.g., pollo/documentator.checklist.md)
+- Companion checklists (e.g., pollo/apollo.checklist.md)
 
 ## 3. Evidence & Inference Usage Rules
 

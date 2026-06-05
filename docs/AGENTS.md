@@ -1,231 +1,79 @@
-﻿# Agent Catalog
+﻿# 🤖 Ecosistema de Agentes GAIA
 
-> Detailed documentation for all 8 callable agents in the Copilot Governance Framework.
+Este documento detalla las inteligencias artificiales (subrutinas) que forman parte del ecosistema GAIA. Cada agente actúa como un orquestador que lee la intención del usuario y la enruta a las *skills* (scripts y plantillas) adecuadas, siguiendo un principio de **Zero Trust** y cumplimiento normativo.
 
-## How Agents Work
+## Jerarquía de Subrutinas
 
-Agents are **thin coordinators** â€” they don't contain business logic. Instead, they:
-1. Validate the incoming request
-2. Resolve which skill(s) to delegate to
-3. Load their companion templates and checklists
-4. Orchestrate the skill execution
-5. Validate the result
+### 🌍 GAIA (Core Router)
+El cerebro central del ecosistema. Su único propósito es analizar peticiones ambiguas de los usuarios, determinar el contexto y redirigir el trabajo a la subrutina especializada correspondiente.
+- **Ruta:** .github/agents/gaia.agent.md
+- **Uso:** @workspace Usa gaia para...
 
-Every agent follows a standard **7-section structure**:
-1. Objective â†’ What the agent does
-2. Output Contract â†’ What it produces
-3. Evidence & Inference Usage Rules â†’ How it handles ambiguity
-4. Determinism Requirement â†’ How decisions are made
-5. Applicability Rules â†’ When to use (and not use) this agent
-6. Process Definition â†’ Step-by-step execution flow
-7. Validation Layer â†’ How results are verified
+### 🔨 HEPHAESTUS (Forja y CI/CD)
+Responsable de crear contenedores, forjar pipelines de integración y despliegue continuo, y mantener el propio framework (gobernanza de herramientas internas).
+- **Ruta:** .github/agents/hephaestus.agent.md
+- **Uso:** @workspace Usa hephaestus para generar la pipeline de GitHub Actions...
 
----
+### 🛡️ MINERVA (Seguridad y DevSecOps)
+La guardiana táctica. Audita código en busca de vulnerabilidades, escanea secretos filtrados en commits, aplica políticas de remediación y gestiona la seguridad en Pull Requests.
+- **Ruta:** .github/agents/minerva.agent.md
+- **Uso:** @workspace Usa minerva para revisar la seguridad de este PR.
 
-## ðŸ”€ Triage Agent
+### 📚 APOLLO (Conocimiento y Observabilidad)
+El archivero. Se asegura de que la documentación técnica (READMEs, Runbooks, ADRs) nunca quede obsoleta. También realiza las auditorías semánticas (compliance reviews) asegurando que otros agentes cumplan las reglas.
+- **Ruta:** .github/agents/apollo.agent.md
+- **Uso:** @workspace Usa apollo para generar un Runbook de esta API.
 
-**File:** `.github/agents/gaia.agent.md`
+### 🧬 ELEUTHIA (Scaffolding y Código)
+La creadora de vida. Es el único agente autorizado para construir la estructura base de nuevas aplicaciones (.NET, Angular, Python) desde cero, inyectando las convenciones de arquitectura y librerías internas.
+- **Ruta:** .github/agents/eleuthia.agent.md
+- **Uso:** @workspace Usa eleuthia para arrancar un proyecto Angular.
 
-**Purpose:** Routes any request to the strongest matching agent when the user doesn't know which agent to use.
+### 🌱 DEMETER (Infraestructura como Código)
+La moldeadora de la tierra. Provisiona servidores, clústeres de Kubernetes y recursos Cloud utilizando Terraform, Pulumi o Crossplane. Mantiene el estado deseado mediante GitOps.
+- **Ruta:** .github/agents/demeter.agent.md
+- **Uso:** @workspace Usa demeter para crear un bucket S3 mediante Terraform.
 
-**When to use:**
-- You're new to the framework
-- Your request could map to multiple agents
-- You want the system to figure out the right path
+### 🌪️ AETHER (Redes y Routing)
+Controla los vientos y las rutas. Configura Ingress, Service Meshes (Istio), API Gateways, DNS y balanceadores de carga.
+- **Ruta:** .github/agents/aether.agent.md
+- **Uso:** @workspace Usa aether para configurar el Ingress de este servicio.
 
-**Example requests:**
-```
-"I need to create a new Python API with database connectors"
-â†’ Routes to py-build
+### 🌊 POSEIDON (Datos y Almacenamiento)
+Soberano de los mares de datos. Gestiona bases de datos, migraciones de esquemas (Flyway/Liquibase), cachés (Redis), y se encarga del backup y cifrado at-rest.
+- **Ruta:** .github/agents/poseidon.agent.md
+- **Uso:** @workspace Usa poseidon para añadir un script de migración SQL.
 
-"Review the security of this codebase"
-â†’ Routes to security
+### 💀 HADES (Caos y Teardown)
+Destructor de mundos. Se encarga de destruir entornos efímeros, ejecutar rollbacks en producción, y lanzar experimentos de ingeniería del caos para asegurar resiliencia.
+- **Ruta:** .github/agents/hades.agent.md
+- **Uso:** @workspace Usa hades para destruir el entorno de staging.
 
-"Generate a README for this repository"
-â†’ Routes to documentator
-```
+### 🏹 ARTEMIS (QA y Testing E2E)
+La cazadora de bugs. Ejecuta tests funcionales end-to-end, pruebas de carga (k6) y valida la salud de la aplicación después de los despliegues.
+- **Ruta:** .github/agents/artemis.agent.md
+- **Uso:** @workspace Usa artemis para preparar un test de carga de k6.
+"@
 
----
+ = @"
+# 🏛️ Arquitectura del Ecosistema GAIA
 
-## ðŸ—ï¸ hephaestus agent
+El framework adopta un enfoque **Event-Driven** y jerárquico. En lugar de un gran prompt monolítico, dividimos las responsabilidades en subrutinas hiper-especializadas que colaboran mediante *skills*.
 
-**File:** `.github/agents/hephaestus.agent.md`
+## El Ciclo de Vida de una Petición
 
-**Purpose:** Authors new governed agent bundles or skill bundles using the canonical governance scaffolds.
+1. **User Intent:** El desarrollador interactúa con GitHub Copilot Chat.
+2. **Enrutamiento (GAIA):** Si no se especifica agente, GAIA analiza la petición y la redirige.
+3. **Subrutina:** El agente seleccionado (ej. ELEUTHIA) lee su *.agent.md, donde se definen sus reglas Zero Trust y límites operativos.
+4. **Skills y Assets:** El agente localiza las *skills* relevantes en .github/skills/, lee los templates y checklists necesarios y genera la respuesta.
+5. **Revisión de Cumplimiento (Opcional):** El usuario puede invocar a APOLLO para verificar que el código generado cumple la gobernanza.
 
-**Delegates to:**
-- `build-agent` â€” When creating a new agent
-- `build-skill` â€” When creating a new skill
-- Governance update paths â€” When modifying shared governance assets
+## Componentes Clave
 
-**When to use:**
-- Creating a new agent for a new workflow family
-- Creating a new skill for reusable task-specific behavior
-- Updating governance scaffolds or templates
+- **Agentes (.github/agents/)**: Son los roles o personalidades. No hacen trabajo directo, coordinan.
+- **Skills (.github/skills/)**: Son "funciones" empaquetadas (ej. eleuthia-net-api). Contienen los templates y el paso a paso.
+- **Gobierno (.github/governance/)**: Contratos maestros, guías de estilo globales y políticas de seguridad (usadas por MINERVA y APOLLO).
 
-**Example:**
-```
-"Build a new governed agent bundle for data pipeline orchestration"
-```
+## Patrón de Zero Trust en Prompts
 
----
-
-## ðŸ“„ apollo agent
-
-**File:** `.github/agents/apollo.agent.md`
-
-**Purpose:** Generates or refreshes repository documentation using governed templates and live repository state.
-
-**Delegates to:**
-- `create-or-update-readme` â€” For README generation/refresh
-- `markdown-converter` â€” For format conversion (HTML, PDF, DOCX, etc.)
-
-**Companion files:**
-- `documentator/documentator.checklist.md` â€” Validation checklist
-
-**When to use:**
-- Generating a new README from a template
-- Refreshing the README to reflect repository changes
-- Converting Markdown to other formats
-
-**Example:**
-```
-"Regenerate the repository README.md using the current template"
-"Convert README.md to HTML"
-```
-
----
-
-## ðŸŸ£ .NET hephaestus agent
-
-**File:** `.github/agents/net-hephaestus.agent.md`
-
-**Purpose:** Orchestrates .NET project scaffolding by routing to one of 6 supported profile skills.
-
-**Supported profiles:**
-
-| Profile | Skill | Description |
-|---------|-------|-------------|
-| `api` | `net-setup-api` | Standard REST API with Clean Architecture |
-| `api-cqrs` | `net-setup-api-cqrs` | CQRS-pattern API with MediatR |
-| `api-modular` | `net-setup-api-modular` | Modular monolith architecture |
-
-| `worker` | `net-setup-worker` | Background worker service |
-| `job` | `net-setup-job` | Scheduled job / hosted service |
-
-**Companion files:**
-- `net-build/net-build.tpl.md` â€” Shared .NET governance rules
-- `net-build/net-build.checklist.md` â€” Validation checklist
-
-**Example:**
-```
-"Use net-build to scaffold a CQRS API for user management"
-```
-
----
-
-## ðŸ”´ Angular hephaestus agent
-
-**File:** `.github/agents/ng-hephaestus.agent.md`
-
-**Purpose:** Orchestrates Angular SPA scaffolding with governed UI composition and optional SSO login.
-
-**Supported profiles:**
-- `spa` â€” Single-page application with header wrapper and optional SSO login
-
-**Delegates to:**
-- `ng-setup-spa` â€” SPA-specific structure and login generation
-- `components-catalog` â€” Corporate UI component references
-- `mockup-layouts` â€” Page layout patterns
-- `global-styles` â€” Design tokens and utility classes
-
-**Companion files:**
-- `ng-build/ng-build.tpl.md` â€” Shared Angular governance (dependencies, folder structure, coding standards)
-- `ng-build/ng-build.checklist.md` â€” Validation checklist
-
-**Example:**
-```
-"Use ng-build to scaffold a SPA called 'my-dashboard' with SSO login"
-```
-
----
-
-## ðŸ Python hephaestus agent
-
-**File:** `.github/agents/py-hephaestus.agent.md`
-
-**Purpose:** Orchestrates Python project scaffolding by resolving and executing layers in dependency order.
-
-**Supported layers:**
-
-| Layer | Skill | Prerequisites |
-|-------|-------|--------------|
-| `environment` | `add-layer-py-environment` | None |
-| `logger` | `add-layer-py-logger` | `environment` |
-| `api` | `add-layer-py-api` | `environment` |
-| `connectors` | `add-layer-py-connectors` | `environment` |
-| `pytest` | `add-layer-py-pytest` | `environment` |
-| `pytest-fastapi` | `add-layer-py-pytest-fastapi` | `environment`, `api`, `pytest` |
-| `cicd` | `add-layer-py-cicd` | `environment`, `api` |
-
-**Automatic dependency resolution:** Request `pytest-fastapi` and the agent will automatically include `environment` â†’ `api` â†’ `pytest` â†’ `pytest-fastapi`.
-
-**Companion files:**
-- `py-build/py-build.tpl.md` â€” Shared Python governance
-- `py-build/py-build.checklist.md` â€” Validation checklist
-
-**Example:**
-```
-"Use py-build to add the api and pytest-fastapi layers"
-```
-
----
-
-## ðŸ”’ minerva agent
-
-**File:** `.github/agents/minerva.agent.md`
-
-**Purpose:** Routes security requests to 6 specialized skills covering audits, reviews, triage, patches, and event-driven scans.
-
-**Routes:**
-
-| Request Type | Skill | Output |
-|-------------|-------|--------|
-| Repository audit | In-place audit route | `SECURITY_AUDIT.md` |
-| Code-level review | `security-review` | `SECURITY_REVIEW.md` or PR comments |
-| Evidence triage | `security-triage` | `SECURITY_TRIAGE.md` |
-| Patch proposal | `security-patch` | `SECURITY_PATCH.md` + approval gate |
-| PR review event | `pr-security-review` | PR security comments |
-| Commit secret scan | `commit-secret-scan` | Secret alert or confirmation |
-| Dependency check | `dependency-security-check` | Dependency findings comment |
-
-**Companion files:**
-- `security/security.tpl.md` â€” Audit template
-- `security/security.checklist.md` â€” Audit validation
-
-**Example:**
-```
-"Generate SECURITY_AUDIT.md for this repository"
-"Review the changed API files for security vulnerabilities"
-"Prepare a minimal patch proposal for finding SR-002"
-```
-
----
-
-## ðŸ‘ï¸ apollo agent
-
-**File:** `.github/agents/apollo.agent.md`
-
-**Purpose:** Reviews governed bundles (agents and skills) for compliance against the canonical governance scaffolds.
-
-**Delegates to:**
-- `supervise-agent` â€” Reviews agent bundles against `AGENT.base.tpl.md`
-- `supervise-skill` â€” Reviews skill bundles against `SKILL.base.tpl.md` and `SKILL.block-catalog.md`
-
-**Output:** One compliance report per reviewed bundle.
-
-**Example:**
-```
-"Review .github/skills/create-or-update-readme/SKILL.md"
-"Supervise the ng-hephaestus agent bundle"
-```
+Cada agente tiene una sección de **Zero Trust Rules**. Esto obliga a Copilot a detener la generación si el usuario pide algo peligroso (ej. "Borra la base de datos de Producción" será bloqueado por HADES o POSEIDON).

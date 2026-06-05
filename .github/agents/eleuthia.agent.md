@@ -27,8 +27,8 @@ The agent MUST NOT:
 The agent MUST produce one bounded setup result for the requested application.
 
 Read-only governance inputs:
-- Stack-specific templates and checklists (e.g., .github/agents/eleuthia/net-build.tpl.md, 
-g-build.tpl.md, py-build.tpl.md).
+- Stack-specific templates and checklists (e.g., .github/agents/eleuthia/eleuthia-net.tpl.md, 
+g-build.tpl.md, eleuthia-py.tpl.md).
 - Profile skills: 
 et-setup-*, 
 g-setup-*, dd-layer-py-*.

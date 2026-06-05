@@ -52,7 +52,7 @@ If you know which agent to use:
 
 Some skills can be invoked without going through an agent:
 
-@workspace Use git-workflow to create a PR body for my changes.
+@workspace Use apollo-git-workflow to create a PR body for my changes.
 
 ---
 
@@ -125,7 +125,7 @@ flowchart TD
 2. **Provide one explicit target** — a bundle name, profile token, or layer set
 3. **Let the skill own the details** — templates, checklists, and generation rules
 4. **Review the result** — use pollo for compliance checks
-5. **Use git-workflow** for branch names, commit messages, and PR bodies
+5. **Use apollo-git-workflow** for branch names, commit messages, and PR bodies
 
 ---
 

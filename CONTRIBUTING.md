@@ -66,10 +66,10 @@ See [docs/CREATING_SKILLS.md](docs/CREATING_SKILLS.md) for the full guide.
 | Type | Pattern | Example |
 |------|---------|---------|
 | Agent | `{name}.agent.md` | `minerva.agent.md` |
-| Agent companion | `{agent-name}/{agent-name}.tpl.md` | `ng-build/ng-build.tpl.md` |
-| Skill | `{skill-name}/SKILL.md` | `git-workflow/SKILL.md` |
-| Skill template | `{skill-name}/assets/{skill-name}.tpl.md` | `net-setup-api/assets/net-setup-api.tpl.md` |
-| Skill checklist | `{skill-name}/assets/{skill-name}.checklist.md` | `security-review/assets/security-review.checklist.md` |
+| Agent companion | `{agent-name}/{agent-name}.tpl.md` | `ng-build/eleuthia-ng.tpl.md` |
+| Skill | `{skill-name}/SKILL.md` | `apollo-git-workflow/SKILL.md` |
+| Skill template | `{skill-name}/assets/{skill-name}.tpl.md` | `eleuthia-net-api/assets/eleuthia-net-api.tpl.md` |
+| Skill checklist | `{skill-name}/assets/{skill-name}.checklist.md` | `minerva-review/assets/minerva-review.checklist.md` |
 
 ### Commit Messages
 

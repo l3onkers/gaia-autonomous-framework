@@ -33,7 +33,7 @@ Agent-local companion assets may also exist under `.github/agents/<agent>/`. Tho
 
 ## Git workflow rule
 
-Any git branch, commit-message, or pull-request action in this repository must use `.github/skills/git-workflow/SKILL.md`.
+Any git branch, commit-message, or pull-request action in this repository must use `.github/skills/apollo-git-workflow/SKILL.md`.
 
 ## Frontend policy
 
