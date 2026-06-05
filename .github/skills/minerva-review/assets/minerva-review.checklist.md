@@ -36,7 +36,7 @@ Quality and determinism checklist for `minerva-review` agent outputs.
 - [ ] CWE identifiers are valid and correctly matched to the vulnerability type
 - [ ] Severity is justified by static evidence using the deterministic calibration
 - [ ] Every finding includes specific, actionable remediation guidance
-- [ ] Finding IDs are sequential (`SR-001`, `SR-002`, â€¦) in file order, then line order
+- [ ] Finding IDs are sequential (`SR-001`, `SR-002`, ”¦) in file order, then line order
 - [ ] No CVE identifiers generated or suggested
 - [ ] No runtime exploitability claims without static evidence
 - [ ] Ambiguous findings use `Medium` severity with explicit caveat

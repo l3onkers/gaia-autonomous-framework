@@ -8,7 +8,7 @@ description: 'Use when: commits are pushed and must be scanned for accidentally 
 ## Purpose
 - This skill owns detection of committed secrets, API keys, tokens, and credentials in pushed commits.
 - This skill is triggered by commit push events or invoked by the `minerva` coordinator agent.
-- This skill stays within the commit's changed content â€” never scans the full repository history.
+- This skill stays within the commit's changed content — never scans the full repository history.
 
 ## Output Contract
 - If secrets found: alert via PR comment or issue with exact file:line references, secret type classification, and remediation steps (revoke, rotate, remove from history).
@@ -16,7 +16,7 @@ description: 'Use when: commits are pushed and must be scanned for accidentally 
 
 If the commit diff cannot be retrieved or is empty, stop and do not produce output.
 
-If the skill cannot determine whether a string is a real secret or a placeholder, it MUST flag it with severity `Medium` and label `Potential secret â€” requires human verification`.
+If the skill cannot determine whether a string is a real secret or a placeholder, it MUST flag it with severity `Medium` and label `Potential secret — requires human verification`.
 
 ## Governance Inputs
 - Skill manifest: `./SKILL.md`
@@ -48,7 +48,7 @@ If the skill cannot determine whether a string is a real secret or a placeholder
 - Validate that any owned template or checklist paths declared in `## Governance Inputs` are skill-relative and exist for the current run.
 - Every finding MUST reference the exact file path and line number from the commit diff.
 - Secret content MUST be partially masked in all output (show first 4 and last 4 characters only).
-- Ambiguous findings MUST be flagged with severity `Medium` and label `Potential secret â€” requires human verification`.
+- Ambiguous findings MUST be flagged with severity `Medium` and label `Potential secret — requires human verification`.
 - Use `Unknown`, `Not applicable.`, and `To be defined.` exactly when the skill contract and available evidence require them.
 - If the skill cannot satisfy its declared contract without guessing, stop and request clarification.
 

@@ -1,4 +1,4 @@
-﻿# Security Patch Proposal â€” <Vulnerability Reference>
+﻿# Security Patch Proposal — <Vulnerability Reference>
 
 ## 1. Metadata
 - Report artifact: `SECURITY_PATCH.md`
@@ -73,9 +73,9 @@ TBD
 
 | Option | Action |
 |--------|--------|
-| **Apply** | Approve the patch â€” the agent will create a branch, commit, and PR via `apollo-git-workflow` |
-| **Reject** | Reject the patch â€” no changes will be made |
-| **Modify** | Request modifications â€” provide feedback for the agent to revise the patch |
+| **Apply** | Approve the patch — the agent will create a branch, commit, and PR via `apollo-git-workflow` |
+| **Reject** | Reject the patch — no changes will be made |
+| **Modify** | Request modifications — provide feedback for the agent to revise the patch |
 
 **Decision:** TBD
 

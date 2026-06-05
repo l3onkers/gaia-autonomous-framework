@@ -8,7 +8,7 @@ description: 'Use when: a security workflow must perform evidence-based code-lev
 ## Purpose
 - This skill owns code-level vulnerability discovery on specified files, producing structured, evidence-based findings with CWE categorization.
 - This skill is used by the `minerva` coordinator agent or invoked directly for scoped code review requests.
-- This skill stays within the declared file scope â€” never analyzes files outside the request boundary.
+- This skill stays within the declared file scope — never analyzes files outside the request boundary.
 
 ## Output Contract
 - Create or update exactly one report file: `SECURITY_REVIEW.md` (repository root), or PR review comments (depending on invocation context).
@@ -18,7 +18,7 @@ Findings format (per finding):
 
 | Column | Description |
 |--------|-------------|
-| ID | Sequential identifier (`SR-001`, `SR-002`, â€¦) |
+| ID | Sequential identifier (`SR-001`, `SR-002`, ”¦) |
 | Severity | `Critical`, `High`, `Medium`, `Low`, or `Info` |
 | CWE Category | CWE identifier and short name (e.g., `CWE-89: SQL Injection`) |
 | File:Line | Exact file path and line range (`<path>:<line_start>-<line_end>`) |

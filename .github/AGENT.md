@@ -8,7 +8,7 @@ The repository's callable coordinators live under `.github/agents/`. Reusable de
 
 ## Required lookup order
 
-1. If the user does not know which agent to use, start with `.github/agents/gaia.agent.md` â€” it will route the request to the strongest matching agent or skill.
+1. If the user does not know which agent to use, start with `.github/agents/gaia.agent.md` — it will route the request to the strongest matching agent or skill.
 2. Inspect `.github/agents/` to identify the available top-level coordinators.
 3. Read the matching `.github/agents/{name}.agent.md` entrypoint for the requested outcome.
 4. Load only the skills, templates, checklists, and governance assets declared by that entrypoint.

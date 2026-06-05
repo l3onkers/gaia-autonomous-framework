@@ -19,47 +19,47 @@ If the request is outside component-catalog discovery or component-bundle routin
 
 ### Available Components
 
-- **example-component** â€” `company-example, [company-example]` â€” Template showing the expected skill format. Replace with real components.
-- **badge** â€” `corp-badge, [corp-badge]` â€” Displays a small badge with text or icon.
-- **body-text** â€” `corp-body-text, [corp-body-text]` â€” Standard text component for body content.
-- **button** â€” `corp-button, [corp-button]` â€” Clickable button element.
-- **card** â€” `corp-card, [corp-card]` â€” Container for grouping related content.
-- **error-message** â€” `company-error-message, [company-error-message]` â€” Displays an error message.
-- **feedback-bar** â€” `company-feedback-bar, [company-feedback-bar]` â€” Displays a feedback bar.
-- **feedback-box** â€” `company-feedback-box, [company-feedback-box]` â€” Displays a feedback box.
-- **header** â€” `corp-header, [corp-header]` â€” Displays a header.
-- **icon** â€” `corp-icon, [corp-icon]` â€” Displays an icon.
-- **image-filter** â€” `company-image-filter, [company-image-filter]` â€” Applies a filter to an image.
-- **image-ratio** â€” `corp-image-ratio, [corp-image-ratio]` â€” Maintains a specific aspect ratio for an image.
-- **input-checkbox** â€” `corp-input-checkbox, [corp-input-checkbox]` â€” Checkbox input element.
-- **input-radio** â€” `company-input-radio, [company-input-radio]` â€” Radio button input element.
-- **input-select** â€” `corp-input-select, [corp-input-select]` â€” Select input element.
-- **input-text** â€” `corp-input-text, [corp-input-text]` â€” Text input element.
-- **loader-layer** â€” `company-loader-layer, [company-loader-layer]` â€” Displays a loading layer.
-- **logo** â€” `corp-logo, [corp-logo]` â€” Displays the company logo.
-- **menu** â€” `corp-menu, [corp-menu]` â€” Displays a navigation menu.
-- **menu-item** â€” `corp-menu-item, [corp-menu-item]` â€” Represents an item in a menu.
-- **overlay** â€” `company-overlay, [company-overlay]` â€” Displays an overlay.
-- **paginator** â€” `corp-paginator, [corp-paginator]` â€” Displays pagination controls.
-- **paginator-item** â€” `corp-paginator-item, [corp-paginator-item]` â€” Represents an item in a paginator.
-- **popin** â€” `corp-popin, [corp-popin]` â€” Displays a popin.
-- **popup** â€” `corp-popup, [corp-popup]` â€” Displays a popup.
-- **progress-bar** â€” `corp-progress-bar, [corp-progress-bar]` â€” Displays a progress bar.
-- **rounded-button** â€” `corp-rounded-button, [corp-rounded-button]` â€” Displays a rounded button.
-- **sidebar** â€” `corp-sidebar, [corp-sidebar]` â€” Displays a sidebar.
-- **spinner** â€” `corp-spinner, [corp-spinner]` â€” Displays a spinner.
-- **strapline-title** â€” `app-subtitle, [app-subtitle]` â€” Displays a strapline title.
-- **subtitle** â€” `corp-subtitle, [corp-subtitle]` â€” Displays a subtitle.
-- **table** â€” `corp-table, [corp-table]` â€” Displays a table.
-- **table-filter-list** â€” `corp-table-filter-list, [corp-table-filter-list]` â€” Displays a table filter list.
-- **table-row** â€” `corp-table-row, [corp-table-row]` â€” Represents a row in a table.
-- **tag** â€” `corp-tag, [corp-tag]` â€” Displays a tag.
-- **text-button** â€” `corp-text-button, [corp-text-button]` â€” Displays a text button.
-- **title** â€” `corp-title, [corp-title]` â€” Displays a title.
-- **tooltip** â€” `corp-tooltip, [corp-tooltip]` â€” Displays a tooltip.
+- **example-component** — `company-example, [company-example]` — Template showing the expected skill format. Replace with real components.
+- **badge** — `corp-badge, [corp-badge]` — Displays a small badge with text or icon.
+- **body-text** — `corp-body-text, [corp-body-text]` — Standard text component for body content.
+- **button** — `corp-button, [corp-button]` — Clickable button element.
+- **card** — `corp-card, [corp-card]` — Container for grouping related content.
+- **error-message** — `company-error-message, [company-error-message]` — Displays an error message.
+- **feedback-bar** — `company-feedback-bar, [company-feedback-bar]` — Displays a feedback bar.
+- **feedback-box** — `company-feedback-box, [company-feedback-box]` — Displays a feedback box.
+- **header** — `corp-header, [corp-header]` — Displays a header.
+- **icon** — `corp-icon, [corp-icon]` — Displays an icon.
+- **image-filter** — `company-image-filter, [company-image-filter]` — Applies a filter to an image.
+- **image-ratio** — `corp-image-ratio, [corp-image-ratio]` — Maintains a specific aspect ratio for an image.
+- **input-checkbox** — `corp-input-checkbox, [corp-input-checkbox]` — Checkbox input element.
+- **input-radio** — `company-input-radio, [company-input-radio]` — Radio button input element.
+- **input-select** — `corp-input-select, [corp-input-select]` — Select input element.
+- **input-text** — `corp-input-text, [corp-input-text]` — Text input element.
+- **loader-layer** — `company-loader-layer, [company-loader-layer]` — Displays a loading layer.
+- **logo** — `corp-logo, [corp-logo]` — Displays the company logo.
+- **menu** — `corp-menu, [corp-menu]` — Displays a navigation menu.
+- **menu-item** — `corp-menu-item, [corp-menu-item]` — Represents an item in a menu.
+- **overlay** — `company-overlay, [company-overlay]` — Displays an overlay.
+- **paginator** — `corp-paginator, [corp-paginator]` — Displays pagination controls.
+- **paginator-item** — `corp-paginator-item, [corp-paginator-item]` — Represents an item in a paginator.
+- **popin** — `corp-popin, [corp-popin]` — Displays a popin.
+- **popup** — `corp-popup, [corp-popup]` — Displays a popup.
+- **progress-bar** — `corp-progress-bar, [corp-progress-bar]` — Displays a progress bar.
+- **rounded-button** — `corp-rounded-button, [corp-rounded-button]` — Displays a rounded button.
+- **sidebar** — `corp-sidebar, [corp-sidebar]` — Displays a sidebar.
+- **spinner** — `corp-spinner, [corp-spinner]` — Displays a spinner.
+- **strapline-title** — `app-subtitle, [app-subtitle]` — Displays a strapline title.
+- **subtitle** — `corp-subtitle, [corp-subtitle]` — Displays a subtitle.
+- **table** — `corp-table, [corp-table]` — Displays a table.
+- **table-filter-list** — `corp-table-filter-list, [corp-table-filter-list]` — Displays a table filter list.
+- **table-row** — `corp-table-row, [corp-table-row]` — Represents a row in a table.
+- **tag** — `corp-tag, [corp-tag]` — Displays a tag.
+- **text-button** — `corp-text-button, [corp-text-button]` — Displays a text button.
+- **title** — `corp-title, [corp-title]` — Displays a title.
+- **tooltip** — `corp-tooltip, [corp-tooltip]` — Displays a tooltip.
 
 <!-- Add components here following the same format:
-- **{name}** â€” `{selector}` â€” {one-line description}
+- **{name}** — `{selector}` — {one-line description}
 -->
 
 ## Governance Inputs

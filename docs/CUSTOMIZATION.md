@@ -24,10 +24,10 @@ The framework uses generic placeholders that you should replace:
 
 ### Where to change
 
-- `.github/agents/eleuthia/eleuthia-ng.tpl.md` â€” Angular governance (prefixes, packages)
-- `.github/agents/eleuthia/eleuthia-net.tpl.md` â€” .NET governance (namespaces, packages)
-- `.github/skills/eleuthia-ui-components/` â€” UI component definitions
-- `.github/skills/eleuthia-ui-styles/` â€” Design tokens and color palette
+- `.github/agents/eleuthia/eleuthia-ng.tpl.md` — Angular governance (prefixes, packages)
+- `.github/agents/eleuthia/eleuthia-net.tpl.md` — .NET governance (namespaces, packages)
+- `.github/skills/eleuthia-ui-components/` — UI component definitions
+- `.github/skills/eleuthia-ui-styles/` — Design tokens and color palette
 
 ---
 
@@ -40,8 +40,8 @@ The proprietary component library has been removed and replaced with a stub. The
 ### Option A: Use a public library
 
 Replace references to `@corp/ui-components` with:
-- **Angular Material** â€” `@angular/material`
-- **PrimeNG** â€” `primeng`
+- **Angular Material** — `@angular/material`
+- **PrimeNG** — `primeng`
 - **Any other Angular component library**
 
 Update the component selectors in `eleuthia-ui-components/` to match your chosen library.
@@ -140,8 +140,8 @@ The framework uses generic CI/CD references. To integrate with your pipeline:
 | **Jenkins** | Add `Jenkinsfile` references back |
 
 Update the CI/CD skill templates:
-- `.github/skills/hephaestus-py-cicd/` â€” Python CI/CD
-- `.github/skills/hephaestus-net-cicd/` â€” .NET CI/CD
+- `.github/skills/hephaestus-py-cicd/` — Python CI/CD
+- `.github/skills/hephaestus-net-cicd/` — .NET CI/CD
 
 ---
 

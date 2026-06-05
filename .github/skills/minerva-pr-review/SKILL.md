@@ -9,7 +9,7 @@ user-invocable: true
 ## Purpose
 - This skill owns automated security review of changed files in a pull request.
 - This skill is triggered by PR events or invoked by the `minerva` coordinator agent.
-- This skill stays within the PR's changed file set â€” never reviews the entire repository.
+- This skill stays within the PR's changed file set — never reviews the entire repository.
 
 ## Output Contract
 - PR review comments on specific lines with security findings.
@@ -31,10 +31,10 @@ If no changed files contain security-relevant code, produce a single summary com
 
 ## Procedure
 1. Retrieve the PR changed files list from the PR context provided by the triggering workflow or coordinator.
-2. Filter to security-relevant files (source code, config, CI, dependency manifests â€” exclude docs, images, and other non-security-relevant content).
+2. Filter to security-relevant files (source code, config, CI, dependency manifests — exclude docs, images, and other non-security-relevant content).
 3. For each security-relevant file: analyze the changes (diff) for vulnerability patterns.
 4. For each finding: create a PR review comment using `./assets/pr-review-comment.tpl.md` with line reference, severity, CWE category, and remediation suggestion.
-5. If findings exist with severity â‰¥ High: add a summary comment recommending merge block.
+5. If findings exist with severity ≥ High: add a summary comment recommending merge block.
 6. If no findings: add a summary comment confirming no issues found.
 7. Validate all comments against `./assets/pr-review.checklist.md` before posting.
 
@@ -48,7 +48,7 @@ If no changed files contain security-relevant code, produce a single summary com
 
 ## Evidence Rules
 - Every finding MUST reference a specific line in the PR diff.
-- Code snippets MUST be from the PR's changed content â€” never from unchanged or unrelated code.
+- Code snippets MUST be from the PR's changed content — never from unchanged or unrelated code.
 - Severity MUST be justified by the code change context, not by general vulnerability databases alone.
 - If asserting absence of a vulnerability class, require proof-of-absence from the diff or downgrade the claim to `Unknown`.
 - Inference is allowed only for structural details (e.g., file type classification) and MUST be labeled: `Inferred (source: <path>:<symbol>, confidence: High|Medium|Low)`.

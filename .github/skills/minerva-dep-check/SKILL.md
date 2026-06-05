@@ -8,7 +8,7 @@ description: 'Use when: dependency manifest files are changed and must be checke
 ## Purpose
 - This skill owns security review of dependency changes in pull requests.
 - This skill is triggered when dependency manifest files are modified or invoked by the `minerva` coordinator agent.
-- This skill stays within the dependency manifest changes â€” never audits the full dependency tree unless a manifest changed.
+- This skill stays within the dependency manifest changes — never audits the full dependency tree unless a manifest changed.
 
 ## Output Contract
 - PR comment listing newly added or upgraded dependencies with known vulnerabilities.

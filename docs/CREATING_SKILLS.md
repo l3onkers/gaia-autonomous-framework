@@ -12,15 +12,15 @@
 ## When to Create a Skill
 
 Create a new skill when:
-- âœ… You need **reusable task-specific behavior** that an agent can delegate to
-- âœ… The task has **clear inputs and outputs**
-- âœ… You want to **own templates, checklists, and validation** for a specific domain
-- âœ… The behavior should be **independently testable and evolvable**
+- ✅ You need **reusable task-specific behavior** that an agent can delegate to
+- ✅ The task has **clear inputs and outputs**
+- ✅ You want to **own templates, checklists, and validation** for a specific domain
+- ✅ The behavior should be **independently testable and evolvable**
 
 Don't create a skill when:
-- âŒ An existing skill already covers the use case
-- âŒ You need wrapper-level routing across multiple skills (create an agent instead)
-- âŒ It's a shared scaffold that belongs in governance (put it in `.github/governance/`)
+- ❌ An existing skill already covers the use case
+- ❌ You need wrapper-level routing across multiple skills (create an agent instead)
+- ❌ It's a shared scaffold that belongs in governance (put it in `.github/governance/`)
 
 ---
 
@@ -68,15 +68,15 @@ The `hephaestus` agent will:
 
 ```
 .github/skills/{skill-name}/
-â”œâ”€â”€ SKILL.md                          # Skill manifest
-â”œâ”€â”€ assets/
-â”‚   â”œâ”€â”€ {skill-name}.tpl.md           # Generation template
-â”‚   â”œâ”€â”€ {skill-name}.checklist.md     # Validation checklist
-â”‚   â””â”€â”€ ...                           # Additional templates
-â”œâ”€â”€ references/                        # Reference docs (optional)
-â”‚   â””â”€â”€ ...
-â””â”€â”€ scripts/                           # Helper scripts (optional)
-    â””â”€â”€ ...
+├── SKILL.md                          # Skill manifest
+├── assets/
+│   ├── {skill-name}.tpl.md           # Generation template
+│   ├── {skill-name}.checklist.md     # Validation checklist
+│   └── ...                           # Additional templates
+├── references/                        # Reference docs (optional)
+│   └── ...
+└── scripts/                           # Helper scripts (optional)
+    └── ...
 ```
 
 ### Skill Manifest Template
@@ -96,12 +96,12 @@ Create `.github/skills/{skill-name}/SKILL.md`:
 - {What format the output takes}
 
 ## Owned Assets
-- `assets/{skill-name}.tpl.md` â€” {description}
-- `assets/{skill-name}.checklist.md` â€” {description}
+- `assets/{skill-name}.tpl.md` — {description}
+- `assets/{skill-name}.checklist.md` — {description}
 
 ## Used By
-- `{agent-name}` â€” {how the agent routes to this skill}
-- Direct invocation â€” {when and how}
+- `{agent-name}` — {how the agent routes to this skill}
+- Direct invocation — {when and how}
 
 ## Applicability
 - Applies to: {when this skill should be used}
@@ -141,10 +141,10 @@ The template (`.tpl.md`) contains the actual generation logic:
 
 ### Tips for Good Templates
 
-1. **Be specific** â€” Include actual code examples, not just descriptions
-2. **Use placeholders** â€” `{variable-name}` for user-provided values
-3. **Include anti-patterns** â€” Show what NOT to do
-4. **Add a completion checklist** â€” Makes validation deterministic
+1. **Be specific** — Include actual code examples, not just descriptions
+2. **Use placeholders** — `{variable-name}` for user-provided values
+3. **Include anti-patterns** — Show what NOT to do
+4. **Add a completion checklist** — Makes validation deterministic
 
 ### Frontend Skills Guidance
 
@@ -187,9 +187,9 @@ The checklist (`.checklist.md`) defines validation criteria:
 
 If your skill should be routed by an agent:
 
-1. **Edit the agent's `agent.md`** â€” Add the skill to the supported skill catalog
-2. **Add routing rules** â€” Define how the agent selects your skill
-3. **Update the agent's checklist** â€” Add validation for your skill's outputs
+1. **Edit the agent's `agent.md`** — Add the skill to the supported skill catalog
+2. **Add routing rules** — Define how the agent selects your skill
+3. **Update the agent's checklist** — Add validation for your skill's outputs
 
 If the skill is standalone (directly invocable):
 1. **Document it** in the README
@@ -211,40 +211,40 @@ Run the supervisor to check compliance:
 
 ### Pattern 1: Profile Skill (routed by a hephaestus agent)
 
-Used by `eleuthia`, `eleuthia` â€” one profile per run.
+Used by `eleuthia`, `eleuthia` — one profile per run.
 
 ```
-Agent resolves profile â†’ loads one profile skill â†’ skill generates scaffold
+Agent resolves profile → loads one profile skill → skill generates scaffold
 ```
 
 **Examples:** `eleuthia-net-api`, `eleuthia-ng-spa`
 
 ### Pattern 2: Layer Skill (composable, dependency-ordered)
 
-Used by `eleuthia` â€” multiple layers per run in dependency order.
+Used by `eleuthia` — multiple layers per run in dependency order.
 
 ```
-Agent resolves layers â†’ expands dependencies â†’ executes skills in order
+Agent resolves layers → expands dependencies → executes skills in order
 ```
 
 **Examples:** `eleuthia-py-environment`, `eleuthia-py-api`
 
 ### Pattern 3: Specialist Skill (single-purpose)
 
-Used by `minerva`, `apollo` â€” one specialized task.
+Used by `minerva`, `apollo` — one specialized task.
 
 ```
-Agent routes request type â†’ specialist skill handles one concern
+Agent routes request type → specialist skill handles one concern
 ```
 
 **Examples:** `minerva-review`, `apollo-supervise-agent`
 
 ### Pattern 4: Reference Skill (provides data, not output)
 
-Used by `eleuthia` for UI composition â€” consulted but doesn't produce files.
+Used by `eleuthia` for UI composition — consulted but doesn't produce files.
 
 ```
-Agent loads references â†’ skill provides component/layout/style data â†’ agent uses in output
+Agent loads references → skill provides component/layout/style data → agent uses in output
 ```
 
 **Examples:** `eleuthia-ui-components`, `eleuthia-ui-mockups`, `eleuthia-ui-styles`

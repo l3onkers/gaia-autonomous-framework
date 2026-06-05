@@ -2,7 +2,7 @@
 name: eleuthia-ui-mockups
 description: Layout patterns and HTML composition guidelines for building views with the corporate component library. Based on analysis of real mockup templates.
 ---
-> These are reference examples extracted from real mockup templates â€” use them as a starting point, not as exact recipes.
+> These are reference examples extracted from real mockup templates — use them as a starting point, not as exact recipes.
 > For component APIs and inputs, see: `../eleuthia-ui-components/SKILL.md`
 > For utility classes, grid systems, and design tokens, see: `../eleuthia-ui-styles/SKILL.md`
 
@@ -88,7 +88,7 @@ description: Layout patterns and HTML composition guidelines for building views 
   <div class="g-row">
     <div class="g-col || u-flex is-ai-fs u-gap-32 || u-pr-0">
       <aside corp-sidebar>
-        <!-- Sidebar â€” see Pattern: Sidebar -->
+        <!-- Sidebar — see Pattern: Sidebar -->
       </aside>
 
       <article corp-card variant="no-shadows" class="u-m-block-32 is-flex-1" size="xs">

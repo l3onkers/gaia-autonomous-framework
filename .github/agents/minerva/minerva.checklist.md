@@ -16,7 +16,7 @@ Quality and determinism checklist for `minerva` agent outputs.
 ## B. Evidence Discipline
 - [ ] Every finding has explicit evidence
 - [ ] Evidence includes file path + anchor (line / structural / content per agent rules)
-- [ ] Findings table `Evidence` cells use a consistent format: `<path>:<line_start>-<line_end> â€” <what this proves>` (or approved anchor format)
+- [ ] Findings table `Evidence` cells use a consistent format: `<path>:<line_start>-<line_end> — <what this proves>` (or approved anchor format)
 - [ ] No fabricated files or tools
 - [ ] Missing-evidence fields use only canonical tokens: `TBD` / `Unknown`
 - [ ] Custom placeholder variants such as `TBD (no explicit evidence found)` are not used

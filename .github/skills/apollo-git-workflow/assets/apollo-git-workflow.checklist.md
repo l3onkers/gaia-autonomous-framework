@@ -4,7 +4,7 @@
 - [ ] Branch was created from the correct base branch (not committed directly to `main`).
 - [ ] Branch name matches `^(feat|fix|hotfix|docs|chore)/[a-z0-9][a-z0-9-]*$`.
 - [ ] Branch name validated with `./scripts/validate-branch-name.sh` (exit 0).
-- [ ] Branch prefix matches the change-type mapping in `./references/branch-prefix-mapping.md` (e.g., `refactor` â†’ `feat/`, not `refactor/`).
+- [ ] Branch prefix matches the change-type mapping in `./references/branch-prefix-mapping.md` (e.g., `refactor` → `feat/`, not `refactor/`).
 - [ ] Branch scope is focused to one logical change.
 
 ## Commit
@@ -13,7 +13,7 @@
 - [ ] Scope, if present, is one of: `data`, `features`, `validation`, `metrics`, `modeling`, `io`, `ci`, `minerva`.
 - [ ] Scope is omitted (not guessed) when not clearly evident from context.
 - [ ] Breaking changes include `BREAKING CHANGE:` in commit body or footer (subject-line `!` alone is insufficient).
-- [ ] Commit type is from the allowed set â€” no `style`, `perf`, `hephaestus`, or `ci` types (see `./references/gotchas.md`).
+- [ ] Commit type is from the allowed set — no `style`, `perf`, `hephaestus`, or `ci` types (see `./references/gotchas.md`).
 
 ## Pull Request
 - [ ] PR body contains a **Problem Statement** section.

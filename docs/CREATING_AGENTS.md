@@ -12,14 +12,14 @@
 ## When to Create an Agent
 
 Create a new agent when:
-- âœ… You need a **new callable coordinator** for a distinct workflow family
-- âœ… The workflow requires **routing to multiple skills**
-- âœ… You want **wrapper-level validation** across the skills it delegates to
+- ✅ You need a **new callable coordinator** for a distinct workflow family
+- ✅ The workflow requires **routing to multiple skills**
+- ✅ You want **wrapper-level validation** across the skills it delegates to
 
 Don't create an agent when:
-- âŒ A skill would suffice (prefer skills for single-task behavior)
-- âŒ An existing agent already covers the workflow
-- âŒ You just need to add a template or checklist (add it to an existing skill instead)
+- ❌ A skill would suffice (prefer skills for single-task behavior)
+- ❌ An existing agent already covers the workflow
+- ❌ You just need to add a template or checklist (add it to an existing skill instead)
 
 ---
 
@@ -60,10 +60,10 @@ If you prefer to create the agent manually, follow this structure:
 
 ```
 .github/agents/
-â”œâ”€â”€ {name}.agent.md           # Entry point
-â””â”€â”€ {name}/                   # Companion directory
-    â”œâ”€â”€ {name}.tpl.md          # Detailed template
-    â””â”€â”€ {name}.checklist.md    # Validation checklist
+├── {name}.agent.md           # Entry point
+└── {name}/                   # Companion directory
+    ├── {name}.tpl.md          # Detailed template
+    └── {name}.checklist.md    # Validation checklist
 ```
 
 ### Agent Entry Point Template
@@ -102,10 +102,10 @@ Determinism Strategy: Hybrid
 
 ### Key Rules
 
-1. **YAML Front Matter** â€” Must include `name`, `target`, and `description`
-2. **Exactly 7 sections** â€” In the order shown above
-3. **Determinism Strategy** â€” Must be `Hybrid` on the first non-empty line of Section 4
-4. **Keep it thin** â€” Detailed rules go in the companion `.tpl.md`, not in the agent itself
+1. **YAML Front Matter** — Must include `name`, `target`, and `description`
+2. **Exactly 7 sections** — In the order shown above
+3. **Determinism Strategy** — Must be `Hybrid` on the first non-empty line of Section 4
+4. **Keep it thin** — Detailed rules go in the companion `.tpl.md`, not in the agent itself
 
 ---
 

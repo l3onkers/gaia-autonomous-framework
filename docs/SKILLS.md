@@ -11,10 +11,10 @@ This policy applies to new skills and new families; it does not force a migratio
 ## How Skills Work
 
 Skills are the **workhorses** of the framework. While agents are thin routers, skills contain:
-- **Templates** (`.tpl.md`) â€” Detailed rules, code examples, and generation logic
-- **Checklists** (`.checklist.md`) â€” Validation criteria the output must satisfy
-- **References** â€” Documentation, contracts, and examples
-- **Scripts** â€” Validation and generation helper scripts
+- **Templates** (`.tpl.md`) — Detailed rules, code examples, and generation logic
+- **Checklists** (`.checklist.md`) — Validation criteria the output must satisfy
+- **References** — Documentation, contracts, and examples
+- **Scripts** — Validation and generation helper scripts
 
 Each skill has a `SKILL.md` manifest that declares its purpose, inputs, outputs, and owned assets.
 
@@ -72,9 +72,9 @@ These skills are routed by the `eleuthia` agent. Each defines a complete .NET pr
   - HTTP interceptors (error handling, API key, session, token)
   - Environment configuration with file replacement
 - **Key assets:**
-  - `eleuthia-ng-spa.tpl.md` â€” SPA profile rules and structure
-  - `eleuthia-ng-spa.login.tpl.md` â€” SSO login generation template
-  - `eleuthia-ng-spa.checklist.md` â€” Validation checklist
+  - `eleuthia-ng-spa.tpl.md` — SPA profile rules and structure
+  - `eleuthia-ng-spa.login.tpl.md` — SSO login generation template
+  - `eleuthia-ng-spa.checklist.md` — Validation checklist
 
 ---
 
@@ -156,7 +156,7 @@ These skills are routed by the `eleuthia` agent and execute in dependency order.
 - **Used by:** `minerva`
 - **What it does:** Generates minimal, governed fix proposals with an explicit approval gate
 - **Output:** `SECURITY_PATCH.md` with Apply / Reject / Modify options
-- **Important:** Patches are never applied automatically â€” human approval is always required
+- **Important:** Patches are never applied automatically — human approval is always required
 
 ### `pr-minerva-review`
 - **Path:** `.github/skills/pr-minerva-review/`
@@ -185,8 +185,8 @@ These skills are routed by the `eleuthia` agent and execute in dependency order.
 - **Used by:** `apollo`
 - **What it does:** Generates or refreshes README.md using bundled template assets
 - **Templates:**
-  - `README.generic.tpl.md` â€” General-purpose fallback
-  - `README.agents.tpl.md` â€” Specialized for agent-based repositories
+  - `README.generic.tpl.md` — General-purpose fallback
+  - `README.agents.tpl.md` — Specialized for agent-based repositories
 
 ### `apollo-markdown`
 - **Path:** `.github/skills/apollo-markdown/`

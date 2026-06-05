@@ -1,4 +1,4 @@
-﻿# Gotchas â€” Git Workflow
+﻿# Gotchas — Git Workflow
 
 Common failure points when using this skill. Read this before creating branches, commits, or PRs.
 
@@ -14,10 +14,10 @@ Common failure points when using this skill. Read this before creating branches,
 
 ### Mapping table is not 1:1
 Branch prefixes and commit types are **not** the same set. The mapping has deliberate merges:
-- `feat` and `refactor` â†’ `feat/`
-- `fix` â†’ `fix/`
-- `docs` â†’ `docs/`
-- `chore` and `test` â†’ `chore/`
+- `feat` and `refactor` → `feat/`
+- `fix` → `fix/`
+- `docs` → `docs/`
+- `chore` and `test` → `chore/`
 
 Always check `references/branch-prefix-mapping.md` when uncertain.
 
@@ -34,7 +34,7 @@ Branch names must be **lowercase kebab-case** after the prefix. Underscores, cam
 ### Guessing the scope when unsure
 If the scope is not clearly evident from the staged changes, **omit the parenthetical entirely**. Do not guess.
 
-**Wrong:** `feat(misc): add retry logic` â€” `misc` is not an allowed scope
+**Wrong:** `feat(misc): add retry logic` — `misc` is not an allowed scope
 **Right:** `feat: add retry logic`
 
 ### Forgetting BREAKING CHANGE footer
@@ -54,10 +54,10 @@ BREAKING CHANGE: The /users endpoint now returns an array instead of an object w
 
 ### Using disallowed commit types
 Only these types are allowed: `feat`, `fix`, `docs`, `chore`, `refactor`, `test`. Common mistakes:
-- `style` â†’ use `chore`
-- `perf` â†’ use `feat` or `refactor`
-- `hephaestus` â†’ use `chore`
-- `ci` â†’ use `chore`
+- `style` → use `chore`
+- `perf` → use `feat` or `refactor`
+- `hephaestus` → use `chore`
+- `ci` → use `chore`
 
 ---
 

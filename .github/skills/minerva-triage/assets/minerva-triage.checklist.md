@@ -45,7 +45,7 @@ Quality and determinism checklist for `minerva-triage` agent outputs.
 - [ ] Priority matrix is present and complete
 - [ ] Counts match the actual number of findings per severity
 - [ ] Finding IDs in the matrix match findings in the inventory
-- [ ] Matrix is ordered: Critical â†’ High â†’ Medium â†’ Low â†’ Info
+- [ ] Matrix is ordered: Critical → High → Medium → Low → Info
 
 ---
 
