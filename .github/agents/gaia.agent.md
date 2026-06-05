@@ -1,5 +1,5 @@
 ---
-name: triage
+name: gaia
 target: vscode
 description: generalist routing coordinator that indexes callable agents and directly invocable skills, emits a bounded triage plan, and optionally executes the selected invocation chain without loading the whole repository context at once.
 ---

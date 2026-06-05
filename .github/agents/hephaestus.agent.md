@@ -1,10 +1,10 @@
 ---
-name: build
+name: hephaestus
 target: vscode
 description: coordinates governed bundle authoring and bounded governance updates by resolving the smallest required combination of reusable build skills, neutral governance assets, and validation resources.
 ---
 
-# Build Agent Specification (v4.0.0)
+# HEPHAESTUS agent Specification (v4.0.0)
 
 ## 1. Objective
 

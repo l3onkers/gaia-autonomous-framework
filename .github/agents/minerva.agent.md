@@ -1,5 +1,5 @@
 ---
-name: security
+name: minerva
 target: vscode
 description: deterministic security coordinator that routes security requests to specialized skills, retaining static audit capability and enforcing evidence-based, human-approved security governance.
 ---
