@@ -1,4 +1,4 @@
-# Creating Custom Agents
+﻿# Creating Custom Agents
 
 > Step-by-step guide to creating your own agent in the Copilot Governance Framework.
 
@@ -12,14 +12,14 @@
 ## When to Create an Agent
 
 Create a new agent when:
-- ✅ You need a **new callable coordinator** for a distinct workflow family
-- ✅ The workflow requires **routing to multiple skills**
-- ✅ You want **wrapper-level validation** across the skills it delegates to
+- âœ… You need a **new callable coordinator** for a distinct workflow family
+- âœ… The workflow requires **routing to multiple skills**
+- âœ… You want **wrapper-level validation** across the skills it delegates to
 
 Don't create an agent when:
-- ❌ A skill would suffice (prefer skills for single-task behavior)
-- ❌ An existing agent already covers the workflow
-- ❌ You just need to add a template or checklist (add it to an existing skill instead)
+- âŒ A skill would suffice (prefer skills for single-task behavior)
+- âŒ An existing agent already covers the workflow
+- âŒ You just need to add a template or checklist (add it to an existing skill instead)
 
 ---
 
@@ -37,7 +37,7 @@ Answer these questions:
 
 ---
 
-## Step 2: Use the Build Agent (Recommended)
+## Step 2: Use the hephaestus agent (Recommended)
 
 The fastest way to create a new agent:
 
@@ -45,10 +45,10 @@ The fastest way to create a new agent:
 @workspace Use build to create a new governed agent bundle for data pipeline orchestration.
 ```
 
-The `build` agent will:
+The `hephaestus` agent will:
 1. Load the canonical scaffold from `.github/governance/bundles/agent/AGENT.base.tpl.md`
 2. Generate your agent entry point and companion files
-3. Validate the result through `supervise-agent`
+3. Validate the result through `apollo-supervise-agent`
 
 ---
 
@@ -60,10 +60,10 @@ If you prefer to create the agent manually, follow this structure:
 
 ```
 .github/agents/
-├── {name}.agent.md           # Entry point
-└── {name}/                   # Companion directory
-    ├── {name}.tpl.md          # Detailed template
-    └── {name}.checklist.md    # Validation checklist
+â”œâ”€â”€ {name}.agent.md           # Entry point
+â””â”€â”€ {name}/                   # Companion directory
+    â”œâ”€â”€ {name}.tpl.md          # Detailed template
+    â””â”€â”€ {name}.checklist.md    # Validation checklist
 ```
 
 ### Agent Entry Point Template
@@ -102,10 +102,10 @@ Determinism Strategy: Hybrid
 
 ### Key Rules
 
-1. **YAML Front Matter** — Must include `name`, `target`, and `description`
-2. **Exactly 7 sections** — In the order shown above
-3. **Determinism Strategy** — Must be `Hybrid` on the first non-empty line of Section 4
-4. **Keep it thin** — Detailed rules go in the companion `.tpl.md`, not in the agent itself
+1. **YAML Front Matter** â€” Must include `name`, `target`, and `description`
+2. **Exactly 7 sections** â€” In the order shown above
+3. **Determinism Strategy** â€” Must be `Hybrid` on the first non-empty line of Section 4
+4. **Keep it thin** â€” Detailed rules go in the companion `.tpl.md`, not in the agent itself
 
 ---
 
@@ -170,13 +170,14 @@ The checklist is used for validation:
 
 ## Step 5: Register the Agent
 
-1. Add the agent to `.github/AGENT.md`:
+1. Add the agent to [`.github/AGENT.md`](../.github/AGENT.md):
 
 ```markdown
 | `{name}` | `.github/agents/{name}.agent.md` | {When to use} |
 ```
 
-2. Update the triage agent (`.github/agents/triage.agent.md`) to include routing rules for your new agent.
+2. Update the triage agent ([`.github/agents/gaia.agent.md`](../.github/agents/gaia.agent.md)) to include routing rules for your new agent.
+3. If the agent has companion assets, keep them inside `.github/agents/{name}/` and keep the basename identical to the entrypoint.
 
 ---
 
@@ -198,7 +199,13 @@ This will check your agent against the canonical scaffold and report any complia
 
 | Agent | Complexity | Good example of |
 |-------|-----------|----------------|
-| `build` | Simple | Routing to 2 skills |
-| `ng-build` | Medium | Single profile with UI governance |
-| `py-build` | Complex | Dependency graph resolution |
-| `security` | Complex | Multiple specialized skill routes |
+| `gaia` | Simple | Core routing and deterministic triage |
+| `hephaestus` | Medium | Bundle authoring and governance scaffolding |
+| `eleuthia` | Complex | Multi-profile scaffolding and companion asset resolution |
+| `minerva` | Complex | Security triage and specialized skill routing |
+
+## Agent Authoring Policy
+
+- Treat the 7-section structure as the canonical specification for new and refactored agents.
+- Keep the entrypoint thin; move detailed rules into the companion template and checklist.
+- Do not introduce aliases or alternate agent names in the docs unless the repository actually ships them.

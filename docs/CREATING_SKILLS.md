@@ -1,4 +1,4 @@
-# Creating Custom Skills
+﻿# Creating Custom Skills
 
 > Step-by-step guide to creating your own skill in the Copilot Governance Framework.
 
@@ -12,15 +12,15 @@
 ## When to Create a Skill
 
 Create a new skill when:
-- ✅ You need **reusable task-specific behavior** that an agent can delegate to
-- ✅ The task has **clear inputs and outputs**
-- ✅ You want to **own templates, checklists, and validation** for a specific domain
-- ✅ The behavior should be **independently testable and evolvable**
+- âœ… You need **reusable task-specific behavior** that an agent can delegate to
+- âœ… The task has **clear inputs and outputs**
+- âœ… You want to **own templates, checklists, and validation** for a specific domain
+- âœ… The behavior should be **independently testable and evolvable**
 
 Don't create a skill when:
-- ❌ An existing skill already covers the use case
-- ❌ You need wrapper-level routing across multiple skills (create an agent instead)
-- ❌ It's a shared scaffold that belongs in governance (put it in `.github/governance/`)
+- âŒ An existing skill already covers the use case
+- âŒ You need wrapper-level routing across multiple skills (create an agent instead)
+- âŒ It's a shared scaffold that belongs in governance (put it in `.github/governance/`)
 
 ---
 
@@ -36,9 +36,17 @@ Answer these questions:
 | What files does it produce? | `main.tf`, `variables.tf`, `outputs.tf`, `README.md` |
 | What validation criteria apply? | Terraform fmt, plan succeeds, no hardcoded values |
 
+### Frontend Default Policy
+
+If the skill creates a new frontend capability, prefer React first unless the repository or organization explicitly requires a different governed stack.
+
+- React first means React + TypeScript + a documented design-system path by default.
+- Angular remains valid for existing governed Angular families.
+- Do not silently switch frontend stack choices inside the skill; make the stack explicit in the manifest and output contract.
+
 ---
 
-## Step 2: Use the Build Agent (Recommended)
+## Step 2: Use the hephaestus agent (Recommended)
 
 The fastest way to create a new skill:
 
@@ -46,11 +54,11 @@ The fastest way to create a new skill:
 @workspace Use build to create a new governed skill bundle for Terraform module scaffolding.
 ```
 
-The `build` agent will:
+The `hephaestus` agent will:
 1. Load the canonical scaffold from `.github/governance/bundles/skill/SKILL.base.tpl.md`
 2. Reference the block catalog from `.github/governance/bundles/skill/SKILL.block-catalog.md`
 3. Generate your skill manifest and companion files
-4. Validate the result through `supervise-skill`
+4. Validate the result through `apollo-supervise-skill`
 
 ---
 
@@ -60,15 +68,15 @@ The `build` agent will:
 
 ```
 .github/skills/{skill-name}/
-├── SKILL.md                          # Skill manifest
-├── assets/
-│   ├── {skill-name}.tpl.md           # Generation template
-│   ├── {skill-name}.checklist.md     # Validation checklist
-│   └── ...                           # Additional templates
-├── references/                        # Reference docs (optional)
-│   └── ...
-└── scripts/                           # Helper scripts (optional)
-    └── ...
+â”œâ”€â”€ SKILL.md                          # Skill manifest
+â”œâ”€â”€ assets/
+â”‚   â”œâ”€â”€ {skill-name}.tpl.md           # Generation template
+â”‚   â”œâ”€â”€ {skill-name}.checklist.md     # Validation checklist
+â”‚   â””â”€â”€ ...                           # Additional templates
+â”œâ”€â”€ references/                        # Reference docs (optional)
+â”‚   â””â”€â”€ ...
+â””â”€â”€ scripts/                           # Helper scripts (optional)
+    â””â”€â”€ ...
 ```
 
 ### Skill Manifest Template
@@ -88,12 +96,12 @@ Create `.github/skills/{skill-name}/SKILL.md`:
 - {What format the output takes}
 
 ## Owned Assets
-- `assets/{skill-name}.tpl.md` — {description}
-- `assets/{skill-name}.checklist.md` — {description}
+- `assets/{skill-name}.tpl.md` â€” {description}
+- `assets/{skill-name}.checklist.md` â€” {description}
 
 ## Used By
-- `{agent-name}` — {how the agent routes to this skill}
-- Direct invocation — {when and how}
+- `{agent-name}` â€” {how the agent routes to this skill}
+- Direct invocation â€” {when and how}
 
 ## Applicability
 - Applies to: {when this skill should be used}
@@ -133,10 +141,18 @@ The template (`.tpl.md`) contains the actual generation logic:
 
 ### Tips for Good Templates
 
-1. **Be specific** — Include actual code examples, not just descriptions
-2. **Use placeholders** — `{variable-name}` for user-provided values
-3. **Include anti-patterns** — Show what NOT to do
-4. **Add a completion checklist** — Makes validation deterministic
+1. **Be specific** â€” Include actual code examples, not just descriptions
+2. **Use placeholders** â€” `{variable-name}` for user-provided values
+3. **Include anti-patterns** â€” Show what NOT to do
+4. **Add a completion checklist** â€” Makes validation deterministic
+
+### Frontend Skills Guidance
+
+For frontend-oriented skills, document the stack choice as part of the contract:
+
+- Default to React first for new families.
+- Only use Angular when the request or governed stack clearly requires it.
+- Include the UI library, routing model, state strategy, and test strategy in the owned template.
 
 ---
 
@@ -171,9 +187,9 @@ The checklist (`.checklist.md`) defines validation criteria:
 
 If your skill should be routed by an agent:
 
-1. **Edit the agent's `agent.md`** — Add the skill to the supported skill catalog
-2. **Add routing rules** — Define how the agent selects your skill
-3. **Update the agent's checklist** — Add validation for your skill's outputs
+1. **Edit the agent's `agent.md`** â€” Add the skill to the supported skill catalog
+2. **Add routing rules** â€” Define how the agent selects your skill
+3. **Update the agent's checklist** â€” Add validation for your skill's outputs
 
 If the skill is standalone (directly invocable):
 1. **Document it** in the README
@@ -193,45 +209,45 @@ Run the supervisor to check compliance:
 
 ## Skill Patterns
 
-### Pattern 1: Profile Skill (routed by a build agent)
+### Pattern 1: Profile Skill (routed by a hephaestus agent)
 
-Used by `net-build`, `ng-build` — one profile per run.
+Used by `eleuthia`, `eleuthia` â€” one profile per run.
 
 ```
-Agent resolves profile → loads one profile skill → skill generates scaffold
+Agent resolves profile â†’ loads one profile skill â†’ skill generates scaffold
 ```
 
-**Examples:** `net-setup-api`, `ng-setup-spa`
+**Examples:** `eleuthia-net-api`, `eleuthia-ng-spa`
 
 ### Pattern 2: Layer Skill (composable, dependency-ordered)
 
-Used by `py-build` — multiple layers per run in dependency order.
+Used by `eleuthia` â€” multiple layers per run in dependency order.
 
 ```
-Agent resolves layers → expands dependencies → executes skills in order
+Agent resolves layers â†’ expands dependencies â†’ executes skills in order
 ```
 
-**Examples:** `add-layer-py-environment`, `add-layer-py-api`
+**Examples:** `eleuthia-py-environment`, `eleuthia-py-api`
 
 ### Pattern 3: Specialist Skill (single-purpose)
 
-Used by `security`, `supervisor` — one specialized task.
+Used by `minerva`, `apollo` â€” one specialized task.
 
 ```
-Agent routes request type → specialist skill handles one concern
+Agent routes request type â†’ specialist skill handles one concern
 ```
 
-**Examples:** `security-review`, `supervise-agent`
+**Examples:** `minerva-review`, `apollo-supervise-agent`
 
 ### Pattern 4: Reference Skill (provides data, not output)
 
-Used by `ng-build` for UI composition — consulted but doesn't produce files.
+Used by `eleuthia` for UI composition â€” consulted but doesn't produce files.
 
 ```
-Agent loads references → skill provides component/layout/style data → agent uses in output
+Agent loads references â†’ skill provides component/layout/style data â†’ agent uses in output
 ```
 
-**Examples:** `components-catalog`, `mockup-layouts`, `global-styles`
+**Examples:** `eleuthia-ui-components`, `eleuthia-ui-mockups`, `eleuthia-ui-styles`
 
 ---
 
@@ -240,5 +256,5 @@ Agent loads references → skill provides component/layout/style data → agent 
 - [ ] `SKILL.md` follows the governance structure
 - [ ] Template includes complete generation rules
 - [ ] Checklist covers structure, quality, and safety
-- [ ] Skill has been validated through `supervise-skill`
+- [ ] Skill has been validated through `apollo-supervise-skill`
 - [ ] Documentation is updated (README, AGENTS.md if agent-routed)

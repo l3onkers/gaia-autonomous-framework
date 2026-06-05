@@ -1,28 +1,37 @@
-# 🤖 Copilot Governance Framework
+﻿<p align="center">
+  <img src="docs/assets/gaia-banner.png" alt="G.A.I.A. Autonomous Platform Engineering Framework - Live Interface" width="100%">
+</p>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![GitHub Copilot](https://img.shields.io/badge/GitHub%20Copilot-Ready-8957e5?logo=github)](https://github.com/features/copilot)
-[![.NET](https://img.shields.io/badge/.NET-8+-512BD4?logo=dotnet)](https://dotnet.microsoft.com/)
-[![Angular](https://img.shields.io/badge/Angular-21+-DD0031?logo=angular)](https://angular.io/)
-[![Python](https://img.shields.io/badge/Python-3.12+-3776AB?logo=python)](https://www.python.org/)
+<h1 align="center">G.A.I.A.</h1>
+<h3 align="center">Governance through Autonomous Infrastructure Agents</h3>
+<p align="center"><i>The Autonomous Platform Engineering & Development Framework</i></p>
 
-> **A production-ready framework of AI agents, reusable skills, and governance templates for orchestrating deterministic GitHub Copilot workflows at enterprise scale.**
+<p align="center">
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
+  </a>
+  <a href="https://github.com/features/copilot">
+    <img src="https://img.shields.io/badge/GitHub%20Copilot-Ready-8957e5?logo=github" alt="GitHub Copilot">
+  </a>
+</p>
 
-Turn your GitHub Copilot into a governed, repeatable development workflow engine — not just a code completion tool.
+> **An autonomous agent swarm for Platform Engineering, DevOps, and Code Scaffolding, inspired by Horizon Zero Dawn.**
+
+Turn your GitHub Copilot into a deterministic, self-governed orchestration engine that covers the entire software lifecycle: from infrastructure forging to observability and application deployment.
 
 ---
 
-## ✨ Why This Framework?
+## ✨ Why this Framework?
 
-Most teams use GitHub Copilot for ad-hoc code suggestions. This framework takes it further:
+The GAIA (Global Autonomous Infrastructure Architecture) ecosystem abandons monolithic workflows to adopt an *Event-Driven* and *Zero Trust* swarm architecture.
 
-| Problem | Solution |
+| Problem | GAIA Solution |
 |---------|----------|
-| Copilot gives inconsistent outputs across team members | **Deterministic agents** ensure the same request produces the same governed result |
-| No standard scaffolding for new projects | **Stack-specific build agents** (Angular, .NET, Python) enforce architecture standards |
-| Security reviews are manual and inconsistent | **Security ecosystem** with 6 specialized skills automates audits, reviews, and patches |
-| Documentation drifts from reality | **Documentation agents** regenerate README and export artifacts from live repo state |
-| New team members don't know where to start | **Triage agent** routes any request to the right workflow automatically |
+| Complex requests lack context | **GAIA Core** intelligently routes the user's intent to specialized sub-routines. |
+| Inconsistent project scaffolding | **ELEUTHIA** standardizes application scaffolding (.NET, Angular, Python). |
+| Manual and fragile infrastructure | **DEMETER** and **HEPHAESTUS** forge pipelines and clusters using IaC (Terraform, K8s). |
+| Reactive and monolithic security | **MINERVA** enforces dynamic audits and secret management with a Zero Trust approach. |
+| Knowledge decay | **APOLLO** generates ADRs, Runbooks, and keeps observability alive. |
 
 ---
 
@@ -31,145 +40,75 @@ Most teams use GitHub Copilot for ad-hoc code suggestions. This framework takes 
 ```mermaid
 graph TB
     subgraph "Entry Layer"
-        U[User Request] --> T[Triage Agent]
-        U --> D[Direct Agent Call]
+        U[User Request] --> G[GAIA Core Router]
+        U --> D[Direct Subroutine Call]
     end
 
-    subgraph "Coordinators — Thin Routing Agents"
-        T --> BUILD[build]
-        T --> DOC[documentator]
-        T --> NB[net-build]
-        T --> NGB[ng-build]
-        T --> PYB[py-build]
-        T --> SEC[security]
-        T --> SUP[supervisor]
-        D --> BUILD
-        D --> DOC
-        D --> NB
-        D --> NGB
-        D --> PYB
-        D --> SEC
-        D --> SUP
+    subgraph "Sub-routines (Autonomous Agents)"
+        G --> HEPH[HEPHAESTUS]
+        G --> MIN[MINERVA]
+        G --> ELEU[ELEUTHIA]
+        G --> APO[APOLLO]
+        G --> DEM[DEMETER]
+        G --> AET[AETHER]
+        G --> HAD[HADES]
+        G --> POS[POSEIDON]
+        G --> ART[ARTEMIS]
     end
 
-    subgraph "Skills Layer — Owned Behavior"
-        BUILD --> BA[build-agent]
-        BUILD --> BS[build-skill]
-        DOC --> CR[create-or-update-readme]
-        DOC --> MC[markdown-converter]
-        NB --> NS[net-setup-*]
-        NGB --> NGS[ng-setup-spa]
-        PYB --> PYL[add-layer-py-*]
-        SEC --> SR[security-review]
-        SEC --> ST[security-triage]
-        SEC --> SP[security-patch]
-        SUP --> SA[supervise-agent]
-        SUP --> SS[supervise-skill]
+    subgraph "Skills Layer — Owned Behaviors"
+        HEPH --> CI[Pipelines & CI/CD]
+        MIN --> SEC[SecOps & IAM]
+        ELEU --> SCAF[Scaffolding & Code Generation]
+        APO --> DOC[Docs & Observability]
+        DEM --> IAC[Terraform AWS/Azure/OnPrem]
+        AET --> NET[Istio, Gateways, DNS]
+        HAD --> ROL[Chaos Mesh, Rollbacks]
+        POS --> DAT[RDS, Flyway, Backups]
+        ART --> QA[Load Testing & E2E]
     end
 
     subgraph "Governance — Shared Standards"
-        BA --> GOV[governance/bundles]
-        BS --> GOV
-        SA --> GOV
-        SS --> GOV
-        NGS --> MOD[governance/modules]
+        CI -.-> GOV[Zero Trust Rules & Core Standards]
+        SEC -.-> GOV
+        SCAF -.-> GOV
+        DOC -.-> GOV
+        IAC -.-> GOV
+        NET -.-> GOV
+        ROL -.-> GOV
+        DAT -.-> GOV
+        QA -.-> GOV
     end
 
     style U fill:#4CAF50,color:#fff
-    style T fill:#FF9800,color:#fff
-    style BUILD fill:#2196F3,color:#fff
-    style DOC fill:#2196F3,color:#fff
-    style NB fill:#2196F3,color:#fff
-    style NGB fill:#2196F3,color:#fff
-    style PYB fill:#2196F3,color:#fff
-    style SEC fill:#2196F3,color:#fff
-    style SUP fill:#2196F3,color:#fff
-    style GOV fill:#9C27B0,color:#fff
-    style MOD fill:#9C27B0,color:#fff
+    style G fill:#FF9800,color:#fff
+    style HEPH fill:#2196F3,color:#fff
+    style MIN fill:#E91E63,color:#fff
+    style ELEU fill:#9C27B0,color:#fff
+    style APO fill:#03A9F4,color:#fff
+    style DEM fill:#4CAF50,color:#fff
+    style AET fill:#00BCD4,color:#fff
+    style HAD fill:#F44336,color:#fff
+    style POS fill:#3F51B5,color:#fff
+    style ART fill:#8BC34A,color:#fff
 ```
 
-**Core design principle:** Agents are *thin routers* — they resolve one bounded path and delegate all detail to the owning skill. Skills own templates, checklists, validation, and generation logic.
+## 📋 Sub-routine Catalog
 
----
+| Sub-routine | Ecosystem Role | Purpose & Capabilities |
+|-----------|-----------------------|-------------------------|
+| 🌍 **GAIA** | Core Orchestrator | Routes user requests to the appropriate sub-routine based on context and state. |
+| 🔨 **HEPHAESTUS**| Forge & CI/CD | Builds containers, pipelines, registries, and scaffolds the framework itself without placeholders. |
+| 🛡️ **MINERVA** | DevSecOps & Zero Trust| Vulnerability scanning, auditing, automatic remediation, and secret management. |
+| 📚 **APOLLO** | Knowledge & Observability | Living Runbooks, ADRs, dashboard configuration, and compliance review enforcement. |
+| 🧬 **ELEUTHIA** | Code Scaffolding | Bootstrapping applications from scratch (.NET, Angular, Python). |
+| 🌱 **DEMETER** | IaC & Provisioning | Baseline infrastructure deployment with Terraform across AWS, Azure, and On-Premise. GitOps sync. |
+| 🌪️ **AETHER** | Networking | Service Mesh (Istio), API Gateways, ALB Ingress Controllers, DNS, WAF. |
+| 💀 **HADES** | Chaos & Destruction | Teardown of ephemeral environments, disaster simulations (Chaos Mesh, AWS FIS), automatic rollbacks. |
+| 🌊 **POSEIDON** | Data & Storage | Persistent volume management, database schema migrations (Flyway), automated backups. |
+| 🏹 **ARTEMIS** | Quality Assurance (QA) | Bug hunting, E2E test integration (Playwright), load testing (k6). |
 
-## 📋 Agent Catalog
-
-| Agent | Purpose | Delegates To |
-|-------|---------|-------------|
-| 🔀 **triage** | Routes any request to the strongest matching agent | All agents below |
-| 🏗️ **build** | Authors new governed agent or skill bundles | `build-agent`, `build-skill` |
-| 📄 **documentator** | Generates or refreshes README and documentation | `create-or-update-readme`, `markdown-converter` |
-| 🟣 **net-build** | Orchestrates .NET project scaffolding (6 profiles) | `net-setup-api`, `net-setup-worker`, `net-setup-job`, etc. |
-| 🔴 **ng-build** | Orchestrates Angular SPA scaffolding | `ng-setup-spa` + design reference skills |
-| 🐍 **py-build** | Orchestrates Python project layers with dependency resolution | `add-layer-py-*` (7 layer skills) |
-| 🔒 **security** | Routes security audits, reviews, patches, and event-driven scans | 6 specialized security skills |
-| 👁️ **supervisor** | Reviews governed bundles for compliance | `supervise-agent`, `supervise-skill` |
-
-> 📖 **Full documentation:** [docs/AGENTS.md](docs/AGENTS.md)
-
----
-
-## 🛠️ Skills Catalog
-
-### Build & Setup (14 skills)
-
-| Skill | Stack | Description |
-|-------|-------|-------------|
-| `net-setup-api` | .NET | Standard REST API scaffold |
-| `net-setup-api-cqrs` | .NET | CQRS-pattern API scaffold |
-| `net-setup-api-modular` | .NET | Modular architecture API |
-
-| `net-setup-worker` | .NET | Background worker service |
-| `net-setup-job` | .NET | Scheduled job service |
-| `ng-setup-spa` | Angular | Single-page app with optional SSO login |
-| `add-layer-py-environment` | Python | Environment configuration and secrets management |
-| `add-layer-py-api` | Python | FastAPI application scaffold |
-| `add-layer-py-logger` | Python | Structured logging setup |
-| `add-layer-py-connectors` | Python | Database and SFTP connectors |
-| `add-layer-py-pytest` | Python | Test suite with pytest |
-| `add-layer-py-pytest-fastapi` | Python | FastAPI-specific test harness |
-| `add-layer-py-cicd` | Python | CI/CD pipeline configuration |
-
-### Security (6 skills)
-
-| Skill | Description |
-|-------|-------------|
-| `security-review` | Code-level vulnerability analysis |
-| `security-triage` | Prioritized security evidence triage |
-| `security-patch` | Minimal, governed fix proposals with approval gates |
-| `pr-security-review` | Automated PR security comments |
-| `commit-secret-scan` | Secret detection on pushed commits |
-| `dependency-security-check` | Dependency manifest vulnerability check |
-
-### Documentation & Governance (7 skills)
-
-| Skill | Description |
-|-------|-------------|
-| `create-or-update-readme` | Template-driven README generation |
-| `markdown-converter` | Pandoc-based export (HTML, PDF, DOCX, TeX, EPUB) |
-| `git-workflow` | Governed branch naming, commit formatting, PR bodies |
-| `build-agent` | Scaffolds new agent bundles from governance templates |
-| `build-skill` | Scaffolds new skill bundles from governance templates |
-| `supervise-agent` | Compliance review for agent bundles |
-| `supervise-skill` | Compliance review for skill bundles |
-
-### Design System (3 skills)
-
-| Skill | Description |
-|-------|-------------|
-| `components-catalog` | Corporate UI component reference library |
-| `mockup-layouts` | Governed page layout patterns |
-| `global-styles` | Utility classes and design tokens |
-
-### Infrastructure (3 skills)
-
-| Skill | Description |
-|-------|-------------|
-| `add-layer-py-frontend` | Python interactive frontend layer |
-| `add-layer-net-cicd` | .NET CI/CD pipeline layer |
-| `add-layer-local-postgre-db` | Local PostgreSQL with Docker Compose |
-
-> 📖 **Full documentation:** [docs/SKILLS.md](docs/SKILLS.md)
+> 📖 **Complete Documentation:** [docs/AGENTS.md](docs/AGENTS.md)
 
 ---
 
@@ -178,107 +117,42 @@ graph TB
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/l3onkers/copilot-governance-framework.git
-cd copilot-governance-framework
+git clone https://github.com/l3onkers/gaia-autonomous-framework.git
+cd gaia-autonomous-framework
 ```
 
 ### 2. Open in VS Code with GitHub Copilot
 
-The framework works through GitHub Copilot Chat. Open the repository in VS Code with Copilot enabled.
+The GAIA ecosystem operates through GitHub Copilot Chat. Open the repository in VS Code and ensure Copilot is active.
 
-### 3. Start with Triage
+### 3. Contact GAIA
 
-Don't know which agent to use? Ask the triage agent:
+Don't know which sub-routine to use? Ask GAIA:
 
-```
-@workspace Use triage to route my request: I need to scaffold a new Python API with database connectors.
-```
+`@workspace Use gaia to prepare the infrastructure and code for a new .NET microservice with a database.`
 
-The triage agent will automatically route your request to `py-build`, which will resolve the required layers (`environment` → `api` → `connectors`) in dependency order.
+GAIA will automatically route the request to **ELEUTHIA** for code generation, **HEPHAESTUS** for pipelines, and **POSEIDON** for the database schema.
 
-### 4. Or call an agent directly
+### 4. Direct Invocation
 
-```
-@workspace Use ng-build to scaffold a new Angular SPA called "my-dashboard" with SSO login.
-```
+If you know the exact sub-routine:
 
-> 📖 **Detailed guide:** [QUICKSTART.md](QUICKSTART.md)
+`@workspace Use minerva to run a security review and secret scan on the latest commits.`
 
----
+> 📖 **Detailed Guide:** [QUICKSTART.md](QUICKSTART.md)
 
-## 🎨 Customization
+## 📘 Governance Notes
 
-This framework is designed to be forked and adapted to your organization:
-
-| What to customize | How |
-|---|---|
-| **Company branding** | Replace `corp-*` prefixes and `Company.*` namespaces |
-| **UI components** | Swap the stub in `governance/modules/angular/` with your library |
-| **Tech stack versions** | Update version pins in `ng-build.tpl.md` and `net-build.tpl.md` |
-| **Add a new agent** | Use the `build` agent or follow [docs/CREATING_AGENTS.md](docs/CREATING_AGENTS.md) |
-| **Add a new skill** | Use the `build` agent or follow [docs/CREATING_SKILLS.md](docs/CREATING_SKILLS.md) |
-| **Package registry** | Update registry references in governance modules |
-
-> 📖 **Full guide:** [docs/CUSTOMIZATION.md](docs/CUSTOMIZATION.md)
-
----
-
-## 📁 Repository Structure
-
-```
-.github/
-├── AGENT.md                          # Routing guide — start here
-├── copilot-content-exclusion.yaml    # Content exclusion policy
-├── agents/                           # 8 callable coordinators
-│   ├── triage.agent.md
-│   ├── build.agent.md
-│   ├── documentator.agent.md
-│   ├── net-build.agent.md
-│   ├── ng-build.agent.md
-│   ├── py-build.agent.md
-│   ├── security.agent.md
-│   └── supervisor.agent.md
-├── skills/                           # 33 reusable governed skills
-│   ├── build-agent/
-│   ├── build-skill/
-│   ├── create-or-update-readme/
-│   ├── security-review/
-│   ├── net-setup-api/
-│   ├── ng-setup-spa/
-│   ├── add-layer-py-*/
-│   └── ...
-└── governance/                       # Shared standards & templates
-    ├── bundles/                      # Agent & skill scaffolds
-    └── modules/                      # Package fallbacks
-docs/                                 # Documentation
-├── ARCHITECTURE.md
-├── AGENTS.md
-├── SKILLS.md
-├── CUSTOMIZATION.md
-├── CREATING_AGENTS.md
-└── CREATING_SKILLS.md
-```
-
----
-
-## 📖 Documentation
-
-| Document | Description |
-|----------|-------------|
-| [Architecture](docs/ARCHITECTURE.md) | How the agent → skill → governance system works |
-| [Agent Catalog](docs/AGENTS.md) | Detailed guide for all 8 agents |
-| [Skills Catalog](docs/SKILLS.md) | Detailed guide for all 33 skills |
-| [Customization](docs/CUSTOMIZATION.md) | How to adapt the framework to your organization |
-| [Creating Agents](docs/CREATING_AGENTS.md) | Tutorial: build your own agent |
-| [Creating Skills](docs/CREATING_SKILLS.md) | Tutorial: build your own skill |
-| [Quick Start](QUICKSTART.md) | Get up and running in 5 minutes |
-| [Internal Reference](docs/INTERNAL_REFERENCE.md) | Full technical specification |
+- The canonical agent authoring contract lives in [docs/CREATING_AGENTS.md](docs/CREATING_AGENTS.md).
+- The canonical skill authoring contract lives in [docs/CREATING_SKILLS.md](docs/CREATING_SKILLS.md).
+- New frontend skills should default to React first unless an existing governed stack explicitly requires another framework.
+- Repository structure and documentation consistency are validated by the dedicated workflow in [.github/workflows/validate-gaia-structure.yml](.github/workflows/validate-gaia-structure.yml).
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting a pull request.
+Contributions are welcome! Please review [CONTRIBUTING.md](CONTRIBUTING.md) before submitting a pull request.
 
 ## 📄 License
 
@@ -287,11 +161,5 @@ This project is licensed under the MIT License — see [LICENSE](LICENSE) for de
 ## 👤 Author
 
 Created and maintained by **[l3onkers](https://github.com/l3onkers)**.
+Evolved into the GAIA Architecture.
 
-> This framework was built to demonstrate how enterprise-grade developer workflow automation can be achieved through governed AI agents — turning GitHub Copilot from a suggestion engine into a deterministic orchestration platform.
-
----
-
-<p align="center">
-  <sub>Built with ❤️ for the developer community</sub>
-</p>

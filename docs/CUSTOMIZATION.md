@@ -1,4 +1,4 @@
-# Customization Guide
+﻿# Customization Guide
 
 > How to adapt the Copilot Governance Framework to your organization.
 
@@ -24,10 +24,10 @@ The framework uses generic placeholders that you should replace:
 
 ### Where to change
 
-- `.github/agents/ng-build/ng-build.tpl.md` — Angular governance (prefixes, packages)
-- `.github/agents/net-build/net-build.tpl.md` — .NET governance (namespaces, packages)
-- `.github/skills/components-catalog/` — UI component definitions
-- `.github/skills/global-styles/` — Design tokens and color palette
+- `.github/agents/eleuthia/eleuthia-ng.tpl.md` â€” Angular governance (prefixes, packages)
+- `.github/agents/eleuthia/eleuthia-net.tpl.md` â€” .NET governance (namespaces, packages)
+- `.github/skills/eleuthia-ui-components/` â€” UI component definitions
+- `.github/skills/eleuthia-ui-styles/` â€” Design tokens and color palette
 
 ---
 
@@ -40,18 +40,18 @@ The proprietary component library has been removed and replaced with a stub. The
 ### Option A: Use a public library
 
 Replace references to `@corp/ui-components` with:
-- **Angular Material** — `@angular/material`
-- **PrimeNG** — `primeng`
+- **Angular Material** â€” `@angular/material`
+- **PrimeNG** â€” `primeng`
 - **Any other Angular component library**
 
-Update the component selectors in `components-catalog/` to match your chosen library.
+Update the component selectors in `eleuthia-ui-components/` to match your chosen library.
 
 ### Option B: Build your own
 
 1. Create your component library
 2. Pack it as a tarball: `npm pack`
 3. Place it in `.github/governance/modules/angular/`
-4. Update references in `ng-build.tpl.md`
+4. Update references in `eleuthia-ng.tpl.md`
 
 See `.github/governance/modules/angular/README.md` for detailed instructions.
 
@@ -61,22 +61,33 @@ See `.github/governance/modules/angular/README.md` for detailed instructions.
 
 ### Angular
 
-Edit `.github/agents/ng-build/ng-build.tpl.md`:
+Edit `.github/agents/eleuthia/eleuthia-ng.tpl.md`:
 - Angular version pins (currently `~21.1.x`)
 - Node.js version (currently `^22.12.0 || >=24.0.0`)
 - TypeScript version
 - Approved package list
 
+### React-first frontend default
+
+For new frontend capabilities, prefer adding a React-based governed skill family first. Only keep Angular as the default when the target organization has already standardized on Angular or the request explicitly extends the current Angular stack.
+
+When you introduce a React family, document the same governance points used elsewhere in the repository:
+
+- Framework version pin
+- Approved UI library
+- Routing and state conventions
+- Testing and validation path
+
 ### .NET
 
-Edit `.github/agents/net-build/net-build.tpl.md` and profile-specific skills:
+Edit `.github/agents/eleuthia/eleuthia-net.tpl.md` and profile-specific skills:
 - .NET version (currently `8+`)
 - NuGet package versions
 - Architecture patterns
 
 ### Python
 
-Edit `.github/agents/py-build/py-build.tpl.md` and layer skills:
+Edit `.github/agents/eleuthia/eleuthia-py.tpl.md` and layer skills:
 - Python version (currently `3.12+`)
 - Package versions (FastAPI, pytest, etc.)
 - Virtual environment strategy
@@ -90,18 +101,18 @@ The framework references a generic "package registry" for private packages. To c
 ### npm (Angular)
 
 1. Edit `.github/governance/modules/README.md`
-2. Update registry URL in `ng-build.tpl.md`
+2. Update registry URL in `eleuthia-ng.tpl.md`
 3. Optionally configure `.npmrc` in your generated projects
 
 ### NuGet (.NET)
 
-1. Update NuGet source references in `net-build.tpl.md`
+1. Update NuGet source references in `eleuthia-net.tpl.md`
 2. Update package names in profile skill templates
 
 ### PyPI (Python)
 
 1. Update pip index references in layer skill templates
-2. Configure private index in `add-layer-py-environment` assets
+2. Configure private index in `eleuthia-py-environment` assets
 
 ---
 
@@ -113,7 +124,7 @@ Edit `.github/copilot-content-exclusion.yaml` to define which files/directories 
 
 ### Secret Scanning Patterns
 
-Edit `.github/skills/commit-secret-scan/` to add or modify secret detection patterns specific to your organization.
+Edit `.github/skills/minerva-secret-scan/` to add or modify secret detection patterns specific to your organization.
 
 ---
 
@@ -129,8 +140,8 @@ The framework uses generic CI/CD references. To integrate with your pipeline:
 | **Jenkins** | Add `Jenkinsfile` references back |
 
 Update the CI/CD skill templates:
-- `.github/skills/add-layer-py-cicd/` — Python CI/CD
-- `.github/skills/add-layer-net-cicd/` — .NET CI/CD
+- `.github/skills/hephaestus-py-cicd/` â€” Python CI/CD
+- `.github/skills/hephaestus-net-cicd/` â€” .NET CI/CD
 
 ---
 
@@ -138,9 +149,9 @@ Update the CI/CD skill templates:
 
 To add support for a new technology (e.g., Go, Rust, Java):
 
-1. **Create a new agent:** Use `build` to create `{lang}-build.agent.md`
+1. **Create a new agent:** Use `hephaestus` to create `{lang}-hephaestus.agent.md`
 2. **Create profile skills:** Add `{lang}-setup-{profile}/SKILL.md` for each supported project type
-3. **Add governance:** Update `ng-build.tpl.md` as a model for your new `{lang}-build.tpl.md`
+3. **Add governance:** Update `eleuthia-ng.tpl.md` as a model for your new `{lang}-build.tpl.md`
 4. **Register the agent:** Add the entry to `.github/AGENT.md`
 
 See [Creating Agents](CREATING_AGENTS.md) and [Creating Skills](CREATING_SKILLS.md) for step-by-step guides.

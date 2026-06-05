@@ -1,207 +1,42 @@
-# Architecture
+﻿# 🏛️ GAIA Ecosystem Architecture
 
-> How the Copilot Governance Framework routes requests through agents, skills, and governance templates to produce deterministic, governed results.
+The framework adopts a hierarchical, **Event-Driven** approach. Instead of a large monolithic prompt, we divide responsibilities into hyper-specialized sub-routines that collaborate via governed skills.
 
-## Design Philosophy
+## Architectural Principles
 
-The framework follows three core principles:
+- **Thin agents, thick skills:** Agents route and validate; skills own generation logic, templates, and checklists.
+- **Deterministic selection:** If multiple paths are possible, the agent must resolve the target using explicit evidence and documented precedence.
+- **Zero Trust governance:** Requests outside scope stop early rather than guessing.
+- **Repository-first UX:** The repo documentation must explain how to use the framework without external video, slides, or hidden context.
 
-1. **Thin Coordinators** — Agents resolve *one bounded path* and delegate all detail to skills
-2. **Skill-Owned Detail** — Skills own templates, checklists, validation, and generation logic
-3. **Neutral Governance** — Shared scaffolds and standards are decoupled from any specific agent or skill
+## The Lifecycle of a Request
 
-## System Overview
+1. **User Intent:** The developer interacts with GitHub Copilot Chat.
+2. **Routing (GAIA):** If no agent is specified, GAIA analyzes the request and routes it.
+3. **Sub-routine:** The selected agent (e.g., ELEUTHIA) reads its `*.agent.md`, where its Zero Trust rules and operational limits are defined.
+4. **Skills and Assets:** The agent locates the relevant *skills* in `.github/skills/`, reads the necessary templates and checklists, and generates the response.
+5. **Compliance Review (Optional):** The user can invoke APOLLO to verify that the generated code complies with governance.
 
-```mermaid
-flowchart LR
-    subgraph Input
-        REQ[User Request]
-    end
+## Authoring Model
 
-    subgraph Routing
-        REQ --> TRIAGE[Triage Agent]
-        TRIAGE -->|resolves| AGENT[Selected Agent]
-    end
+The public-facing contract for new or updated agents is the 7-section structure defined in [docs/CREATING_AGENTS.md](CREATING_AGENTS.md). That contract keeps the entrypoints readable while moving detailed logic into companion assets and skills.
 
-    subgraph Execution
-        AGENT -->|loads| TPL[Agent Template]
-        AGENT -->|loads| CHK[Agent Checklist]
-        AGENT -->|delegates to| SKILL[Selected Skill]
-        SKILL -->|uses| STPL[Skill Templates]
-        SKILL -->|validates with| SCHK[Skill Checklists]
-    end
+New or updated frontend skills should default to React first. Angular remains supported when the governed stack explicitly depends on it, but it should not be the default choice for new frontends.
 
-    subgraph Governance
-        SKILL -->|inherits from| GOV[Governance Scaffolds]
-        SKILL -->|references| MOD[Governance Modules]
-    end
+## Key Components
 
-    subgraph Output
-        SKILL --> OUT[Governed Result]
-    end
+- **Agents (`.github/agents/`)**: These are the roles or personalities. They don't do direct work; they coordinate.
+- **Skills (`.github/skills/`)**: These are packaged "functions" (e.g., `eleuthia-net-api`). They contain the templates and step-by-step guides.
+- **Governance (`.github/governance/`)**: Master contracts, global style guides, and security policies (used by MINERVA and APOLLO).
 
-    style REQ fill:#4CAF50,color:#fff
-    style TRIAGE fill:#FF9800,color:#fff
-    style AGENT fill:#2196F3,color:#fff
-    style SKILL fill:#2196F3,color:#fff
-    style GOV fill:#9C27B0,color:#fff
-    style MOD fill:#9C27B0,color:#fff
-    style OUT fill:#4CAF50,color:#fff
-```
+## Validation and CI/CD
 
-## Request Lifecycle
+The repository should validate its own governance shape separately from product pipelines.
 
-Every request follows this deterministic flow:
+- Structural validation belongs in a dedicated workflow.
+- The workflow should verify required docs, agent entrypoints, skill manifests, and companion assets.
+- Product pipelines can consume the result, but they should not own repository-governance checks.
 
-### 1. Entry Point
-The user either:
-- Asks the **triage agent** to route their request (recommended for newcomers)
-- Calls a **specific agent** directly (e.g., `ng-build`, `py-build`)
+## Zero Trust Pattern in Prompts
 
-### 2. Agent Resolution
-The agent:
-- Validates the request falls within its scope
-- Loads its **companion template** (`.tpl.md`) and **checklist** (`.checklist.md`)
-- Resolves which **skill(s)** to delegate to based on deterministic mapping rules
-
-### 3. Skill Execution
-The selected skill:
-- Loads its own **templates**, **checklists**, and **reference assets**
-- Applies governance rules from the shared governance layer
-- Generates the governed output
-
-### 4. Validation
-Before finalizing:
-- The skill validates against its own checklist
-- The agent validates against its agent-level checklist
-- Any failures require clarification instead of silent improvisation
-
-## Component Relationships
-
-### Agent → Skill Mappings
-
-```mermaid
-graph LR
-    BUILD[build] --> BA[build-agent]
-    BUILD --> BS[build-skill]
-
-    DOC[documentator] --> CR[create-or-update-readme]
-    DOC --> MC[markdown-converter]
-
-    NB["net-build"] --> NSA["net-setup-api"]
-    NB --> NSW["net-setup-worker"]
-    NB --> NSJ["net-setup-job"]
-    NB --> NSC["net-setup-api-cqrs"]
-    NB --> NSM["net-setup-api-modular"]
-
-
-    NGB["ng-build"] --> NGS["ng-setup-spa"]
-    NGB --> CC["components-catalog"]
-    NGB --> ML["mockup-layouts"]
-    NGB --> GS["global-styles"]
-
-    PYB["py-build"] --> PE["add-layer-py-environment"]
-    PYB --> PA["add-layer-py-api"]
-    PYB --> PL["add-layer-py-logger"]
-    PYB --> PC["add-layer-py-connectors"]
-    PYB --> PT["add-layer-py-pytest"]
-    PYB --> PF["add-layer-py-pytest-fastapi"]
-    PYB --> PCI["add-layer-py-cicd"]
-
-    SEC[security] --> SRV["security-review"]
-    SEC --> STR["security-triage"]
-    SEC --> SPT["security-patch"]
-    SEC --> PRR["pr-security-review"]
-    SEC --> CSS["commit-secret-scan"]
-    SEC --> DSC["dependency-security-check"]
-
-    SUP[supervisor] --> SAG["supervise-agent"]
-    SUP --> SSK["supervise-skill"]
-
-    style BUILD fill:#2196F3,color:#fff
-    style DOC fill:#2196F3,color:#fff
-    style NB fill:#2196F3,color:#fff
-    style NGB fill:#2196F3,color:#fff
-    style PYB fill:#2196F3,color:#fff
-    style SEC fill:#2196F3,color:#fff
-    style SUP fill:#2196F3,color:#fff
-```
-
-### Python Layer Dependency Graph
-
-`py-build` resolves layer dependencies automatically:
-
-```mermaid
-graph TD
-    ENV[environment] --> API[api]
-    ENV --> LOG[logger]
-    ENV --> CON[connectors]
-    API --> PTF[pytest-fastapi]
-    ENV --> PT[pytest]
-    PT --> PTF
-    API --> CICD[cicd]
-
-    style ENV fill:#3776AB,color:#fff
-    style API fill:#3776AB,color:#fff
-```
-
-If you request `pytest-fastapi`, the framework will automatically include `environment` → `api` → `pytest` → `pytest-fastapi` in the correct order.
-
-## File Organization
-
-### Agent Bundle Structure
-
-```
-.github/agents/
-├── {name}.agent.md           # Agent entry point (7-section structure)
-└── {name}/                   # Companion directory
-    ├── {name}.tpl.md          # Detailed template with rules and examples
-    └── {name}.checklist.md    # Validation checklist
-```
-
-### Skill Bundle Structure
-
-```
-.github/skills/{skill-name}/
-├── SKILL.md                  # Skill manifest
-├── assets/                   # Templates, checklists, examples
-│   ├── {skill-name}.tpl.md
-│   ├── {skill-name}.checklist.md
-│   └── ...
-├── references/               # Reference documentation (optional)
-└── scripts/                  # Validation scripts (optional)
-```
-
-### Governance Layer
-
-```
-.github/governance/
-├── bundles/
-│   ├── agent/
-│   │   └── AGENT.base.tpl.md      # Canonical agent scaffold
-│   └── skill/
-│       ├── SKILL.base.tpl.md      # Canonical skill scaffold
-│       └── SKILL.block-catalog.md # Optional block catalog
-└── modules/
-    ├── README.md                   # Module documentation
-    └── angular/                    # Package fallbacks
-```
-
-## Determinism Strategy
-
-All agents use a **Hybrid** determinism strategy:
-
-- **Deterministic:** Routing, profile selection, dependency resolution, and structural rules
-- **Adaptive:** Content generation, code scaffolding, and user-facing composition
-
-This means the *structure* of the output is always predictable, while the *content* adapts to the specific request.
-
-## Key Design Decisions
-
-| Decision | Rationale |
-|----------|-----------|
-| Agents don't contain detailed rules | Keeps agents maintainable; rules live in skill-owned templates |
-| Skills own their templates | Enables independent evolution without coordinator changes |
-| Governance is neutral | Shared scaffolds work across different agents and skills |
-| Checklists are mandatory | Every output must pass validation before being finalized |
-| Clarification over improvisation | When in doubt, the system asks instead of guessing |
+Each agent has a **Zero Trust Rules** section. This forces Copilot to stop generation if the user asks for something dangerous (e.g., "Delete the Production database" will be blocked by HADES or POSEIDON).
