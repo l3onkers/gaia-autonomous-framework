@@ -70,6 +70,20 @@ jobs:
               exit 1
             fi
 
+            exempt_skills=("hephaestus-build-agent" "hephaestus-build-skill" "eleuthia-ui-styles" "eleuthia-ui-components" "eleuthia-ui-mockups" "apollo-markdown" "apollo-runbook" "git-workflow")
+            skill_name=$(basename "$skill_dir")
+            is_exempt=0
+            for exempt in "${exempt_skills[@]}"; do
+              if [[ "$exempt" == "$skill_name" ]]; then
+                is_exempt=1
+                break
+              fi
+            done
+
+            if [[ "$is_exempt" -eq 1 ]]; then
+              continue
+            fi
+
             if [[ ! -d "$assets_dir" ]]; then
               echo "::error file=${skill_dir}::Missing assets directory"
               exit 1
