@@ -2,12 +2,18 @@
   <img src="docs/assets/gaia-banner.png" alt="G.A.I.A. Autonomous Platform Engineering Framework - Live Interface" width="100%">
 </p>
 
-# G.A.I.A.
-## Governance through Autonomous Infrastructure Agents
-### The Autonomous Platform Engineering & Development Framework
+<h1 align="center">G.A.I.A.</h1>
+<h3 align="center">Governance through Autonomous Infrastructure Agents</h3>
+<p align="center"><i>The Autonomous Platform Engineering & Development Framework</i></p>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![GitHub Copilot](https://img.shields.io/badge/GitHub%20Copilot-Ready-8957e5?logo=github)](https://github.com/features/copilot)
+<p align="center">
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
+  </a>
+  <a href="https://github.com/features/copilot">
+    <img src="https://img.shields.io/badge/GitHub%20Copilot-Ready-8957e5?logo=github" alt="GitHub Copilot">
+  </a>
+</p>
 
 > **An autonomous agent swarm for Platform Engineering, DevOps, and Code Scaffolding, inspired by Horizon Zero Dawn.**
 
