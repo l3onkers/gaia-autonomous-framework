@@ -6,11 +6,11 @@ Quality and determinism checklist for `eleuthia` outputs.
 
 ## A. Bundle Integrity
 - [ ] Companion artifacts exist with matching basename:
-  - `ng-hephaestus.agent.md`
+  - `eleuthia.agent.md`
   - `eleuthia-ng.tpl.md`
   - `eleuthia-ng.checklist.md`
-- [ ] `ng-hephaestus.agent.md` references `eleuthia-ng.tpl.md` and `eleuthia-ng.checklist.md` as authoritative governed inputs
-- [ ] `ng-hephaestus.agent.md` remains supervisory and keeps detailed shared Angular rules in `eleuthia-ng.tpl.md`
+- [ ] `eleuthia.agent.md` references `eleuthia-ng.tpl.md` and `eleuthia-ng.checklist.md` as authoritative governed inputs
+- [ ] `eleuthia.agent.md` remains supervisory and keeps detailed shared Angular rules in `eleuthia-ng.tpl.md`
 - [ ] At least one supported profile skill exists under `.github/skills/`:
   - `.github/skills/eleuthia-ng-spa/SKILL.md`
 - [ ] The supported profile skill owns the matching companion assets:
@@ -31,7 +31,7 @@ Quality and determinism checklist for `eleuthia` outputs.
   6. Process Definition
   7. Validation Layer
 - [ ] Section 4 starts with `Determinism Strategy: Hybrid`
-- [ ] `ng-hephaestus.agent.md` declares the shared template and checklist companions explicitly
+- [ ] `eleuthia.agent.md` declares the shared template and checklist companions explicitly
 
 ---
 
@@ -66,8 +66,8 @@ Quality and determinism checklist for `eleuthia` outputs.
 ---
 
 ## D. Profile Skill Routing
-- [ ] Profile-skill resolution uses the deterministic skill rule declared in `ng-hephaestus.agent.md`
-- [ ] The supported-profile catalog is declared explicitly in `ng-hephaestus.agent.md`
+- [ ] Profile-skill resolution uses the deterministic skill rule declared in `eleuthia.agent.md`
+- [ ] The supported-profile catalog is declared explicitly in `eleuthia.agent.md`
 - [ ] Each declared supported profile token has exactly one deterministic skill mapping
 - [ ] Exactly one profile skill is resolved per run
 - [ ] The selected profile skill is loaded before any skill-owned assets are used
@@ -87,7 +87,7 @@ Quality and determinism checklist for `eleuthia` outputs.
 ---
 
 ## F. Final Validation
-- [ ] Validation runs against `eleuthia-ng.checklist.md` together with Section 7 of `ng-hephaestus.agent.md`
+- [ ] Validation runs against `eleuthia-ng.checklist.md` together with Section 7 of `eleuthia.agent.md`
 - [ ] Shared setup rules from `eleuthia-ng.tpl.md` remain authoritative without loss
 - [ ] Login-form generation rules resolve from the selected profile skill's owned login asset when requested
 - [ ] Output remains deterministic and reproducible for identical inputs and repository state

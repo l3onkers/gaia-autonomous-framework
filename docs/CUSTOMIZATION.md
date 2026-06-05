@@ -67,6 +67,17 @@ Edit `.github/agents/eleuthia/eleuthia-ng.tpl.md`:
 - TypeScript version
 - Approved package list
 
+### React-first frontend default
+
+For new frontend capabilities, prefer adding a React-based governed skill family first. Only keep Angular as the default when the target organization has already standardized on Angular or the request explicitly extends the current Angular stack.
+
+When you introduce a React family, document the same governance points used elsewhere in the repository:
+
+- Framework version pin
+- Approved UI library
+- Routing and state conventions
+- Testing and validation path
+
 ### .NET
 
 Edit `.github/agents/eleuthia/eleuthia-net.tpl.md` and profile-specific skills:

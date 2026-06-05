@@ -1,6 +1,12 @@
 ﻿# Skills Catalog
 
-> Detailed documentation for all 33 governed skills in the Copilot Governance Framework.
+> Detailed documentation for all 42 governed skills in the Copilot Governance Framework.
+
+## Frontend Policy
+
+New frontend skills should default to React first. Use Angular only when the governed stack explicitly requires it or when extending an existing Angular family already owned by the repository.
+
+This policy applies to new skills and new families; it does not force a migration of the current governed Angular assets.
 
 ## How Skills Work
 
@@ -257,3 +263,11 @@ These skills are routed by the `eleuthia` agent and execute in dependency order.
 - **Path:** `.github/skills/poseidon-local-postgres/`
 - **Status:** Standalone
 - **What it does:** Sets up local PostgreSQL via Docker Compose with init scripts and seed data
+
+## Standalone Skills
+
+The following skills are intentionally standalone or loosely routed. They are still governed, but they do not currently sit behind the same routing patterns as the core profile families:
+
+- `eleuthia-py-frontend`
+- `hephaestus-net-cicd`
+- `poseidon-local-postgres`

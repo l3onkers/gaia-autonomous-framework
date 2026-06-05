@@ -6,11 +6,11 @@ Quality and determinism checklist for `eleuthia` outputs.
 
 ## A. Bundle Integrity
 - [ ] Companion artifacts exist with matching basename:
-  - `py-hephaestus.agent.md`
+  - `eleuthia.agent.md`
   - `eleuthia-py.tpl.md`
   - `eleuthia-py.checklist.md`
-- [ ] `py-hephaestus.agent.md` references `eleuthia-py.tpl.md` and `eleuthia-py.checklist.md` as authoritative governed inputs
-- [ ] `py-hephaestus.agent.md` remains supervisory and keeps detailed routing rules in `eleuthia-py.tpl.md`
+- [ ] `eleuthia.agent.md` references `eleuthia-py.tpl.md` and `eleuthia-py.checklist.md` as authoritative governed inputs
+- [ ] `eleuthia.agent.md` remains supervisory and keeps detailed routing rules in `eleuthia-py.tpl.md`
 - [ ] Supported layer skills exist under `.github/skills/`:
   - `.github/skills/eleuthia-py-environment/SKILL.md`
   - `.github/skills/eleuthia-py-logger/SKILL.md`
@@ -33,12 +33,12 @@ Quality and determinism checklist for `eleuthia` outputs.
   6. Process Definition
   7. Validation Layer
 - [ ] Section 4 starts with `Determinism Strategy: Hybrid`
-- [ ] `py-hephaestus.agent.md` declares the shared template and checklist companions explicitly
+- [ ] `eleuthia.agent.md` declares the shared template and checklist companions explicitly
 
 ---
 
 ## C. Dependency Graph Integrity
-- [ ] The dependency graph is explicit in `py-hephaestus.agent.md` and `eleuthia-py.tpl.md`
+- [ ] The dependency graph is explicit in `eleuthia.agent.md` and `eleuthia-py.tpl.md`
 - [ ] `environment` is treated as a foundational layer with no prerequisite inside `eleuthia`
 - [ ] `logger` is treated as a foundational layer with no prerequisite inside `eleuthia`
 - [ ] `pytest` is treated as a foundational layer with no prerequisite inside `eleuthia`
@@ -80,7 +80,7 @@ Quality and determinism checklist for `eleuthia` outputs.
 ---
 
 ## F. Final Validation
-- [ ] Validation runs against `eleuthia-py.checklist.md` together with Section 7 of `py-hephaestus.agent.md`
+- [ ] Validation runs against `eleuthia-py.checklist.md` together with Section 7 of `eleuthia.agent.md`
 - [ ] The final result uses only the minimum compatible layer sequence required by the dependency graph
 - [ ] Routing, sequencing, and ownership decisions remain deterministic for identical inputs and repository state
 - [ ] The final result remains attributable to the selected layer skills plus the shared `eleuthia` orchestration rules

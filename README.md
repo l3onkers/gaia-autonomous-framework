@@ -129,6 +129,13 @@ If you know the exact sub-routine:
 
 > 📖 **Detailed Guide:** [QUICKSTART.md](QUICKSTART.md)
 
+## 📘 Governance Notes
+
+- The canonical agent authoring contract lives in [docs/CREATING_AGENTS.md](docs/CREATING_AGENTS.md).
+- The canonical skill authoring contract lives in [docs/CREATING_SKILLS.md](docs/CREATING_SKILLS.md).
+- New frontend skills should default to React first unless an existing governed stack explicitly requires another framework.
+- Repository structure and documentation consistency are validated by the dedicated workflow in [.github/workflows/validate-gaia-structure.yml](.github/workflows/validate-gaia-structure.yml).
+
 ---
 
 ## 🤝 Contributing

@@ -1,6 +1,20 @@
 ﻿# 🤖 GAIA Agents Ecosystem
 
-This document details the artificial intelligences (sub-routines) that make up the GAIA ecosystem. Each agent acts as an orchestrator that reads the user's intent and routes it to the appropriate *skills* (scripts and templates), following a **Zero Trust** and regulatory compliance principle.
+This document details the orchestrator agents that make up the GAIA ecosystem. Each agent is a governed coordinator that reads user intent and routes work to the appropriate skills, following **Zero Trust**, deterministic routing, and repository-level compliance rules.
+
+## Canonical Agent Contract
+
+All new or refactored agents must follow the 7-section structure defined in [docs/CREATING_AGENTS.md](CREATING_AGENTS.md):
+
+1. Objective
+2. Output Contract
+3. Evidence & Inference Usage Rules
+4. Determinism Requirement
+5. Applicability Rules
+6. Process Definition
+7. Validation Layer
+
+The current agents are intentionally thin entrypoints. Detailed behavior belongs in companion assets and routed skills, not in free-form prose inside the entrypoint.
 
 ## Sub-routine Hierarchy
 
@@ -53,4 +67,10 @@ Destroyer of worlds. Responsible for tearing down ephemeral environments, execut
 The bug hunter. Executes functional end-to-end tests, load tests (k6), and validates application health after deployments.
 - **Path:** .github/agents/artemis.agent.md
 - **Usage:** @workspace Use artemis to prepare a k6 load test.
+
+## Current Scope
+
+- Agents: 10 top-level entrypoints.
+- Skills: 42 governed skills at the time of writing.
+- Companion assets live under `.github/agents/<agent>/` and are loaded only when the entrypoint declares them.
 

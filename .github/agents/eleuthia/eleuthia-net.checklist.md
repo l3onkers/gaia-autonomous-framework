@@ -6,11 +6,11 @@ Quality and determinism checklist for `eleuthia` outputs.
 
 ## A. Bundle Integrity
 - [ ] Companion artifacts exist with matching basename:
-  - `net-hephaestus.agent.md`
+  - `eleuthia.agent.md`
   - `eleuthia-net.tpl.md`
   - `eleuthia-net.checklist.md`
-- [ ] `net-hephaestus.agent.md` references `eleuthia-net.tpl.md` and `eleuthia-net.checklist.md` as authoritative governed inputs
-- [ ] `net-hephaestus.agent.md` remains supervisory and keeps detailed shared setup rules in `eleuthia-net.tpl.md`
+- [ ] `eleuthia.agent.md` references `eleuthia-net.tpl.md` and `eleuthia-net.checklist.md` as authoritative governed inputs
+- [ ] `eleuthia.agent.md` remains supervisory and keeps detailed shared setup rules in `eleuthia-net.tpl.md`
 - [ ] Supported profile skills exist under `.github/skills/`:
   - `.github/skills/eleuthia-net-job/SKILL.md`
   - `.github/skills/eleuthia-net-worker/SKILL.md`
@@ -37,7 +37,7 @@ Quality and determinism checklist for `eleuthia` outputs.
   6. Process Definition
   7. Validation Layer
 - [ ] Section 4 starts with `Determinism Strategy: <Strict|Inference|Hybrid>`
-- [ ] `net-hephaestus.agent.md` declares the shared template and checklist companions explicitly
+- [ ] `eleuthia.agent.md` declares the shared template and checklist companions explicitly
 
 ---
 
@@ -112,7 +112,7 @@ Quality and determinism checklist for `eleuthia` outputs.
 ---
 
 ## F. Final Validation
-- [ ] Validation runs against `eleuthia-net.checklist.md` together with Section 7 of `net-hephaestus.agent.md`
+- [ ] Validation runs against `eleuthia-net.checklist.md` together with Section 7 of `eleuthia.agent.md`
 - [ ] The final result uses only the minimum governed working set: the canonical companions plus one selected profile skill bundle
 - [ ] Routing, loading, ownership, and QA decisions remain deterministic for identical inputs and repository state
 - [ ] The final result remains attributable to the canonical `eleuthia` companions plus the selected routed profile skill

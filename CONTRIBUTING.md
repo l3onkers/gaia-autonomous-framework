@@ -40,7 +40,7 @@ Documentation improvements are always welcome! Whether it's:
 
 ### Agent Structure
 
-Every agent must follow the 7-section structure:
+Every new or refactored agent must follow the canonical 7-section structure:
 1. Objective
 2. Output Contract
 3. Evidence & Inference Usage Rules
@@ -60,6 +60,17 @@ Every skill must include:
 - Validation layer
 
 See [docs/CREATING_SKILLS.md](docs/CREATING_SKILLS.md) for the full guide.
+
+### Frontend Policy
+
+- New frontend skills should default to React first.
+- Use Angular only when the governed stack or existing repository conventions require it.
+- Keep frontend choices explicit in the skill manifest and in the generated output contract.
+
+### Structural Validation
+
+- Repository-level consistency checks should live in the dedicated structure validation workflow.
+- Do not fold repository governance checks into product-specific pipelines unless the workflow explicitly requires it.
 
 ### Naming Conventions
 

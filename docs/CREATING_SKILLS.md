@@ -36,6 +36,14 @@ Answer these questions:
 | What files does it produce? | `main.tf`, `variables.tf`, `outputs.tf`, `README.md` |
 | What validation criteria apply? | Terraform fmt, plan succeeds, no hardcoded values |
 
+### Frontend Default Policy
+
+If the skill creates a new frontend capability, prefer React first unless the repository or organization explicitly requires a different governed stack.
+
+- React first means React + TypeScript + a documented design-system path by default.
+- Angular remains valid for existing governed Angular families.
+- Do not silently switch frontend stack choices inside the skill; make the stack explicit in the manifest and output contract.
+
 ---
 
 ## Step 2: Use the hephaestus agent (Recommended)
@@ -137,6 +145,14 @@ The template (`.tpl.md`) contains the actual generation logic:
 2. **Use placeholders** â€” `{variable-name}` for user-provided values
 3. **Include anti-patterns** â€” Show what NOT to do
 4. **Add a completion checklist** â€” Makes validation deterministic
+
+### Frontend Skills Guidance
+
+For frontend-oriented skills, document the stack choice as part of the contract:
+
+- Default to React first for new families.
+- Only use Angular when the request or governed stack clearly requires it.
+- Include the UI library, routing model, state strategy, and test strategy in the owned template.
 
 ---
 

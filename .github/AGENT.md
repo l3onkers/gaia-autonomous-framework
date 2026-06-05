@@ -23,11 +23,8 @@ The current callable agent entrypoints under `.github/agents/` are:
 | `gaia` | `.github/agents/gaia.agent.md` | General-purpose routing when the user does not know which agent to use |
 | `hephaestus` | `.github/agents/hephaestus.agent.md` | Authoring or updating one bounded governed bundle or governance artifact |
 | `apollo` | `.github/agents/apollo.agent.md` | Generating or refreshing governed documentation such as `README.md` |
-| `eleuthia` | `.github/agents/net-hephaestus.agent.md` | Routing one `.NET` build request to the correct profile skill |
-| `eleuthia` | `.github/agents/ng-hephaestus.agent.md` | Routing one Angular build request to the supported SPA profile |
-| `eleuthia` | `.github/agents/py-hephaestus.agent.md` | Routing one Python build request to the correct owned layer skills |
+| `eleuthia` | `.github/agents/eleuthia.agent.md` | Routing one `.NET`, Angular, or Python build request to the correct governed profile or layer skills |
 | `minerva` | `.github/agents/minerva.agent.md` | Routing security requests to specialized skills, or generating the repository security audit |
-| `apollo` | `.github/agents/apollo.agent.md` | Reviewing one governed bundle or bounded governance scope |
 
 Agent-local companion assets may also exist under `.github/agents/<agent>/`. Those directories support the matching entrypoint and are not separate callable agents.
 
@@ -39,7 +36,7 @@ Any git branch, commit-message, or pull-request action in this repository must u
 
 Any frontend request in this repository must route through the matching governed coordinator before implementation.
 
-- Angular frontend work must route through `.github/agents/ng-hephaestus.agent.md`.
+- Angular frontend work must route through `.github/agents/eleuthia.agent.md` and use the governed Angular profile assets.
 - Governed corporate components, mockup layouts, and global-style references are the default implementation source for Angular UI work, not optional inspiration.
 - Do not improvise generic headers, dashboards, sidebars, menus, tables, or card grids when a governed corporate pattern already covers the request.
 - If the governed frontend assets do not clearly cover the requested UI, stop and ask for clarification or call out the gap instead of free-designing the screen.

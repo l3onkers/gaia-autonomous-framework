@@ -11,16 +11,16 @@
 
 ### 1. Clone the repository
 
-`ash
+```bash
 git clone https://github.com/l3onkers/copilot-governance-framework.git
 cd copilot-governance-framework
-`
+```
 
 ### 2. Open in VS Code
 
-`ash
+```bash
 code .
-`
+```
 
 ### 3. Verify Copilot is active
 
@@ -41,6 +41,12 @@ GAIA will:
 2. Route to eleuthia (the code generator).
 3. Expand the layer dependencies.
 4. Execute each layer skill in order.
+
+### Policy Notes
+
+- For new frontend work, prefer React first when you are defining a new governed skill or stack family.
+- Angular remains supported for the existing governed Angular stack, but new frontend capabilities should not default to Angular without a clear reason.
+- Repository structure validation is handled by the dedicated CI workflow; you do not need to invent extra local checks when following the documented flow.
 
 ### Option B: Call a Sub-routine Directly
 
@@ -100,7 +106,7 @@ Every sub-routine produces a **governed result** that includes:
 
 ## How to Approach the Repository
 
-`mermaid
+```mermaid
 flowchart TD
     START[Start Here] --> Q1{Do you know which sub-routine to use?}
     Q1 -->|No| TRIAGE[Ask GAIA Core]
@@ -119,7 +125,7 @@ flowchart TD
     style DONE fill:#4CAF50,color:#fff
     style TRIAGE fill:#FF9800,color:#fff
     style AGENT fill:#2196F3,color:#fff
-`
+```
 
 1. **Start with GAIA** if you're unsure which sub-routine handles your request.
 2. **Provide one explicit target** — a bundle name, profile token, or layer set.

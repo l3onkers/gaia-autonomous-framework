@@ -170,13 +170,14 @@ The checklist is used for validation:
 
 ## Step 5: Register the Agent
 
-1. Add the agent to `.github/AGENT.md`:
+1. Add the agent to [`.github/AGENT.md`](../.github/AGENT.md):
 
 ```markdown
 | `{name}` | `.github/agents/{name}.agent.md` | {When to use} |
 ```
 
-2. Update the triage agent (`.github/agents/gaia.agent.md`) to include routing rules for your new agent.
+2. Update the triage agent ([`.github/agents/gaia.agent.md`](../.github/agents/gaia.agent.md)) to include routing rules for your new agent.
+3. If the agent has companion assets, keep them inside `.github/agents/{name}/` and keep the basename identical to the entrypoint.
 
 ---
 
@@ -198,7 +199,13 @@ This will check your agent against the canonical scaffold and report any complia
 
 | Agent | Complexity | Good example of |
 |-------|-----------|----------------|
-| `hephaestus` | Simple | Routing to 2 skills |
-| `eleuthia` | Medium | Single profile with UI governance |
-| `eleuthia` | Complex | Dependency graph resolution |
-| `minerva` | Complex | Multiple specialized skill routes |
+| `gaia` | Simple | Core routing and deterministic triage |
+| `hephaestus` | Medium | Bundle authoring and governance scaffolding |
+| `eleuthia` | Complex | Multi-profile scaffolding and companion asset resolution |
+| `minerva` | Complex | Security triage and specialized skill routing |
+
+## Agent Authoring Policy
+
+- Treat the 7-section structure as the canonical specification for new and refactored agents.
+- Keep the entrypoint thin; move detailed rules into the companion template and checklist.
+- Do not introduce aliases or alternate agent names in the docs unless the repository actually ships them.
