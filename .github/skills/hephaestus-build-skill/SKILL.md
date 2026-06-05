@@ -89,3 +89,4 @@ If the request cannot resolve exactly one new skill bundle root and one skill na
 - Do not hard-code a new routed specialty into an existing coordinator when a new shared skill under `.github/skills/` is sufficient.
 - Do not mix shared-skill authoring with unrelated top-level agent authoring in the same run.
 - Do not emit placeholder references to governed assets that were not also created in the same run.
+- Placeholder instructions (e.g., 'add your logic here', 'TODO', 'insert code here') are STRICTLY FORBIDDEN. You must write complete, functional baseline code when generating assets or templates.

@@ -37,10 +37,10 @@ If you don't know which sub-routine to use, ask GAIA (the core orchestrator):
 @workspace I need to scaffold a new Python API with database connectors and tests.
 
 GAIA will:
-1. Identify this as a Python application scaffolding request
-2. Route to eleuthia (the code generator)
-3. Expand the layer dependencies
-4. Execute each layer skill in order
+1. Identify this as a Python application scaffolding request.
+2. Route to eleuthia (the code generator).
+3. Expand the layer dependencies.
+4. Execute each layer skill in order.
 
 ### Option B: Call a Sub-routine Directly
 
@@ -73,8 +73,8 @@ The agent will:
 @workspace Use demeter to provision a staging environment on AWS using Terraform.
 
 The agent will:
-- Load the IaC modules
-- Generate the Terraform configurations
+- Load the AWS IaC modules
+- Generate the Terraform configurations with remote state
 - Ensure GitOps sync
 
 ### Run a Security Audit
@@ -121,11 +121,11 @@ flowchart TD
     style AGENT fill:#2196F3,color:#fff
 `
 
-1. **Start with GAIA** if you're unsure which sub-routine handles your request
-2. **Provide one explicit target** — a bundle name, profile token, or layer set
-3. **Let the skill own the details** — templates, checklists, and generation rules
-4. **Review the result** — use pollo for compliance checks
-5. **Use apollo-git-workflow** for branch names, commit messages, and PR bodies
+1. **Start with GAIA** if you're unsure which sub-routine handles your request.
+2. **Provide one explicit target** — a bundle name, profile token, or layer set.
+3. **Let the skill own the details** — templates, checklists, and generation rules.
+4. **Review the result** — use pollo for compliance checks.
+5. **Use apollo-git-workflow** for branch names, commit messages, and PR bodies.
 
 ---
 

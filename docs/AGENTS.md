@@ -1,79 +1,79 @@
-﻿# 🤖 Ecosistema de Agentes GAIA
+﻿# 🤖 GAIA Agents Ecosystem
 
-Este documento detalla las inteligencias artificiales (subrutinas) que forman parte del ecosistema GAIA. Cada agente actúa como un orquestador que lee la intención del usuario y la enruta a las *skills* (scripts y plantillas) adecuadas, siguiendo un principio de **Zero Trust** y cumplimiento normativo.
+This document details the artificial intelligences (sub-routines) that make up the GAIA ecosystem. Each agent acts as an orchestrator that reads the user's intent and routes it to the appropriate *skills* (scripts and templates), following a **Zero Trust** and regulatory compliance principle.
 
-## Jerarquía de Subrutinas
+## Sub-routine Hierarchy
 
 ### 🌍 GAIA (Core Router)
-El cerebro central del ecosistema. Su único propósito es analizar peticiones ambiguas de los usuarios, determinar el contexto y redirigir el trabajo a la subrutina especializada correspondiente.
-- **Ruta:** .github/agents/gaia.agent.md
-- **Uso:** @workspace Usa gaia para...
+The central brain of the ecosystem. Its sole purpose is to analyze ambiguous user requests, determine the context, and route the work to the corresponding specialized sub-routine.
+- **Path:** .github/agents/gaia.agent.md
+- **Usage:** @workspace Use gaia to...
 
-### 🔨 HEPHAESTUS (Forja y CI/CD)
-Responsable de crear contenedores, forjar pipelines de integración y despliegue continuo, y mantener el propio framework (gobernanza de herramientas internas).
-- **Ruta:** .github/agents/hephaestus.agent.md
-- **Uso:** @workspace Usa hephaestus para generar la pipeline de GitHub Actions...
+### 🔨 HEPHAESTUS (Forge & CI/CD)
+Responsible for building containers, forging continuous integration and deployment pipelines, and maintaining the framework itself (internal tooling governance).
+- **Path:** .github/agents/hephaestus.agent.md
+- **Usage:** @workspace Use hephaestus to generate the GitHub Actions pipeline...
 
-### 🛡️ MINERVA (Seguridad y DevSecOps)
-La guardiana táctica. Audita código en busca de vulnerabilidades, escanea secretos filtrados en commits, aplica políticas de remediación y gestiona la seguridad en Pull Requests.
-- **Ruta:** .github/agents/minerva.agent.md
-- **Uso:** @workspace Usa minerva para revisar la seguridad de este PR.
+### 🛡️ MINERVA (Security & DevSecOps)
+The tactical guardian. Audits code for vulnerabilities, scans for leaked secrets in commits, enforces remediation policies, and manages security on Pull Requests.
+- **Path:** .github/agents/minerva.agent.md
+- **Usage:** @workspace Use minerva to review the security of this PR.
 
-### 📚 APOLLO (Conocimiento y Observabilidad)
-El archivero. Se asegura de que la documentación técnica (READMEs, Runbooks, ADRs) nunca quede obsoleta. También realiza las auditorías semánticas (compliance reviews) asegurando que otros agentes cumplan las reglas.
-- **Ruta:** .github/agents/apollo.agent.md
-- **Uso:** @workspace Usa apollo para generar un Runbook de esta API.
+### 📚 APOLLO (Knowledge & Observability)
+The archivist. Ensures technical documentation (READMEs, Runbooks, ADRs) never becomes obsolete. It also performs semantic audits (compliance reviews) to ensure other agents follow the rules.
+- **Path:** .github/agents/apollo.agent.md
+- **Usage:** @workspace Use apollo to generate a Runbook for this API.
 
-### 🧬 ELEUTHIA (Scaffolding y Código)
-La creadora de vida. Es el único agente autorizado para construir la estructura base de nuevas aplicaciones (.NET, Angular, Python) desde cero, inyectando las convenciones de arquitectura y librerías internas.
-- **Ruta:** .github/agents/eleuthia.agent.md
-- **Uso:** @workspace Usa eleuthia para arrancar un proyecto Angular.
+### 🧬 ELEUTHIA (Scaffolding & Code)
+The life creator. The only agent authorized to build the base structure of new applications (.NET, Angular, Python) from scratch, injecting architectural conventions and internal libraries.
+- **Path:** .github/agents/eleuthia.agent.md
+- **Usage:** @workspace Use eleuthia to start an Angular project.
 
-### 🌱 DEMETER (Infraestructura como Código)
-La moldeadora de la tierra. Provisiona servidores, clústeres de Kubernetes y recursos Cloud utilizando Terraform, Pulumi o Crossplane. Mantiene el estado deseado mediante GitOps.
-- **Ruta:** .github/agents/demeter.agent.md
-- **Uso:** @workspace Usa demeter para crear un bucket S3 mediante Terraform.
+### 🌱 DEMETER (Infrastructure as Code)
+The earth shaper. Provisions servers, Kubernetes clusters, and Cloud resources using Terraform, Pulumi, or Crossplane. Maintains the desired state via GitOps.
+- **Path:** .github/agents/demeter.agent.md
+- **Usage:** @workspace Use demeter to create an S3 bucket via Terraform.
 
-### 🌪️ AETHER (Redes y Routing)
-Controla los vientos y las rutas. Configura Ingress, Service Meshes (Istio), API Gateways, DNS y balanceadores de carga.
-- **Ruta:** .github/agents/aether.agent.md
-- **Uso:** @workspace Usa aether para configurar el Ingress de este servicio.
+### 🌪️ AETHER (Networking & Routing)
+Controls the winds and routes. Configures Ingress, Service Meshes (Istio), API Gateways, DNS, and load balancers.
+- **Path:** .github/agents/aether.agent.md
+- **Usage:** @workspace Use aether to configure the Ingress for this service.
 
-### 🌊 POSEIDON (Datos y Almacenamiento)
-Soberano de los mares de datos. Gestiona bases de datos, migraciones de esquemas (Flyway/Liquibase), cachés (Redis), y se encarga del backup y cifrado at-rest.
-- **Ruta:** .github/agents/poseidon.agent.md
-- **Uso:** @workspace Usa poseidon para añadir un script de migración SQL.
+### 🌊 POSEIDON (Data & Storage)
+Sovereign of the data seas. Manages databases, schema migrations (Flyway/Liquibase), caches (Redis), and handles backups and at-rest encryption.
+- **Path:** .github/agents/poseidon.agent.md
+- **Usage:** @workspace Use poseidon to add a SQL migration script.
 
-### 💀 HADES (Caos y Teardown)
-Destructor de mundos. Se encarga de destruir entornos efímeros, ejecutar rollbacks en producción, y lanzar experimentos de ingeniería del caos para asegurar resiliencia.
-- **Ruta:** .github/agents/hades.agent.md
-- **Uso:** @workspace Usa hades para destruir el entorno de staging.
+### 💀 HADES (Chaos & Teardown)
+Destroyer of worlds. Responsible for tearing down ephemeral environments, executing rollbacks in production, and running chaos engineering experiments to ensure resilience.
+- **Path:** .github/agents/hades.agent.md
+- **Usage:** @workspace Use hades to destroy the staging environment.
 
-### 🏹 ARTEMIS (QA y Testing E2E)
-La cazadora de bugs. Ejecuta tests funcionales end-to-end, pruebas de carga (k6) y valida la salud de la aplicación después de los despliegues.
-- **Ruta:** .github/agents/artemis.agent.md
-- **Uso:** @workspace Usa artemis para preparar un test de carga de k6.
+### 🏹 ARTEMIS (QA & E2E Testing)
+The bug hunter. Executes functional end-to-end tests, load tests (k6), and validates application health after deployments.
+- **Path:** .github/agents/artemis.agent.md
+- **Usage:** @workspace Use artemis to prepare a k6 load test.
 "@
 
  = @"
-# 🏛️ Arquitectura del Ecosistema GAIA
+# 🏛️ GAIA Ecosystem Architecture
 
-El framework adopta un enfoque **Event-Driven** y jerárquico. En lugar de un gran prompt monolítico, dividimos las responsabilidades en subrutinas hiper-especializadas que colaboran mediante *skills*.
+The framework adopts a hierarchical, **Event-Driven** approach. Instead of a large monolithic prompt, we divide responsibilities into hyper-specialized sub-routines that collaborate via *skills*.
 
-## El Ciclo de Vida de una Petición
+## The Lifecycle of a Request
 
-1. **User Intent:** El desarrollador interactúa con GitHub Copilot Chat.
-2. **Enrutamiento (GAIA):** Si no se especifica agente, GAIA analiza la petición y la redirige.
-3. **Subrutina:** El agente seleccionado (ej. ELEUTHIA) lee su *.agent.md, donde se definen sus reglas Zero Trust y límites operativos.
-4. **Skills y Assets:** El agente localiza las *skills* relevantes en .github/skills/, lee los templates y checklists necesarios y genera la respuesta.
-5. **Revisión de Cumplimiento (Opcional):** El usuario puede invocar a APOLLO para verificar que el código generado cumple la gobernanza.
+1. **User Intent:** The developer interacts with GitHub Copilot Chat.
+2. **Routing (GAIA):** If no agent is specified, GAIA analyzes the request and routes it.
+3. **Sub-routine:** The selected agent (e.g., ELEUTHIA) reads its *.agent.md, where its Zero Trust rules and operational limits are defined.
+4. **Skills and Assets:** The agent locates the relevant *skills* in .github/skills/, reads the necessary templates and checklists, and generates the response.
+5. **Compliance Review (Optional):** The user can invoke APOLLO to verify that the generated code complies with governance.
 
-## Componentes Clave
+## Key Components
 
-- **Agentes (.github/agents/)**: Son los roles o personalidades. No hacen trabajo directo, coordinan.
-- **Skills (.github/skills/)**: Son "funciones" empaquetadas (ej. eleuthia-net-api). Contienen los templates y el paso a paso.
-- **Gobierno (.github/governance/)**: Contratos maestros, guías de estilo globales y políticas de seguridad (usadas por MINERVA y APOLLO).
+- **Agents (.github/agents/)**: These are the roles or personalities. They don't do direct work; they coordinate.
+- **Skills (.github/skills/)**: These are packaged "functions" (e.g., eleuthia-net-api). They contain the templates and step-by-step guides.
+- **Governance (.github/governance/)**: Master contracts, global style guides, and security policies (used by MINERVA and APOLLO).
 
-## Patrón de Zero Trust en Prompts
+## Zero Trust Pattern in Prompts
 
-Cada agente tiene una sección de **Zero Trust Rules**. Esto obliga a Copilot a detener la generación si el usuario pide algo peligroso (ej. "Borra la base de datos de Producción" será bloqueado por HADES o POSEIDON).
+Each agent has a **Zero Trust Rules** section. This forces Copilot to stop generation if the user asks for something dangerous (e.g., "Delete the Production database" will be blocked by HADES or POSEIDON).

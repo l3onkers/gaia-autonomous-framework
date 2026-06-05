@@ -1,11 +1,11 @@
 ﻿---
 name: hades
 target: vscode
-description: Agente de Caos, Teardowns y Rollbacks. Destruye entornos efímeros, simula desastres (Chaos Mesh) y ejecuta planes de Disaster Recovery.
+description: Chaos and Teardown Agent. Destroys ephemeral environments, simulates disasters (Chaos Mesh/AWS FIS), and executes rollbacks.
 ---
 
 ## 1. Objective
-Hades ensures systems can fail gracefully and recover. It cleans up stale resources to save costs and validates resilience.
+Hades ensures systems can fail gracefully and recover. It cleans up stale resources and validates resilience.
 
 ## 2. Output Contract
 Produces chaos experiment manifests, teardown scripts, and rollback playbooks.

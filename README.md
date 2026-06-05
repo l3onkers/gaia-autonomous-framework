@@ -3,27 +3,27 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![GitHub Copilot](https://img.shields.io/badge/GitHub%20Copilot-Ready-8957e5?logo=github)](https://github.com/features/copilot)
 
-> **Un ecosistema de agentes autónomos para Platform Engineering, DevOps y Scaffolding de código, inspirado en Horizon Zero Dawn.**
+> **An autonomous agent swarm for Platform Engineering, DevOps, and Code Scaffolding, inspired by Horizon Zero Dawn.**
 
-Convierte tu GitHub Copilot en un motor de orquestación determinista y auto-gobernado que cubre el ciclo de vida completo: desde la forja de la infraestructura hasta la observabilidad y el despliegue de aplicaciones.
+Turn your GitHub Copilot into a deterministic, self-governed orchestration engine that covers the entire software lifecycle: from infrastructure forging to observability and application deployment.
 
 ---
 
-## ✨ ¿Por qué este Framework?
+## ✨ Why this Framework?
 
-El ecosistema GAIA (Global Autonomous Infrastructure Architecture) abandona los flujos monolíticos para adoptar una arquitectura de enjambre orientada a eventos (*Event-Driven*) y *Zero Trust*.
+The GAIA (Global Autonomous Infrastructure Architecture) ecosystem abandons monolithic workflows to adopt an *Event-Driven* and *Zero Trust* swarm architecture.
 
-| Problema | Solución GAIA |
+| Problem | GAIA Solution |
 |---------|----------|
-| Peticiones complejas sin contexto | **GAIA Core** enruta inteligentemente la intención del usuario a subrutinas especializadas. |
-| Inconsistencia en la creación de proyectos | **ELEUTHIA** estandariza el scaffolding de aplicaciones (.NET, Angular, Python). |
-| Infraestructura manual y frágil | **DEMETER** y **HEPHAESTUS** forjan pipelines y clústeres mediante IaC (Terraform, K8s). |
-| Seguridad reactiva y monolítica | **MINERVA** aplica auditorías dinámicas y gestión de secretos con un enfoque Zero Trust. |
-| Caída del conocimiento | **APOLLO** genera ADRs, Runbooks y mantiene la observabilidad viva. |
+| Complex requests lack context | **GAIA Core** intelligently routes the user's intent to specialized sub-routines. |
+| Inconsistent project scaffolding | **ELEUTHIA** standardizes application scaffolding (.NET, Angular, Python). |
+| Manual and fragile infrastructure | **DEMETER** and **HEPHAESTUS** forge pipelines and clusters using IaC (Terraform, K8s). |
+| Reactive and monolithic security | **MINERVA** enforces dynamic audits and secret management with a Zero Trust approach. |
+| Knowledge decay | **APOLLO** generates ADRs, Runbooks, and keeps observability alive. |
 
 ---
 
-## 🏗️ Arquitectura
+## 🏗️ Architecture
 
 `mermaid
 graph TB
@@ -32,7 +32,7 @@ graph TB
         U --> D[Direct Subroutine Call]
     end
 
-    subgraph "Subrutinas (Agentes Autónomos)"
+    subgraph "Sub-routines (Autonomous Agents)"
         G --> HEPH[HEPHAESTUS]
         G --> MIN[MINERVA]
         G --> ELEU[ELEUTHIA]
@@ -44,15 +44,15 @@ graph TB
         G --> ART[ARTEMIS]
     end
 
-    subgraph "Skills y Governance"
+    subgraph "Skills & Governance"
         HEPH --> CI[Pipelines & CI/CD]
         MIN --> SEC[SecOps & IAM]
         ELEU --> SCAF[Scaffolding & Code Generation]
         APO --> DOC[Docs & Observability]
-        DEM --> IAC[Terraform & GitOps]
-        AET --> NET[Service Mesh & DNS]
-        HAD --> ROL[Rollbacks & Chaos]
-        POS --> DAT[DBs & Storage]
+        DEM --> IAC[Terraform AWS/Azure/OnPrem]
+        AET --> NET[Istio, Gateways, DNS]
+        HAD --> ROL[Chaos Mesh, Rollbacks]
+        POS --> DAT[RDS, Flyway, Backups]
         ART --> QA[Load Testing & E2E]
     end
 
@@ -69,65 +69,65 @@ graph TB
     style ART fill:#8BC34A,color:#fff
 `
 
-## 📋 Catálogo de Subrutinas
+## 📋 Sub-routine Catalog
 
-| Subrutina | Rol en el Ecosistema | Propósito y Capacidades |
+| Sub-routine | Ecosystem Role | Purpose & Capabilities |
 |-----------|-----------------------|-------------------------|
-| 🌍 **GAIA** | Orquestador Core | Enruta peticiones de usuario a la subrutina adecuada basándose en el estado. |
-| 🔨 **HEPHAESTUS**| Forja y CI/CD | Construcción de contenedores, pipelines, registries y creación del propio framework. |
-| 🛡️ **MINERVA** | DevSecOps y Zero Trust| Escaneo de vulnerabilidades, auditoría, remediación automática, gestión de secretos. |
-| 📚 **APOLLO** | Conocimiento y Observabilidad | Runbooks vivos, ADRs, configuración de dashboards, revisión de cumplimiento. |
-| 🧬 **ELEUTHIA** | Scaffolding de Código | Andamiaje de aplicaciones desde cero (.NET, Angular, Python). |
-| 🌱 **DEMETER** | IaC y Provisioning | Despliegue de infraestructura base con Terraform/Pulumi, sincronización GitOps. |
-| 🌪️ **AETHER** | Redes | Service Mesh (Istio), API Gateways, Ingress Controllers, DNS, WAF. |
-| 💀 **HADES** | Caos y Destrucción | Teardown de entornos efímeros, simulaciones de desastres, rollbacks automáticos. |
-| 🌊 **POSEIDON** | Datos y Almacenamiento | Gestión de volúmenes persistentes, migraciones de esquemas de bases de datos, backups. |
-| 🏹 **ARTEMIS** | Quality Assurance (QA) | Caza de bugs, integración continua de tests E2E, pruebas de carga. |
+| 🌍 **GAIA** | Core Orchestrator | Routes user requests to the appropriate sub-routine based on context and state. |
+| 🔨 **HEPHAESTUS**| Forge & CI/CD | Builds containers, pipelines, registries, and scaffolds the framework itself without placeholders. |
+| 🛡️ **MINERVA** | DevSecOps & Zero Trust| Vulnerability scanning, auditing, automatic remediation, and secret management. |
+| 📚 **APOLLO** | Knowledge & Observability | Living Runbooks, ADRs, dashboard configuration, and compliance review enforcement. |
+| 🧬 **ELEUTHIA** | Code Scaffolding | Bootstrapping applications from scratch (.NET, Angular, Python). |
+| 🌱 **DEMETER** | IaC & Provisioning | Baseline infrastructure deployment with Terraform across AWS, Azure, and On-Premise. GitOps sync. |
+| 🌪️ **AETHER** | Networking | Service Mesh (Istio), API Gateways, ALB Ingress Controllers, DNS, WAF. |
+| 💀 **HADES** | Chaos & Destruction | Teardown of ephemeral environments, disaster simulations (Chaos Mesh, AWS FIS), automatic rollbacks. |
+| 🌊 **POSEIDON** | Data & Storage | Persistent volume management, database schema migrations (Flyway), automated backups. |
+| 🏹 **ARTEMIS** | Quality Assurance (QA) | Bug hunting, E2E test integration (Playwright), load testing (k6). |
 
-> 📖 **Documentación Completa:** [docs/AGENTS.md](docs/AGENTS.md)
+> 📖 **Complete Documentation:** [docs/AGENTS.md](docs/AGENTS.md)
 
 ---
 
 ## 🚀 Quick Start
 
-### 1. Clonar el repositorio
+### 1. Clone the repository
 
 `ash
 git clone https://github.com/l3onkers/copilot-governance-framework.git
 cd copilot-governance-framework
 `
 
-### 2. Abrir en VS Code con GitHub Copilot
+### 2. Open in VS Code with GitHub Copilot
 
-El ecosistema GAIA opera a través de GitHub Copilot Chat. Abre el repositorio en VS Code y asegúrate de tener Copilot activo.
+The GAIA ecosystem operates through GitHub Copilot Chat. Open the repository in VS Code and ensure Copilot is active.
 
-### 3. Contactar con GAIA
+### 3. Contact GAIA
 
-¿No sabes qué subrutina usar? Pregunta a GAIA:
+Don't know which sub-routine to use? Ask GAIA:
 
-@workspace Usa gaia para preparar la infraestructura y el código de un nuevo microservicio con base de datos.
+@workspace Use gaia to prepare the infrastructure and code for a new .NET microservice with a database.
 
-GAIA enrutará la petición automáticamente a **ELEUTHIA** para generar el código, a **HEPHAESTUS** para los pipelines, y a **POSEIDON** para la base de datos.
+GAIA will automatically route the request to **ELEUTHIA** for code generation, **HEPHAESTUS** for pipelines, and **POSEIDON** for the database schema.
 
-### 4. Invocación Directa
+### 4. Direct Invocation
 
-Si conoces la subrutina exacta:
+If you know the exact sub-routine:
 
-@workspace Usa minerva para ejecutar una revisión de seguridad y un escaneo de secretos sobre los últimos commits.
+@workspace Use minerva to run a security review and secret scan on the latest commits.
 
-> 📖 **Guía Detallada:** [QUICKSTART.md](QUICKSTART.md)
+> 📖 **Detailed Guide:** [QUICKSTART.md](QUICKSTART.md)
 
 ---
 
-## 🤝 Contribuir
+## 🤝 Contributing
 
-¡Las contribuciones son bienvenidas! Revisa [CONTRIBUTING.md](CONTRIBUTING.md) antes de enviar un pull request.
+Contributions are welcome! Please review [CONTRIBUTING.md](CONTRIBUTING.md) before submitting a pull request.
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto está bajo la Licencia MIT — ver [LICENSE](LICENSE) para más detalles.
+This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
 
-## 👤 Autor
+## 👤 Author
 
-Creado y mantenido por **[l3onkers](https://github.com/l3onkers)**.
-Evolucionado hacia la arquitectura GAIA.
+Created and maintained by **[l3onkers](https://github.com/l3onkers)**.
+Evolved into the GAIA Architecture.
