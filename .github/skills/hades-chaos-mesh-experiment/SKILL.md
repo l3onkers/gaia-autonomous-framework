@@ -11,12 +11,12 @@ user-invocable: false
 - Ensures experiments are bounded by strict duration and blast radius constraints.
 
 ## Output Contract
-- k8s/chaos/experiment.yaml
+- `k8s/chaos/experiment.yaml`
 
 ## Governance Rules
-- MUST NOT target the production, kube-system, or chaos-testing namespaces.
+- MUST NOT target the `production`, `kube-system`, or `chaos-testing` namespaces.
 - Duration MUST NOT exceed 5 minutes.
 
 ## Assets
-- ssets/hades-chaos.checklist.md
-- ssets/hades-pod-chaos.yaml.tpl.md
+- `assets/hades-chaos.checklist.md`
+- `assets/hades-pod-chaos.yaml.tpl.md`

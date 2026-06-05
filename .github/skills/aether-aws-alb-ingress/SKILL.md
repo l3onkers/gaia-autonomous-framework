@@ -12,12 +12,12 @@ user-invocable: false
 - Sets up WAF integration.
 
 ## Output Contract
-- k8s/ingress.yaml
+- `k8s/ingress.yaml`
 
 ## Governance Rules
 - MUST NOT use HTTP without a redirect to HTTPS.
 - MUST bind a valid ACM certificate via annotations.
 
 ## Assets
-- ssets/aether-alb.checklist.md
-- ssets/aether-alb.ingress.yaml.tpl.md
+- `assets/aether-alb.checklist.md`
+- `assets/aether-alb.ingress.yaml.tpl.md`

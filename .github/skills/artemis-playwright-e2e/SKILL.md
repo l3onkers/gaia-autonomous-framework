@@ -11,5 +11,5 @@ user-invocable: false
 - Configures parallel execution and retries.
 
 ## Output Contract
-- 	ests/e2e/playwright.config.ts
-- 	ests/e2e/example.spec.ts
+- `tests/e2e/playwright.config.ts`
+- `tests/e2e/example.spec.ts`

@@ -12,17 +12,17 @@ user-invocable: false
 - Creates a secure VPC, EKS cluster, and RDS instance.
 
 ## Output Contract
-- infrastructure/aws/main.tf
-- infrastructure/aws/variables.tf
-- infrastructure/aws/providers.tf
-- infrastructure/aws/backend.tf
+- `infrastructure/aws/main.tf`
+- `infrastructure/aws/variables.tf`
+- `infrastructure/aws/providers.tf`
+- `infrastructure/aws/backend.tf`
 
 ## Governance Rules
-- MUST NOT use hardcoded credentials in providers.tf.
+- MUST NOT use hardcoded credentials in `providers.tf`.
 - RDS MUST be encrypted with AWS KMS.
 - EKS MUST use private endpoints or restrict public access via CIDR.
 
 ## Assets
-- ssets/demeter-aws-base.checklist.md
-- ssets/demeter-aws.main.tf.tpl.md
-- ssets/demeter-aws.backend.tf.tpl.md
+- `assets/demeter-aws-base.checklist.md`
+- `assets/demeter-aws.main.tf.tpl.md`
+- `assets/demeter-aws.backend.tf.tpl.md`
