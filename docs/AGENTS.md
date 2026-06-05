@@ -1,10 +1,10 @@
-# Agent Catalog
+﻿# Agent Catalog
 
 > Detailed documentation for all 8 callable agents in the Copilot Governance Framework.
 
 ## How Agents Work
 
-Agents are **thin coordinators** — they don't contain business logic. Instead, they:
+Agents are **thin coordinators** â€” they don't contain business logic. Instead, they:
 1. Validate the incoming request
 2. Resolve which skill(s) to delegate to
 3. Load their companion templates and checklists
@@ -12,19 +12,19 @@ Agents are **thin coordinators** — they don't contain business logic. Instead,
 5. Validate the result
 
 Every agent follows a standard **7-section structure**:
-1. Objective → What the agent does
-2. Output Contract → What it produces
-3. Evidence & Inference Usage Rules → How it handles ambiguity
-4. Determinism Requirement → How decisions are made
-5. Applicability Rules → When to use (and not use) this agent
-6. Process Definition → Step-by-step execution flow
-7. Validation Layer → How results are verified
+1. Objective â†’ What the agent does
+2. Output Contract â†’ What it produces
+3. Evidence & Inference Usage Rules â†’ How it handles ambiguity
+4. Determinism Requirement â†’ How decisions are made
+5. Applicability Rules â†’ When to use (and not use) this agent
+6. Process Definition â†’ Step-by-step execution flow
+7. Validation Layer â†’ How results are verified
 
 ---
 
-## 🔀 Triage Agent
+## ðŸ”€ Triage Agent
 
-**File:** `.github/agents/triage.agent.md`
+**File:** `.github/agents/gaia.agent.md`
 
 **Purpose:** Routes any request to the strongest matching agent when the user doesn't know which agent to use.
 
@@ -36,27 +36,27 @@ Every agent follows a standard **7-section structure**:
 **Example requests:**
 ```
 "I need to create a new Python API with database connectors"
-→ Routes to py-build
+â†’ Routes to py-build
 
 "Review the security of this codebase"
-→ Routes to security
+â†’ Routes to security
 
 "Generate a README for this repository"
-→ Routes to documentator
+â†’ Routes to documentator
 ```
 
 ---
 
-## 🏗️ Build Agent
+## ðŸ—ï¸ hephaestus agent
 
-**File:** `.github/agents/build.agent.md`
+**File:** `.github/agents/hephaestus.agent.md`
 
 **Purpose:** Authors new governed agent bundles or skill bundles using the canonical governance scaffolds.
 
 **Delegates to:**
-- `build-agent` — When creating a new agent
-- `build-skill` — When creating a new skill
-- Governance update paths — When modifying shared governance assets
+- `build-agent` â€” When creating a new agent
+- `build-skill` â€” When creating a new skill
+- Governance update paths â€” When modifying shared governance assets
 
 **When to use:**
 - Creating a new agent for a new workflow family
@@ -70,18 +70,18 @@ Every agent follows a standard **7-section structure**:
 
 ---
 
-## 📄 Documentator Agent
+## ðŸ“„ apollo agent
 
-**File:** `.github/agents/documentator.agent.md`
+**File:** `.github/agents/apollo.agent.md`
 
 **Purpose:** Generates or refreshes repository documentation using governed templates and live repository state.
 
 **Delegates to:**
-- `create-or-update-readme` — For README generation/refresh
-- `markdown-converter` — For format conversion (HTML, PDF, DOCX, etc.)
+- `create-or-update-readme` â€” For README generation/refresh
+- `markdown-converter` â€” For format conversion (HTML, PDF, DOCX, etc.)
 
 **Companion files:**
-- `documentator/documentator.checklist.md` — Validation checklist
+- `documentator/documentator.checklist.md` â€” Validation checklist
 
 **When to use:**
 - Generating a new README from a template
@@ -96,9 +96,9 @@ Every agent follows a standard **7-section structure**:
 
 ---
 
-## 🟣 .NET Build Agent
+## ðŸŸ£ .NET hephaestus agent
 
-**File:** `.github/agents/net-build.agent.md`
+**File:** `.github/agents/net-hephaestus.agent.md`
 
 **Purpose:** Orchestrates .NET project scaffolding by routing to one of 6 supported profile skills.
 
@@ -114,8 +114,8 @@ Every agent follows a standard **7-section structure**:
 | `job` | `net-setup-job` | Scheduled job / hosted service |
 
 **Companion files:**
-- `net-build/net-build.tpl.md` — Shared .NET governance rules
-- `net-build/net-build.checklist.md` — Validation checklist
+- `net-build/net-build.tpl.md` â€” Shared .NET governance rules
+- `net-build/net-build.checklist.md` â€” Validation checklist
 
 **Example:**
 ```
@@ -124,24 +124,24 @@ Every agent follows a standard **7-section structure**:
 
 ---
 
-## 🔴 Angular Build Agent
+## ðŸ”´ Angular hephaestus agent
 
-**File:** `.github/agents/ng-build.agent.md`
+**File:** `.github/agents/ng-hephaestus.agent.md`
 
 **Purpose:** Orchestrates Angular SPA scaffolding with governed UI composition and optional SSO login.
 
 **Supported profiles:**
-- `spa` — Single-page application with header wrapper and optional SSO login
+- `spa` â€” Single-page application with header wrapper and optional SSO login
 
 **Delegates to:**
-- `ng-setup-spa` — SPA-specific structure and login generation
-- `components-catalog` — Corporate UI component references
-- `mockup-layouts` — Page layout patterns
-- `global-styles` — Design tokens and utility classes
+- `ng-setup-spa` â€” SPA-specific structure and login generation
+- `components-catalog` â€” Corporate UI component references
+- `mockup-layouts` â€” Page layout patterns
+- `global-styles` â€” Design tokens and utility classes
 
 **Companion files:**
-- `ng-build/ng-build.tpl.md` — Shared Angular governance (dependencies, folder structure, coding standards)
-- `ng-build/ng-build.checklist.md` — Validation checklist
+- `ng-build/ng-build.tpl.md` â€” Shared Angular governance (dependencies, folder structure, coding standards)
+- `ng-build/ng-build.checklist.md` â€” Validation checklist
 
 **Example:**
 ```
@@ -150,9 +150,9 @@ Every agent follows a standard **7-section structure**:
 
 ---
 
-## 🐍 Python Build Agent
+## ðŸ Python hephaestus agent
 
-**File:** `.github/agents/py-build.agent.md`
+**File:** `.github/agents/py-hephaestus.agent.md`
 
 **Purpose:** Orchestrates Python project scaffolding by resolving and executing layers in dependency order.
 
@@ -168,11 +168,11 @@ Every agent follows a standard **7-section structure**:
 | `pytest-fastapi` | `add-layer-py-pytest-fastapi` | `environment`, `api`, `pytest` |
 | `cicd` | `add-layer-py-cicd` | `environment`, `api` |
 
-**Automatic dependency resolution:** Request `pytest-fastapi` and the agent will automatically include `environment` → `api` → `pytest` → `pytest-fastapi`.
+**Automatic dependency resolution:** Request `pytest-fastapi` and the agent will automatically include `environment` â†’ `api` â†’ `pytest` â†’ `pytest-fastapi`.
 
 **Companion files:**
-- `py-build/py-build.tpl.md` — Shared Python governance
-- `py-build/py-build.checklist.md` — Validation checklist
+- `py-build/py-build.tpl.md` â€” Shared Python governance
+- `py-build/py-build.checklist.md` â€” Validation checklist
 
 **Example:**
 ```
@@ -181,9 +181,9 @@ Every agent follows a standard **7-section structure**:
 
 ---
 
-## 🔒 Security Agent
+## ðŸ”’ minerva agent
 
-**File:** `.github/agents/security.agent.md`
+**File:** `.github/agents/minerva.agent.md`
 
 **Purpose:** Routes security requests to 6 specialized skills covering audits, reviews, triage, patches, and event-driven scans.
 
@@ -200,8 +200,8 @@ Every agent follows a standard **7-section structure**:
 | Dependency check | `dependency-security-check` | Dependency findings comment |
 
 **Companion files:**
-- `security/security.tpl.md` — Audit template
-- `security/security.checklist.md` — Audit validation
+- `security/security.tpl.md` â€” Audit template
+- `security/security.checklist.md` â€” Audit validation
 
 **Example:**
 ```
@@ -212,20 +212,20 @@ Every agent follows a standard **7-section structure**:
 
 ---
 
-## 👁️ Supervisor Agent
+## ðŸ‘ï¸ apollo agent
 
-**File:** `.github/agents/supervisor.agent.md`
+**File:** `.github/agents/apollo.agent.md`
 
 **Purpose:** Reviews governed bundles (agents and skills) for compliance against the canonical governance scaffolds.
 
 **Delegates to:**
-- `supervise-agent` — Reviews agent bundles against `AGENT.base.tpl.md`
-- `supervise-skill` — Reviews skill bundles against `SKILL.base.tpl.md` and `SKILL.block-catalog.md`
+- `supervise-agent` â€” Reviews agent bundles against `AGENT.base.tpl.md`
+- `supervise-skill` â€” Reviews skill bundles against `SKILL.base.tpl.md` and `SKILL.block-catalog.md`
 
 **Output:** One compliance report per reviewed bundle.
 
 **Example:**
 ```
 "Review .github/skills/create-or-update-readme/SKILL.md"
-"Supervise the ng-build agent bundle"
+"Supervise the ng-hephaestus agent bundle"
 ```

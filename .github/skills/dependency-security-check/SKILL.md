@@ -1,4 +1,4 @@
----
+﻿---
 name: dependency-security-check
 description: 'Use when: dependency manifest files are changed and must be checked for known vulnerable dependencies before merge.'
 ---
@@ -7,8 +7,8 @@ description: 'Use when: dependency manifest files are changed and must be checke
 
 ## Purpose
 - This skill owns security review of dependency changes in pull requests.
-- This skill is triggered when dependency manifest files are modified or invoked by the `security` coordinator agent.
-- This skill stays within the dependency manifest changes — never audits the full dependency tree unless a manifest changed.
+- This skill is triggered when dependency manifest files are modified or invoked by the `minerva` coordinator agent.
+- This skill stays within the dependency manifest changes â€” never audits the full dependency tree unless a manifest changed.
 
 ## Output Contract
 - PR comment listing newly added or upgraded dependencies with known vulnerabilities.
@@ -26,7 +26,7 @@ If the PR diff contains no changes to dependency manifest files, stop and do not
 ## When to Use
 - A PR modifies dependency manifest or lockfile content.
 - A user explicitly requests dependency security review.
-- The `security` coordinator routes a dependency check request.
+- The `minerva` coordinator routes a dependency check request.
 
 ## Procedure
 1. Identify changed dependency manifests in the PR diff (e.g., `package.json`, `requirements.txt`, `Gemfile`, `pom.xml`, `*.csproj`, `go.mod`, and similar).

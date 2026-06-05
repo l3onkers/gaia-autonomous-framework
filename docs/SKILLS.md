@@ -1,14 +1,14 @@
-# Skills Catalog
+﻿# Skills Catalog
 
 > Detailed documentation for all 33 governed skills in the Copilot Governance Framework.
 
 ## How Skills Work
 
 Skills are the **workhorses** of the framework. While agents are thin routers, skills contain:
-- **Templates** (`.tpl.md`) — Detailed rules, code examples, and generation logic
-- **Checklists** (`.checklist.md`) — Validation criteria the output must satisfy
-- **References** — Documentation, contracts, and examples
-- **Scripts** — Validation and generation helper scripts
+- **Templates** (`.tpl.md`) â€” Detailed rules, code examples, and generation logic
+- **Checklists** (`.checklist.md`) â€” Validation criteria the output must satisfy
+- **References** â€” Documentation, contracts, and examples
+- **Scripts** â€” Validation and generation helper scripts
 
 Each skill has a `SKILL.md` manifest that declares its purpose, inputs, outputs, and owned assets.
 
@@ -18,7 +18,7 @@ Each skill has a `SKILL.md` manifest that declares its purpose, inputs, outputs,
 
 ### .NET Profile Skills
 
-These skills are routed by the `net-build` agent. Each defines a complete .NET project scaffold.
+These skills are routed by the `eleuthia` agent. Each defines a complete .NET project scaffold.
 
 #### `net-setup-api`
 - **Path:** `.github/skills/net-setup-api/`
@@ -58,7 +58,7 @@ These skills are routed by the `net-build` agent. Each defines a complete .NET p
 
 #### `ng-setup-spa`
 - **Path:** `.github/skills/ng-setup-spa/`
-- **Used by:** `ng-build`
+- **Used by:** `eleuthia`
 - **What it generates:** Angular 21+ SPA with:
   - Governed header wrapper component
   - Optional SSO login wrapper with token management
@@ -66,15 +66,15 @@ These skills are routed by the `net-build` agent. Each defines a complete .NET p
   - HTTP interceptors (error handling, API key, session, token)
   - Environment configuration with file replacement
 - **Key assets:**
-  - `ng-setup-spa.tpl.md` — SPA profile rules and structure
-  - `ng-setup-spa.login.tpl.md` — SSO login generation template
-  - `ng-setup-spa.checklist.md` — Validation checklist
+  - `ng-setup-spa.tpl.md` â€” SPA profile rules and structure
+  - `ng-setup-spa.login.tpl.md` â€” SSO login generation template
+  - `ng-setup-spa.checklist.md` â€” Validation checklist
 
 ---
 
 ### Python Layer Skills
 
-These skills are routed by the `py-build` agent and execute in dependency order.
+These skills are routed by the `eleuthia` agent and execute in dependency order.
 
 #### `add-layer-py-environment`
 - **Path:** `.github/skills/add-layer-py-environment/`
@@ -135,38 +135,38 @@ These skills are routed by the `py-build` agent and execute in dependency order.
 
 ### `security-review`
 - **Path:** `.github/skills/security-review/`
-- **Used by:** `security`
+- **Used by:** `minerva`
 - **What it does:** Performs code-level vulnerability analysis on specified files or PR-scoped changes
 - **Output:** `SECURITY_REVIEW.md` or PR review comments
 
 ### `security-triage`
 - **Path:** `.github/skills/security-triage/`
-- **Used by:** `security`
+- **Used by:** `minerva`
 - **What it does:** Prioritizes and groups security evidence by severity
 - **Output:** `SECURITY_TRIAGE.md`
 
 ### `security-patch`
 - **Path:** `.github/skills/security-patch/`
-- **Used by:** `security`
+- **Used by:** `minerva`
 - **What it does:** Generates minimal, governed fix proposals with an explicit approval gate
 - **Output:** `SECURITY_PATCH.md` with Apply / Reject / Modify options
-- **Important:** Patches are never applied automatically — human approval is always required
+- **Important:** Patches are never applied automatically â€” human approval is always required
 
 ### `pr-security-review`
 - **Path:** `.github/skills/pr-security-review/`
-- **Used by:** `security`
+- **Used by:** `minerva`
 - **What it does:** Reviews security-relevant changes in pull requests
 - **Output:** PR review comments with security findings
 
 ### `commit-secret-scan`
 - **Path:** `.github/skills/commit-secret-scan/`
-- **Used by:** `security`
+- **Used by:** `minerva`
 - **What it does:** Detects secrets (API keys, tokens, passwords) in pushed commits
 - **Detection patterns:** AWS, GCP, cloud provider keys, GitHub tokens, Stripe keys, and more
 
 ### `dependency-security-check`
 - **Path:** `.github/skills/dependency-security-check/`
-- **Used by:** `security`
+- **Used by:** `minerva`
 - **What it does:** Reviews dependency manifest changes for known vulnerabilities
 - **Output:** Dependency security findings in PR comment format
 
@@ -176,15 +176,15 @@ These skills are routed by the `py-build` agent and execute in dependency order.
 
 ### `create-or-update-readme`
 - **Path:** `.github/skills/create-or-update-readme/`
-- **Used by:** `documentator`
+- **Used by:** `apollo`
 - **What it does:** Generates or refreshes README.md using bundled template assets
 - **Templates:**
-  - `README.generic.tpl.md` — General-purpose fallback
-  - `README.agents.tpl.md` — Specialized for agent-based repositories
+  - `README.generic.tpl.md` â€” General-purpose fallback
+  - `README.agents.tpl.md` â€” Specialized for agent-based repositories
 
 ### `markdown-converter`
 - **Path:** `.github/skills/markdown-converter/`
-- **Used by:** `documentator` or direct invocation
+- **Used by:** `apollo` or direct invocation
 - **What it does:** Converts Markdown to HTML, PDF, DOCX, TeX, or EPUB via Pandoc
 - **Includes:** Governed HTML template with head injection and logo assets
 
@@ -196,24 +196,24 @@ These skills are routed by the `py-build` agent and execute in dependency order.
 
 ### `build-agent`
 - **Path:** `.github/skills/build-agent/`
-- **Used by:** `build`
+- **Used by:** `hephaestus`
 - **What it does:** Scaffolds new agent bundles from `AGENT.base.tpl.md`
 - **Validates through:** `supervise-agent`
 
 ### `build-skill`
 - **Path:** `.github/skills/build-skill/`
-- **Used by:** `build`
+- **Used by:** `hephaestus`
 - **What it does:** Scaffolds new skill bundles from `SKILL.base.tpl.md` and `SKILL.block-catalog.md`
 - **Validates through:** `supervise-skill`
 
 ### `supervise-agent`
 - **Path:** `.github/skills/supervise-agent/`
-- **Used by:** `build`, `supervisor`
+- **Used by:** `hephaestus`, `apollo`
 - **What it does:** Reviews agent bundles for compliance against the canonical scaffold
 
 ### `supervise-skill`
 - **Path:** `.github/skills/supervise-skill/`
-- **Used by:** `build`, `supervisor`
+- **Used by:** `hephaestus`, `apollo`
 - **What it does:** Reviews skill bundles for compliance against the canonical scaffold and block catalog
 
 ---
@@ -222,7 +222,7 @@ These skills are routed by the `py-build` agent and execute in dependency order.
 
 ### `components-catalog`
 - **Path:** `.github/skills/components-catalog/`
-- **Used by:** `ng-build`
+- **Used by:** `eleuthia`
 - **What it contains:** Corporate UI component reference library including:
   - Header, footer, navigation components
   - Card, button, table, form components
@@ -231,12 +231,12 @@ These skills are routed by the `py-build` agent and execute in dependency order.
 
 ### `mockup-layouts`
 - **Path:** `.github/skills/mockup-layouts/`
-- **Used by:** `ng-build`
+- **Used by:** `eleuthia`
 - **What it contains:** Governed page layout patterns for common application views
 
 ### `global-styles`
 - **Path:** `.github/skills/global-styles/`
-- **Used by:** `ng-build`
+- **Used by:** `eleuthia`
 - **What it contains:** Utility CSS classes, design tokens, spacing, and color palette references
 
 ---

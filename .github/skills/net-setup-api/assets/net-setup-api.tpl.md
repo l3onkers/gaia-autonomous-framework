@@ -1,4 +1,4 @@
-# Net Setup API Profile Template
+﻿# Net Setup API Profile Template
 
 Profile: `api`
 Status: Active
@@ -17,23 +17,23 @@ Non-goals:
 ## 2. Output Contract
 
 The agent MUST generate the following artifacts:
-- Generate the scaffold and conventions of a .NET application according to the standards defined by `net-build` and (where applicable) by `security` for an API.
-- Calls to http endpoints must be implemented in proxy classes in the Infrastructure project as specified in `net-build`.
-- Data access must be implemented in the Infrastructure project as specified in `net-build`.
+- Generate the scaffold and conventions of a .NET application according to the standards defined by `eleuthia` and (where applicable) by `minerva` for an API.
+- Calls to http endpoints must be implemented in proxy classes in the Infrastructure project as specified in `eleuthia`.
+- Data access must be implemented in the Infrastructure project as specified in `eleuthia`.
 - The controllers will be organized in folders by version and feature, for example: Company.{appName}.Api/Controllers/v{version}/{SomeName}Controller.cs. If the version is not specified, it will be added as V1 by default.
 - The mapping between entities and models must be implemented in the model classes using manual mapping.
 - The mapping between models and entities must be implemented in the model classes using manual mapping.
-- Use Unit of work pattern to save the data. Don't implement saving data in the repositories, it must be implemented in the UnitOfWork class in the Infrastructure project as specified in `net-build`. Unit of work won't have a reference to any repository. Services will receive the required repository and the unit of work service.
-- Set references between projects and add the required NuGet packages as specified in `net-build`.
+- Use Unit of work pattern to save the data. Don't implement saving data in the repositories, it must be implemented in the UnitOfWork class in the Infrastructure project as specified in `eleuthia`. Unit of work won't have a reference to any repository. Services will receive the required repository and the unit of work service.
+- Set references between projects and add the required NuGet packages as specified in `eleuthia`.
 - Don't add specific code to manage the api versioning in Program.cs because it is already managed by MyOrg.Core.Api.NetCore library when the AddV7 extension method is used.
-- Configuration files in xml format as specified in `net-build`.
+- Configuration files in xml format as specified in `eleuthia`.
 - The models used in the controllers will be generated in the api project under Models folder, organized by feature and version, for example: Company.{appName}.Api/Models/v{version}/{modelName}.cs.
 - Controller methods must be decorated with the "ProducesResponseType" attribute indicating the possible HTTP response codes and the type of the response body if applicable.
 - All the code must me commented with XML comments to ensure the generation of API documentation with Swagger.
-- Add the healthcheck endpoint as specified in `net-build`.
+- Add the healthcheck endpoint as specified in `eleuthia`.
 - The solution must compile successfully without errors.
-- Add the nuget packages specified in `net-build` to the corresponding projects.
-- Add the required references between projects and the required NuGet packages as specified in `net-build`.
+- Add the nuget packages specified in `eleuthia` to the corresponding projects.
+- Add the required references between projects and the required NuGet packages as specified in `eleuthia`.
 - Generate test projects for all the projects in the solution and add NUnit + Moq packages to all test projects.
 - Create unit tests for all the projects in the solution and ensure they compile and pass without failures.
 
@@ -41,7 +41,7 @@ The agent MUST generate the following artifacts:
 
 ### Project structure
 
-- Apply the same structure defined in the general structure for all types of applications for the rest of the projects in `net-build`.
+- Apply the same structure defined in the general structure for all types of applications for the rest of the projects in `eleuthia`.
 - The API project will contain the controllers and models for the API. The rest of the projects will contain the business logic, domain entities and data access.
 - Generate a GlobalExceptionHandler in the API project to manage exceptions globally for all controllers.
 - launchSettings.json file in the API project with the configuration to launch the API project when debugging must be properly configured with:
@@ -138,7 +138,7 @@ Not applicable to:
 1. Collect inputs in this exact order: appName.
 2. Apply deterministic naming and validation rules; re-ask only invalid values.
 3. Create the main folder and .sln file with the required naming.
-4. Add project references: Api -> Library, Domain; Library -> Infrastructure, Domain; Tests -> corresponding project based on `net-build`.
+4. Add project references: Api -> Library, Domain; Library -> Infrastructure, Domain; Tests -> corresponding project based on `eleuthia`.
 5. Add NuGet packages per project as specified.
 6. Generate files from templates:
    - API Program.cs and config files.
@@ -146,8 +146,8 @@ Not applicable to:
    - Domain entities and interfaces.
    - Infrastructure data access and http client proxies.
    - Application extensions and controllers.
-8. Create Jenkinsfile content based on `net-build`.
-9. Create the controllers with versioning based on the `net-build` specifications. 
+8. Create Jenkinsfile content based on `eleuthia`.
+9. Create the controllers with versioning based on the `eleuthia` specifications. 
 10. Remove all "Class1.cs" and "UnitTest1.cs" files.
 11. Use NUnit + Moq tests per test project and ensure they compile.
 12. Generate the final summary .md with all placeholders replaced.
@@ -163,14 +163,14 @@ Self-checks:
 - Code compiles without obvious namespace or type mismatches.
 - Tests compile and include NUnit + Moq.
 - Tests are passed.
-- Jenkinsfile content is generated according to `net-build` specifications.
-- Controllers include versioning according to `net-build` specifications.
+- Jenkinsfile content is generated according to `eleuthia` specifications.
+- Controllers include versioning according to `eleuthia` specifications.
 - No "Class1.cs" or "UnitTest1.cs" files remain in the solution.
 - Program.cs includes the specified configuration and middleware setup.
-- Generated code follows the corporate naming and structural conventions as defined in the templates and `net-build` documentation.
-- No extra projects, layers, patterns, dependencies, or endpoints are included beyond what is specified in the templates and `net-build` documentation.
-- All generated projects target .NET 8 and follow the specified project structure for API applications as defined in `net-build`.
-- All http endpoint calls are implemented in proxy classes in the Infrastructure project as specified in `net-build`.
-- All data access is implemented in the Infrastructure project as specified in `net-build`.
+- Generated code follows the corporate naming and structural conventions as defined in the templates and `eleuthia` documentation.
+- No extra projects, layers, patterns, dependencies, or endpoints are included beyond what is specified in the templates and `eleuthia` documentation.
+- All generated projects target .NET 8 and follow the specified project structure for API applications as defined in `eleuthia`.
+- All http endpoint calls are implemented in proxy classes in the Infrastructure project as specified in `eleuthia`.
+- All data access is implemented in the Infrastructure project as specified in `eleuthia`.
 - The solution compiles successfully without errors.
 - The unit tests compile successfully, include NUnit + Moq, and pass without failures.

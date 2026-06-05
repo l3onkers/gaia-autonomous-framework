@@ -1,4 +1,4 @@
----
+﻿---
 name: build-skill
 description: 'Use when: build resolves a run to author exactly one governed `.github/skills/<skill>/SKILL.md` bundle from explicit evidence, free-text requirements, and the neutral skill scaffold.'
 user-invocable: false
@@ -7,7 +7,7 @@ user-invocable: false
 # Build Skill Bundle Skill
 
 ## Purpose
-- This skill owns one reusable authoring path for exactly one new governed skill bundle for `build`.
+- This skill owns one reusable authoring path for exactly one new governed skill bundle for `hephaestus`.
 - This skill owns requirement extraction, conflict resolution, skill placement, scaffold selection, optional block selection, same-run owned asset creation, and the bounded `supervise-skill` validation gate for skill bundles.
 - This skill stays within exactly one new bundle root under `.github/skills/` per run.
 
@@ -32,11 +32,11 @@ If the request cannot resolve exactly one new skill bundle root and one skill na
 - Free-text requirements, notes, and partial drafts.
 
 ## When to Use
-- `build` has resolved the run to the new reusable routed specialty path, delegated shared behavior path, or a new shared skill.
+- `hephaestus` has resolved the run to the new reusable routed specialty path, delegated shared behavior path, or a new shared skill.
 - The run must emit exactly one governed skill bundle root.
 - The result must be built from explicit evidence plus bounded structural inference and must pass `supervise-skill`.
 - Direct neutral-governance updates or other build resources are not sufficient to satisfy the run by themselves.
-- If the request is still compatible with a top-level callable agent bundle, `build` must clarify before invoking this skill.
+- If the request is still compatible with a top-level callable agent bundle, `hephaestus` must clarify before invoking this skill.
 
 ## Procedure
 1. Extract explicit constraints, required outputs, forbidden actions, source artifacts, and the candidate skill name from the current request and provided materials.

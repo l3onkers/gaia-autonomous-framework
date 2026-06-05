@@ -1,13 +1,13 @@
----
+﻿---
 name: build-agent
 description: 'Use when: build resolves a run to author exactly one governed `.github/agents/<bundle>.agent.md` bundle from explicit evidence, free-text requirements, and the neutral agent scaffold.'
 user-invocable: false
 ---
 
-# Build Agent Bundle Skill
+# hephaestus agent Bundle Skill
 
 ## Purpose
-- This skill owns one reusable authoring path for exactly one new governed agent bundle for `build`.
+- This skill owns one reusable authoring path for exactly one new governed agent bundle for `hephaestus`.
 - This skill owns requirement extraction, conflict resolution, bundle placement, draft assembly, same-run owned companion creation, and the bounded `supervise-agent` validation gate for agent bundles.
 - This skill stays within exactly one new bundle root under `.github/agents/` per run.
 
@@ -32,11 +32,11 @@ If the request cannot resolve exactly one new agent bundle root and one bundle n
 - Free-text requirements, notes, and partial drafts.
 
 ## When to Use
-- `build` has resolved the run to the new callable top-level bundle path or a new `*.agent.md` entrypoint.
+- `hephaestus` has resolved the run to the new callable top-level bundle path or a new `*.agent.md` entrypoint.
 - The run must emit exactly one governed agent bundle root.
 - The result must be built from explicit evidence plus bounded structural inference and must pass `supervise-agent`.
 - Direct neutral-governance updates or other build resources are not sufficient to satisfy the run by themselves.
-- If the request is still compatible with a skill bundle, `build` must clarify before invoking this skill.
+- If the request is still compatible with a skill bundle, `hephaestus` must clarify before invoking this skill.
 
 ## Procedure
 1. Extract explicit constraints, required outputs, forbidden actions, source artifacts, and the candidate bundle name from the current request and provided materials.

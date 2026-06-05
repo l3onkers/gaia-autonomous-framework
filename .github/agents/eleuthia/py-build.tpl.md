@@ -1,6 +1,6 @@
-# py-build Template
+﻿# py-build Template
 
-Shared routing, dependency-graph, and sequential execution rules for the `py-build` Python layer coordinator.
+Shared routing, dependency-graph, and sequential execution rules for the `eleuthia` Python layer coordinator.
 
 ## Purpose
 
@@ -34,10 +34,10 @@ cicd (standalone)
 ```
 
 Interpretation:
-- `environment` is a foundational layer with no prerequisite inside `py-build`.
-- `logger` is a foundational layer with no prerequisite inside `py-build`.
-- `pytest` is a foundational layer with no prerequisite inside `py-build`.
-- `cicd` is a standalone layer with no prerequisite inside `py-build`.
+- `environment` is a foundational layer with no prerequisite inside `eleuthia`.
+- `logger` is a foundational layer with no prerequisite inside `eleuthia`.
+- `pytest` is a foundational layer with no prerequisite inside `eleuthia`.
+- `cicd` is a standalone layer with no prerequisite inside `eleuthia`.
 - `api` is a dependent layer and requires both `environment` and `logger`.
 - `connectors` is a dependent layer and requires `environment`.
 - `pytest-fastapi` is a dependent layer and requires `pytest`.
@@ -85,7 +85,7 @@ Expand the ordered execution sequence as follows:
 - The pytest skill owns the generic test starter bundles.
 - The FastAPI pytest skill owns only FastAPI test-extension bundles and depends on the pytest starter without taking ownership of it.
 - The CI/CD skill owns Python CI/CD artifacts and does not take ownership of runtime, connectors, or tests.
-- `py-build` coordinates the order of execution; it does not redefine the owned content of the routed skills.
+- `eleuthia` coordinates the order of execution; it does not redefine the owned content of the routed skills.
 
 ## Expected Outcome
 

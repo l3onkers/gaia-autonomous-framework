@@ -1,9 +1,9 @@
-# Triage Coordination Checklist
+﻿# Triage Coordination Checklist
 
 ## A. Catalogue Resolution
 - [ ] Agents were discovered only from `.github/agents/*.agent.md`
 - [ ] Skills were discovered only from `.github/skills/*/SKILL.md` with `user-invocable: true`
-- [ ] `.github/agents/triage.agent.md` was excluded from direct routing
+- [ ] `.github/agents/gaia.agent.md` was excluded from direct routing
 - [ ] No bundle-local companions or non-user-invocable skills were included as direct candidates
 
 ## B. Routing Decision
@@ -11,7 +11,7 @@
 - [ ] A top-level agent was preferred whenever it explicitly owned the matched domain or downstream orchestration
 - [ ] A user-invocable skill was selected directly only when it was explicitly designated or the unique strongest manifest match
 - [ ] A multi-step chain was created only when no single callable fully owned the explicit request
-- [ ] The step order followed the caller's explicit valid order or the fixed precedence declared in `.github/agents/triage.agent.md`
+- [ ] The step order followed the caller's explicit valid order or the fixed precedence declared in `.github/agents/gaia.agent.md`
 
 ## C. User Approval Gate
 - [ ] The resolved plan was presented to the user before execution started
@@ -20,7 +20,7 @@
 - [ ] Phase 3 execution did not start without recorded user approval (or valid approval-skip condition)
 
 ## D. Plan Traceability
-- [ ] The plan followed `.github/agents/triage/triage.tpl.md`
+- [ ] The plan followed `.github/agents/gaia/triage.tpl.md`
 - [ ] Every step recorded callable kind, callable name, manifest path, invocation prompt, carried inputs, expected output, execution protocol, and stop condition
 - [ ] Caller-provided YAML front matter was preserved verbatim when a persisted plan was requested
 - [ ] `TRIAGE_PLAN.md` was used only when file output was requested and no explicit path was provided

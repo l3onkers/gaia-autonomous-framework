@@ -1,4 +1,4 @@
----
+﻿---
 name: security-patch
 description: 'Use when: a security workflow must propose minimal, evidence-justified code patches for known security vulnerabilities without altering business logic, always requiring human approval before application.'
 ---
@@ -7,15 +7,15 @@ description: 'Use when: a security workflow must propose minimal, evidence-justi
 
 ## Purpose
 - This skill owns proposing minimal code patches for known security vulnerabilities, with mandatory human approval before application.
-- This skill is used by the `security` coordinator agent or invoked directly for patch requests.
-- This skill stays within the identified vulnerability scope — no refactoring, no unrelated changes, no automatic application.
+- This skill is used by the `minerva` coordinator agent or invoked directly for patch requests.
+- This skill stays within the identified vulnerability scope â€” no refactoring, no unrelated changes, no automatic application.
 
 ## Output Contract
 - Create or update exactly one report file: `SECURITY_PATCH.md` (repository root).
 - Copy the structure verbatim from `./assets/security-patch.tpl.md`.
 
 Downstream skill dependency (mandatory):
-- `.github/skills/git-workflow/SKILL.md` — required for branch creation, commit message formatting, and PR creation when a patch is approved.
+- `.github/skills/git-workflow/SKILL.md` â€” required for branch creation, commit message formatting, and PR creation when a patch is approved.
 
 Generation constraints:
 - `SECURITY_PATCH.md` headings, numbering, and section order MUST NOT change.
@@ -37,7 +37,7 @@ If the vulnerability cannot be verified from static evidence, stop and request c
 - A finding ID from a `SECURITY_AUDIT.md`, `SECURITY_TRIAGE.md`, or `SECURITY_REVIEW.md` report needs a fix.
 - A GitHub security alert ID or Dependabot alert reference needs a patch.
 - An explicit vulnerability description with enough detail to locate the affected code is provided.
-- The `security` coordinator routes a patch generation request.
+- The `minerva` coordinator routes a patch generation request.
 
 ## Procedure
 1. Receive vulnerability reference (finding ID, alert, or description) from the user or coordinating agent.
@@ -47,7 +47,7 @@ If the vulnerability cannot be verified from static evidence, stop and request c
 5. Generate the proposed patch as a unified diff.
 6. Write impact analysis documenting what behavior is preserved and what changes.
 7. Populate `SECURITY_PATCH.md` from `./assets/security-patch.tpl.md`, replacing only template placeholders with evidence-based content.
-8. Present the patch for human approval — do not apply. The approval section MUST include explicit "Apply / Reject / Modify" options.
+8. Present the patch for human approval â€” do not apply. The approval section MUST include explicit "Apply / Reject / Modify" options.
 9. If approved: invoke `.github/skills/git-workflow/SKILL.md` for branch creation (`fix/security-<short-desc>`), commit message formatting (`fix(security): <subject>`), and PR creation with the patch diff.
 10. Validate output against `./assets/security-patch.checklist.md` before finalizing.
 
@@ -70,9 +70,9 @@ If the vulnerability cannot be verified from static evidence, stop and request c
 - Fabricated evidence is strictly forbidden.
 
 Evidence anchor format (mandatory, preferred in order 1 > 2 > 3):
-1. Line anchor: `<path>:<line_start>-<line_end>` — use when files have stable line numbers.
-2. Structural anchor: `<path>#<structural_path>` — use when structural paths are more stable than line numbers.
-3. Content anchor: `<path>"<unique_snippet>"` — use only if neither line nor structural anchors are reliable. Snippet MUST be unique within the file and no longer than 120 characters.
+1. Line anchor: `<path>:<line_start>-<line_end>` â€” use when files have stable line numbers.
+2. Structural anchor: `<path>#<structural_path>` â€” use when structural paths are more stable than line numbers.
+3. Content anchor: `<path>"<unique_snippet>"` â€” use only if neither line nor structural anchors are reliable. Snippet MUST be unique within the file and no longer than 120 characters.
 
 Additional rules:
 - Always prefer anchor format order `1 > 2 > 3`.
@@ -96,6 +96,6 @@ Additional rules:
 - MUST NOT modify test files unless the test directly exercises the vulnerable path.
 - MUST NOT perform dynamic analysis or runtime scanning.
 - MUST NOT dismiss or close security alerts.
-- Full repository security audits are out of scope (use the `security` agent).
+- Full repository security audits are out of scope (use the `minerva` agent).
 - Code review or vulnerability discovery is out of scope (use the `security-review` skill).
 - Security triage and prioritization is out of scope (use the `security-triage` skill).

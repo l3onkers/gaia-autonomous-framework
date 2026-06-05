@@ -1,16 +1,16 @@
-# Net Build Checklist
+﻿# Net Build Checklist
 
-Quality and determinism checklist for `net-build` outputs.
+Quality and determinism checklist for `eleuthia` outputs.
 
 ---
 
 ## A. Bundle Integrity
 - [ ] Companion artifacts exist with matching basename:
-  - `net-build.agent.md`
+  - `net-hephaestus.agent.md`
   - `net-build.tpl.md`
   - `net-build.checklist.md`
-- [ ] `net-build.agent.md` references `net-build.tpl.md` and `net-build.checklist.md` as authoritative governed inputs
-- [ ] `net-build.agent.md` remains supervisory and keeps detailed shared setup rules in `net-build.tpl.md`
+- [ ] `net-hephaestus.agent.md` references `net-build.tpl.md` and `net-build.checklist.md` as authoritative governed inputs
+- [ ] `net-hephaestus.agent.md` remains supervisory and keeps detailed shared setup rules in `net-build.tpl.md`
 - [ ] Supported profile skills exist under `.github/skills/`:
   - `.github/skills/net-setup-job/SKILL.md`
   - `.github/skills/net-setup-worker/SKILL.md`
@@ -37,12 +37,12 @@ Quality and determinism checklist for `net-build` outputs.
   6. Process Definition
   7. Validation Layer
 - [ ] Section 4 starts with `Determinism Strategy: <Strict|Inference|Hybrid>`
-- [ ] `net-build.agent.md` declares the shared template and checklist companions explicitly
+- [ ] `net-hephaestus.agent.md` declares the shared template and checklist companions explicitly
 
 ---
 
 ## C. Bounded Routing Contract
-- [ ] The run is resolved as one bounded `net-build` request before companion or skill loading begins
+- [ ] The run is resolved as one bounded `eleuthia` request before companion or skill loading begins
 - [ ] Exactly one supported profile token is resolved per run: `job`, `worker`, `api`, `api-cqrs`, or `api-modular`
 - [ ] Deterministic profile-skill mapping is explicit and bounded to the supported scope
 - [ ] `api-cqrs` and `api-modular` take precedence over the generic `api` mapping when their more specific tokens match
@@ -52,7 +52,7 @@ Quality and determinism checklist for `net-build` outputs.
 ---
 
 ## D. Loading and Ownership Discipline
-- [ ] `.github/agents/net-build/net-build.tpl.md` and `.github/agents/net-build/net-build.checklist.md` are loaded before any profile skill content is used
+- [ ] `.github/agents/eleuthia/net-build.tpl.md` and `.github/agents/eleuthia/net-build.checklist.md` are loaded before any profile skill content is used
 - [ ] Only the selected profile skill manifest is loaded for the bounded run
 - [ ] Only the selected profile skill's explicitly declared owned assets are loaded after its manifest
 - [ ] Shared setup rules, dependency allowlists, structure standards, configuration rules, proxy rules, Result-pattern rules, and base quality rules remain attributable to `net-build.tpl.md`
@@ -61,7 +61,7 @@ Quality and determinism checklist for `net-build` outputs.
 - [ ] For `api-modular` outputs, the `.sln` contains the governed logical solution folders and the generated projects are nested under them through `NestedProjects` without moving physical project paths only to satisfy that logical organization
 - [ ] The wrapper does not duplicate detailed drafting rules already owned by `net-build.tpl.md` or the selected profile skill
 - [ ] Incomplete profile skills or missing skill-owned assets trigger clarification instead of invented rules
-- [ ] Shared `net-build` governance wins over conflicting profile-skill rules unless the user explicitly overrides it
+- [ ] Shared `eleuthia` governance wins over conflicting profile-skill rules unless the user explicitly overrides it
 
 ---
 
@@ -99,7 +99,7 @@ Quality and determinism checklist for `net-build` outputs.
 ---
 
 ## E. Setup-Owned QA and Safety
-- [ ] Setup-owned QA remains integrated into `net-build` and no separate `net-qa` handoff is required for the selected scope
+- [ ] Setup-owned QA remains integrated into `eleuthia` and no separate `net-qa` handoff is required for the selected scope
 - [ ] NUnit + Moq expectations for the selected setup-owned scope are preserved
 - [ ] Existing repository test and coverage tooling is reused before new QA dependencies are proposed
 - [ ] Coverage expectations remain attributable to `net-build.tpl.md`, the selected profile skill, and repository evidence
@@ -112,7 +112,7 @@ Quality and determinism checklist for `net-build` outputs.
 ---
 
 ## F. Final Validation
-- [ ] Validation runs against `net-build.checklist.md` together with Section 7 of `net-build.agent.md`
+- [ ] Validation runs against `net-build.checklist.md` together with Section 7 of `net-hephaestus.agent.md`
 - [ ] The final result uses only the minimum governed working set: the canonical companions plus one selected profile skill bundle
 - [ ] Routing, loading, ownership, and QA decisions remain deterministic for identical inputs and repository state
-- [ ] The final result remains attributable to the canonical `net-build` companions plus the selected routed profile skill
+- [ ] The final result remains attributable to the canonical `eleuthia` companions plus the selected routed profile skill

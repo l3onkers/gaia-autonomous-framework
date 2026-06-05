@@ -1,4 +1,4 @@
-# Architecture
+﻿# Architecture
 
 > How the Copilot Governance Framework routes requests through agents, skills, and governance templates to produce deterministic, governed results.
 
@@ -6,9 +6,9 @@
 
 The framework follows three core principles:
 
-1. **Thin Coordinators** — Agents resolve *one bounded path* and delegate all detail to skills
-2. **Skill-Owned Detail** — Skills own templates, checklists, validation, and generation logic
-3. **Neutral Governance** — Shared scaffolds and standards are decoupled from any specific agent or skill
+1. **Thin Coordinators** â€” Agents resolve *one bounded path* and delegate all detail to skills
+2. **Skill-Owned Detail** â€” Skills own templates, checklists, validation, and generation logic
+3. **Neutral Governance** â€” Shared scaffolds and standards are decoupled from any specific agent or skill
 
 ## System Overview
 
@@ -56,7 +56,7 @@ Every request follows this deterministic flow:
 ### 1. Entry Point
 The user either:
 - Asks the **triage agent** to route their request (recommended for newcomers)
-- Calls a **specific agent** directly (e.g., `ng-build`, `py-build`)
+- Calls a **specific agent** directly (e.g., `eleuthia`, `eleuthia`)
 
 ### 2. Agent Resolution
 The agent:
@@ -78,7 +78,7 @@ Before finalizing:
 
 ## Component Relationships
 
-### Agent → Skill Mappings
+### Agent â†’ Skill Mappings
 
 ```mermaid
 graph LR
@@ -129,7 +129,7 @@ graph LR
 
 ### Python Layer Dependency Graph
 
-`py-build` resolves layer dependencies automatically:
+`eleuthia` resolves layer dependencies automatically:
 
 ```mermaid
 graph TD
@@ -145,7 +145,7 @@ graph TD
     style API fill:#3776AB,color:#fff
 ```
 
-If you request `pytest-fastapi`, the framework will automatically include `environment` → `api` → `pytest` → `pytest-fastapi` in the correct order.
+If you request `pytest-fastapi`, the framework will automatically include `environment` â†’ `api` â†’ `pytest` â†’ `pytest-fastapi` in the correct order.
 
 ## File Organization
 
@@ -153,38 +153,38 @@ If you request `pytest-fastapi`, the framework will automatically include `envir
 
 ```
 .github/agents/
-├── {name}.agent.md           # Agent entry point (7-section structure)
-└── {name}/                   # Companion directory
-    ├── {name}.tpl.md          # Detailed template with rules and examples
-    └── {name}.checklist.md    # Validation checklist
+â”œâ”€â”€ {name}.agent.md           # Agent entry point (7-section structure)
+â””â”€â”€ {name}/                   # Companion directory
+    â”œâ”€â”€ {name}.tpl.md          # Detailed template with rules and examples
+    â””â”€â”€ {name}.checklist.md    # Validation checklist
 ```
 
 ### Skill Bundle Structure
 
 ```
 .github/skills/{skill-name}/
-├── SKILL.md                  # Skill manifest
-├── assets/                   # Templates, checklists, examples
-│   ├── {skill-name}.tpl.md
-│   ├── {skill-name}.checklist.md
-│   └── ...
-├── references/               # Reference documentation (optional)
-└── scripts/                  # Validation scripts (optional)
+â”œâ”€â”€ SKILL.md                  # Skill manifest
+â”œâ”€â”€ assets/                   # Templates, checklists, examples
+â”‚   â”œâ”€â”€ {skill-name}.tpl.md
+â”‚   â”œâ”€â”€ {skill-name}.checklist.md
+â”‚   â””â”€â”€ ...
+â”œâ”€â”€ references/               # Reference documentation (optional)
+â””â”€â”€ scripts/                  # Validation scripts (optional)
 ```
 
 ### Governance Layer
 
 ```
 .github/governance/
-├── bundles/
-│   ├── agent/
-│   │   └── AGENT.base.tpl.md      # Canonical agent scaffold
-│   └── skill/
-│       ├── SKILL.base.tpl.md      # Canonical skill scaffold
-│       └── SKILL.block-catalog.md # Optional block catalog
-└── modules/
-    ├── README.md                   # Module documentation
-    └── angular/                    # Package fallbacks
+â”œâ”€â”€ bundles/
+â”‚   â”œâ”€â”€ agent/
+â”‚   â”‚   â””â”€â”€ AGENT.base.tpl.md      # Canonical agent scaffold
+â”‚   â””â”€â”€ skill/
+â”‚       â”œâ”€â”€ SKILL.base.tpl.md      # Canonical skill scaffold
+â”‚       â””â”€â”€ SKILL.block-catalog.md # Optional block catalog
+â””â”€â”€ modules/
+    â”œâ”€â”€ README.md                   # Module documentation
+    â””â”€â”€ angular/                    # Package fallbacks
 ```
 
 ## Determinism Strategy

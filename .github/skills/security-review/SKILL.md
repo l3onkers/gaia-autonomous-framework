@@ -1,4 +1,4 @@
----
+﻿---
 name: security-review
 description: 'Use when: a security workflow must perform evidence-based code-level vulnerability discovery on new or changed files, producing structured findings without modifying code.'
 ---
@@ -7,8 +7,8 @@ description: 'Use when: a security workflow must perform evidence-based code-lev
 
 ## Purpose
 - This skill owns code-level vulnerability discovery on specified files, producing structured, evidence-based findings with CWE categorization.
-- This skill is used by the `security` coordinator agent or invoked directly for scoped code review requests.
-- This skill stays within the declared file scope — never analyzes files outside the request boundary.
+- This skill is used by the `minerva` coordinator agent or invoked directly for scoped code review requests.
+- This skill stays within the declared file scope â€” never analyzes files outside the request boundary.
 
 ## Output Contract
 - Create or update exactly one report file: `SECURITY_REVIEW.md` (repository root), or PR review comments (depending on invocation context).
@@ -18,7 +18,7 @@ Findings format (per finding):
 
 | Column | Description |
 |--------|-------------|
-| ID | Sequential identifier (`SR-001`, `SR-002`, …) |
+| ID | Sequential identifier (`SR-001`, `SR-002`, â€¦) |
 | Severity | `Critical`, `High`, `Medium`, `Low`, or `Info` |
 | CWE Category | CWE identifier and short name (e.g., `CWE-89: SQL Injection`) |
 | File:Line | Exact file path and line range (`<path>:<line_start>-<line_end>`) |
@@ -45,7 +45,7 @@ If no files are specified in the request, stop and request clarification.
 - The request specifies one or more files for code-level security review.
 - The request identifies changed files in a pull request for pre-merge security analysis.
 - The request asks for code-level vulnerability discovery on a defined file scope.
-- The `security` coordinator routes a code review request.
+- The `minerva` coordinator routes a code review request.
 
 ## Procedure
 1. **Scope resolution:** receive and validate the file list from the request. If files are referenced by PR, resolve to concrete file paths. Reject any file outside the declared scope.
@@ -85,7 +85,7 @@ If no files are specified in the request, stop and request clarification.
 ## Evidence Rules
 - Every finding MUST include exact file path and line anchor (`<path>:<line_start>-<line_end>`).
 - Code snippets MUST be verbatim from the analyzed file.
-- Severity MUST be based on: exploitability from static evidence × impact scope.
+- Severity MUST be based on: exploitability from static evidence Ã— impact scope.
 - If a vulnerability is ambiguous, use `Medium` with an explicit caveat in the description.
 - If explicit evidence is unavailable for a required field, preserve `TBD` or use `Unknown`.
 - Fabricated evidence is strictly forbidden.
@@ -119,6 +119,6 @@ If no findings exist, include exactly one `Info` finding with:
 - MUST NOT analyze files outside the specified scope.
 - MUST NOT generate or suggest CVE identifiers.
 - MUST NOT treat a chat-only review or summary as task completion when the report file can be written.
-- Repository-wide security posture audits are out of scope (use the `security` agent).
+- Repository-wide security posture audits are out of scope (use the `minerva` agent).
 - Dependency and supply-chain triage is out of scope (use the `security-triage` skill).
 - Automated code patching is out of scope (use the `security-patch` skill).

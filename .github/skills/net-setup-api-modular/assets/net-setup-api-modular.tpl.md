@@ -1,4 +1,4 @@
-# Net Setup API Modular Profile Template
+﻿# Net Setup API Modular Profile Template
 
 Profile: `api-modular`
 Status: Active
@@ -18,19 +18,19 @@ Non-goals:
 ## 2. Output Contract
 
 The agent MUST generate the following artifacts:
-- `Company.<appName>.sln` with the specified projects and references as specified in `net-build`.
-- Generate the scaffold and conventions of a .NET application according to the standards defined by `net-build` and (where applicable) by `security` for a Modular monolith.
-- Create library project, domain project, persistence project using the specifications in `net-build` if the api is not in a solution with other applications. Otherwise, only generate the api project, add the references to the existing library, domain and persistence projects, and reuse them to generate code.
+- `Company.<appName>.sln` with the specified projects and references as specified in `eleuthia`.
+- Generate the scaffold and conventions of a .NET application according to the standards defined by `eleuthia` and (where applicable) by `minerva` for a Modular monolith.
+- Create library project, domain project, persistence project using the specifications in `eleuthia` if the api is not in a solution with other applications. Otherwise, only generate the api project, add the references to the existing library, domain and persistence projects, and reuse them to generate code.
 - Add the necessary NuGet packages for an API application.
-- Configuration files in xml format as specified in `net-build`.
-- Structure for CQRS features with commands, queries, validators, and optional proxy code if applicable as specified in `net-build`.
+- Configuration files in xml format as specified in `eleuthia`.
+- Structure for CQRS features with commands, queries, validators, and optional proxy code if applicable as specified in `eleuthia`.
 - A final .md summary with placeholders replaced, including: inputs recap, folder tree, full dotnet commands, and generated files list.
 - Root README.md with build/run instructions.
 - Template code files described in this spec (API, config files, modules, library features, application controllers, tests).
-- Jenkinsfile as specified in `net-build`.
-- The solution must follow the structure and naming conventions specified in `net-build` for modular monolith API REST applications.
+- Jenkinsfile as specified in `eleuthia`.
+- The solution must follow the structure and naming conventions specified in `eleuthia` for modular monolith API REST applications.
 - Apply the CQRS pattern implementation in the Library project as specified in `net-setup-api-cqrs` for each feature adding the module name in the namespace. For example, Company.{appName}.{moduleName}.Library.Features.{featureName}.{actionName}.
-- Calls to http endpoints must be implemented in proxy classes in the Library project as specified in `net-build`, with the module name in the namespace. For example, Company.{appName}.{moduleName}.Library.Proxies.{proxyName}.
+- Calls to http endpoints must be implemented in proxy classes in the Library project as specified in `eleuthia`, with the module name in the namespace. For example, Company.{appName}.{moduleName}.Library.Proxies.{proxyName}.
 - Controllers names must follow the pattern {moduleName}{FeatureName}Controller and be placed in the Application library of each module. For example, Company.{appName}.Application.Controllers.{moduleName}{FeatureName}Controller.
 
 ### Inputs
@@ -42,7 +42,7 @@ The agent MUST generate the following artifacts:
 
 ## 3. Project structure
 
-- Must be organized as specified in `net-build` for modular monolith API REST applications, following the naming conventions and templates for each layer and component.
+- Must be organized as specified in `eleuthia` for modular monolith API REST applications, following the naming conventions and templates for each layer and component.
 - launchSettings.json must be configured as specified in `net-setup-api`. 
 - For modular monolith API REST applications, the Api project must be in a solution folder named "01. Host" and the modules in a solution folder named "02. Modules". Test projects must be in a solution folder named "99. Tests". Those folders are not physical folders. For example:
 	- 01. Host
@@ -67,7 +67,7 @@ The agent MUST generate the following artifacts:
             - Company.{appName}.{ModuleName}.Infrastructure.Tests
  - The logical organization above must be represented in the `.sln` through solution folders and `NestedProjects` entries. Do not move physical project folders only to satisfy this logical organization requirement.
             
-- Services registration must be as specified in `net-build`.
+- Services registration must be as specified in `eleuthia`.
 
 ### Global exception handling
 
@@ -75,7 +75,7 @@ The global exception handler will be added as specified in `net-setup-api-cqrs` 
 
 ### Program.cs configuration
 
-Use the next and modify it according to the application needs. The code for registering services must be generated based on the rules defined in `net-build`.
+Use the next and modify it according to the application needs. The code for registering services must be generated based on the rules defined in `eleuthia`.
 
 Don't add code to load the configuration because it is already loaded by `builder.AddV7(logRequests: false)`.
 Specifically, do not add `builder.AddApplicationConfiguration()` in API `Program.cs` when `builder.AddV7(...)` is used.
@@ -149,11 +149,11 @@ LogManager.Shutdown();
 
 Evidence sources:
 - User-provided inputs collected in order: appName, features and actions for each feature.
-- Deterministic naming and validation rules based on the specifications in `net-build`.
+- Deterministic naming and validation rules based on the specifications in `eleuthia`.
 
 Handling missing or invalid input:
 - If a required value fails validation, re-ask only that value.
-- If proxy-specific inputs are required (proxyName, ExternalApi flag, configurationKey, token header name) and aren't specified, use the default values specified in `net-build`.
+- If proxy-specific inputs are required (proxyName, ExternalApi flag, configurationKey, token header name) and aren't specified, use the default values specified in `eleuthia`.
 
 Inference:
 - Structural inference is allowed only when the determinism strategy permits and MUST be labeled if used.

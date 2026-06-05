@@ -1,4 +1,4 @@
-# Net Setup API CQRS Profile Template
+﻿# Net Setup API CQRS Profile Template
 
 Profile: `api-cqrs`
 Status: Active
@@ -20,9 +20,9 @@ Non-goals:
 
 The agent MUST generate the following artifacts:
 - `Company.<appName>.sln` with the specified projects and references. Don't generate .slnx files.
-- Create library project, domain project, infrastructure project using the specifications in `net-build` if the api is not in a solution with other applications. Otherwise, only generate the api project, add the references to the existing library, domain and infrastructure projects, and reuse them to generate code.
-- The Infrastructure project will be created if the application requires data access. It must be created following the specifications in `net-build` and it will contain the code for the data access, for example, the DbContext and repositories if Entity Framework is used.
-- Configuration files in xml format as specified in `net-build`.
+- Create library project, domain project, infrastructure project using the specifications in `eleuthia` if the api is not in a solution with other applications. Otherwise, only generate the api project, add the references to the existing library, domain and infrastructure projects, and reuse them to generate code.
+- The Infrastructure project will be created if the application requires data access. It must be created following the specifications in `eleuthia` and it will contain the code for the data access, for example, the DbContext and repositories if Entity Framework is used.
+- Configuration files in xml format as specified in `eleuthia`.
 - Structure for CQRS features with commands, queries, validators, and optional proxy code if applicable.
 - A final .md summary with placeholders replaced, including: inputs recap, folder tree, full dotnet commands, and generated files list.
 - Root README.md with build/run instructions.
@@ -38,7 +38,7 @@ The agent MUST generate the following artifacts:
 
 Create the base structure:
 
-- Apply the same structure defined in the general structure for all types of applications for the rest of the projects in `net-build`.
+- Apply the same structure defined in the general structure for all types of applications for the rest of the projects in `eleuthia`.
 - The API project will contain the controllers and models for the API. The rest of the projects will contain the business logic, domain entities and data access.
 - The controllers must be versioned and organized by feature, for example: Company.{appName}.Api/Controllers/v{version}/{featureName}/{featureName}Controller.cs. If the version is not specified, it will be added as V1 by default.
 - The models used in the controllers will be generated in the api project under Models folder, organized by feature and version, for example: Company.{appName}.Api/Models/v{version}/{featureName}/{modelName}.cs.
@@ -239,7 +239,7 @@ For APIs with CQRS, a global exception handler will be added to the Program.cs f
 
 ### Program.cs configuration
 
-Use the next and modify it according to the application needs. The code for registering services must be generated based on the rules defined in `net-build`.
+Use the next and modify it according to the application needs. The code for registering services must be generated based on the rules defined in `eleuthia`.
 
 Don't add code to load the configuration because it is already loaded by `builder.AddV7(logRequests: false)`.
 Specifically, do not add `builder.AddApplicationConfiguration()` in API `Program.cs` when `builder.AddV7(...)` is used.
@@ -308,11 +308,11 @@ LogManager.Shutdown();
 
 Evidence sources:
 - User-provided inputs collected in order: appName, features and actions for each feature.
-- Deterministic naming and validation rules based on the specifications in `net-build`.
+- Deterministic naming and validation rules based on the specifications in `eleuthia`.
 
 Handling missing or invalid input:
 - If a required value fails validation, re-ask only that value.
-- If proxy-specific inputs are required (proxyName, ExternalApi flag, configurationKey, token header name) and aren't specified, use the default values specified in `net-build`.
+- If proxy-specific inputs are required (proxyName, ExternalApi flag, configurationKey, token header name) and aren't specified, use the default values specified in `eleuthia`.
 
 Inference:
 - Structural inference is allowed only when the determinism strategy permits and MUST be labeled if used.

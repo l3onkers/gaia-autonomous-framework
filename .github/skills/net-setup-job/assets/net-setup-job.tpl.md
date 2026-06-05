@@ -1,4 +1,4 @@
-# Net Setup Job Profile Template
+﻿# Net Setup Job Profile Template
 
 Profile: `job`
 Status: Active
@@ -10,18 +10,18 @@ Create a Job application based on the specifications in **net-build**. The job a
 ## 2. Output Contract
 
 The agent MUST generate the following artifacts:
-- Generate the scaffold and conventions of a .NET application according to the standards defined by `net-build` and (where applicable) by `security` for a job.
+- Generate the scaffold and conventions of a .NET application according to the standards defined by `eleuthia` and (where applicable) by `minerva` for a job.
 
 ### Job project
 
-- Create a Console application named Company.{appName}.Job using the specifications in `net-build`.
-- Create library project, domain project, persistence project using the specifications in `net-build` if the job is not in a solution with other applications. Otherwise, only generate the job project, add the references to the existing library, domain and persistence projects, and reuse them to generate code.
+- Create a Console application named Company.{appName}.Job using the specifications in `eleuthia`.
+- Create library project, domain project, persistence project using the specifications in `eleuthia` if the job is not in a solution with other applications. Otherwise, only generate the job project, add the references to the existing library, domain and persistence projects, and reuse them to generate code.
 - Add the necessary NuGet packages for a job application.
-- Add the necessary references between the projects based on the specifications in `net-build`.
-- Add the configuration based on `net-build` specifications, including the configuration for the tasks and their schedules.
+- Add the necessary references between the projects based on the specifications in `eleuthia`.
+- Add the configuration based on `eleuthia` specifications, including the configuration for the tasks and their schedules.
 - If the list of tasks with its schedule is not specified, ask for it.
-- Create the tests projects and add the necessary references based on the `net-build` specifications.
-- The code for registering services must be generated based on the rules defined in `net-build`.
+- Create the tests projects and add the necessary references based on the `eleuthia` specifications.
+- The code for registering services must be generated based on the rules defined in `eleuthia`.
 - The implementation of the tasks must be generated in a `Jobs` folder in the library project with the following structure:
 	- Create interface `Jobs/IProcessor.cs`
 	- One processor per task: `Jobs/{taskName}Processor.cs` implementing the IProcessor interface.
@@ -32,9 +32,9 @@ The agent MUST generate the following artifacts:
 	- If the application is executed without parameters, it will log a warning and exit.
 	- If the application is executed with a parameter that does not match any task name, it will log an error and exit.
 - The application must log the start, end and execution time of each task, as well as any errors that may occur during the execution.
-- Apply the projects references rules defined in `net-build`. 
-- Create the tests projects, unit tests and add the necessary references based on the `net-build` specifications.
-- The code for registering services must be generated based on the rules defined in `net-build`.
+- Apply the projects references rules defined in `eleuthia`. 
+- Create the tests projects, unit tests and add the necessary references based on the `eleuthia` specifications.
+- The code for registering services must be generated based on the rules defined in `eleuthia`.
 
 - Generate:
 	- `Program.cs` (overwrite if exists)

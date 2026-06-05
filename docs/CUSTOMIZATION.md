@@ -1,4 +1,4 @@
-# Customization Guide
+﻿# Customization Guide
 
 > How to adapt the Copilot Governance Framework to your organization.
 
@@ -24,10 +24,10 @@ The framework uses generic placeholders that you should replace:
 
 ### Where to change
 
-- `.github/agents/ng-build/ng-build.tpl.md` — Angular governance (prefixes, packages)
-- `.github/agents/net-build/net-build.tpl.md` — .NET governance (namespaces, packages)
-- `.github/skills/components-catalog/` — UI component definitions
-- `.github/skills/global-styles/` — Design tokens and color palette
+- `.github/agents/eleuthia/ng-build.tpl.md` â€” Angular governance (prefixes, packages)
+- `.github/agents/eleuthia/net-build.tpl.md` â€” .NET governance (namespaces, packages)
+- `.github/skills/components-catalog/` â€” UI component definitions
+- `.github/skills/global-styles/` â€” Design tokens and color palette
 
 ---
 
@@ -40,8 +40,8 @@ The proprietary component library has been removed and replaced with a stub. The
 ### Option A: Use a public library
 
 Replace references to `@corp/ui-components` with:
-- **Angular Material** — `@angular/material`
-- **PrimeNG** — `primeng`
+- **Angular Material** â€” `@angular/material`
+- **PrimeNG** â€” `primeng`
 - **Any other Angular component library**
 
 Update the component selectors in `components-catalog/` to match your chosen library.
@@ -61,7 +61,7 @@ See `.github/governance/modules/angular/README.md` for detailed instructions.
 
 ### Angular
 
-Edit `.github/agents/ng-build/ng-build.tpl.md`:
+Edit `.github/agents/eleuthia/ng-build.tpl.md`:
 - Angular version pins (currently `~21.1.x`)
 - Node.js version (currently `^22.12.0 || >=24.0.0`)
 - TypeScript version
@@ -69,14 +69,14 @@ Edit `.github/agents/ng-build/ng-build.tpl.md`:
 
 ### .NET
 
-Edit `.github/agents/net-build/net-build.tpl.md` and profile-specific skills:
+Edit `.github/agents/eleuthia/net-build.tpl.md` and profile-specific skills:
 - .NET version (currently `8+`)
 - NuGet package versions
 - Architecture patterns
 
 ### Python
 
-Edit `.github/agents/py-build/py-build.tpl.md` and layer skills:
+Edit `.github/agents/eleuthia/py-build.tpl.md` and layer skills:
 - Python version (currently `3.12+`)
 - Package versions (FastAPI, pytest, etc.)
 - Virtual environment strategy
@@ -129,8 +129,8 @@ The framework uses generic CI/CD references. To integrate with your pipeline:
 | **Jenkins** | Add `Jenkinsfile` references back |
 
 Update the CI/CD skill templates:
-- `.github/skills/add-layer-py-cicd/` — Python CI/CD
-- `.github/skills/add-layer-net-cicd/` — .NET CI/CD
+- `.github/skills/add-layer-py-cicd/` â€” Python CI/CD
+- `.github/skills/add-layer-net-cicd/` â€” .NET CI/CD
 
 ---
 
@@ -138,7 +138,7 @@ Update the CI/CD skill templates:
 
 To add support for a new technology (e.g., Go, Rust, Java):
 
-1. **Create a new agent:** Use `build` to create `{lang}-build.agent.md`
+1. **Create a new agent:** Use `hephaestus` to create `{lang}-hephaestus.agent.md`
 2. **Create profile skills:** Add `{lang}-setup-{profile}/SKILL.md` for each supported project type
 3. **Add governance:** Update `ng-build.tpl.md` as a model for your new `{lang}-build.tpl.md`
 4. **Register the agent:** Add the entry to `.github/AGENT.md`

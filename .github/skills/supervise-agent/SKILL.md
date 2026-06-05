@@ -1,4 +1,4 @@
----
+﻿---
 name: supervise-agent
 description: 'Use when: build or supervisor resolves a run to validate one governed `*.agent.md` bundle and emit a compliance report from the owned ./assets/supervise-agent.tpl.md template.'
 user-invocable: false
@@ -7,7 +7,7 @@ user-invocable: false
 # Supervise Agent Review Skill
 
 ## Purpose
-- This skill owns one reusable governed agent-bundle review path for `build` and `supervisor`.
+- This skill owns one reusable governed agent-bundle review path for `hephaestus` and `apollo`.
 - This skill owns target bundle resolution, agent companion artifact binding, primary artifact validation, compliance decision rules, and report template binding for governed `*.agent.md` bundles.
 - This skill validates governed `*.agent.md` bundles against the neutral base scaffold under `.github/governance/bundles/agent/AGENT.base.tpl.md` rather than owning that scaffold itself.
 
@@ -26,8 +26,8 @@ If the target designation does not resolve to exactly one governed agent bundle,
   - resolved `*.tpl.md` and `*.checklist.md` artifacts declared by the selected target agent bundle
 
 ## When to Use
-- `build` must validate an assembled governed agent bundle before finalization.
-- `supervisor` has resolved the run to a direct governed-agent review path.
+- `hephaestus` must validate an assembled governed agent bundle before finalization.
+- `apollo` has resolved the run to a direct governed-agent review path.
 - The target is exactly one governed `*.agent.md` bundle and the output must be exactly one agent compliance report.
 - Direct neutral-governance review or other review resources are not sufficient to satisfy the run by themselves.
 - If the requested designation is not unambiguously an agent bundle, use an exact readable `.github/agents/<name>.agent.md` path.

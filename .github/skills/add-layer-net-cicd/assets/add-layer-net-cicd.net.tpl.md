@@ -1,4 +1,4 @@
-# Net CI/CD Template
+﻿# Net CI/CD Template
 
 Language: `net`
 Status: Active
@@ -91,7 +91,7 @@ Base images:
 - Runtime stage for `Worker`: `mcr.microsoft.com/dotnet/runtime:8.0`
 
 Mandatory characteristics:
-- Multi-stage build (`restore`, `build`, `publish`, `runtime`)
+- Multi-stage build (`restore`, `hephaestus`, `publish`, `runtime`)
 - `Release` configuration
 - Port `8080` exposed for APIs unless the user explicitly requests another port
 - Non-root runtime user only when repository policy or the base image requires it

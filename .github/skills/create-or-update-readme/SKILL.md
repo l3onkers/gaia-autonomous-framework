@@ -1,4 +1,4 @@
----
+﻿---
 name: create-or-update-readme
 description: 'Use when: documentator must generate or refresh one in-repository README.md artifact from one caller-provided Markdown template or the best-fitting bundled ./assets/README*.tpl.md asset.'
 user-invocable: false
@@ -7,9 +7,9 @@ user-invocable: false
 # Create Or Update README Skill
 
 ## Purpose
-- This skill owns template-driven `README.md` generation for `documentator`.
+- This skill owns template-driven `README.md` generation for `apollo`.
 - This skill owns the resolved `README.md` output contract, bundled template asset resolution, and README-specific validation.
-- This skill is intentionally repository-documentation-specific; new documentation scopes should be introduced as new skills rather than folded into `documentator`.
+- This skill is intentionally repository-documentation-specific; new documentation scopes should be introduced as new skills rather than folded into `apollo`.
 
 ## Output Contract
 - One resolved in-repository `README.md` artifact
@@ -23,7 +23,7 @@ If template resolution cannot identify exactly one active template after explici
 - Validation checklist: [create-or-update-readme checklist](./assets/create-or-update-readme.checklist.md)
 
 ## When to Use
-- The selected documentation skill for `documentator` is `create-or-update-readme`.
+- The selected documentation skill for `apollo` is `create-or-update-readme`.
 - The task is to generate or refresh technical repository or branch documentation as one in-repository `README.md` artifact.
 - The requested document structure comes from one caller-provided Markdown template or one bundled README template asset.
 

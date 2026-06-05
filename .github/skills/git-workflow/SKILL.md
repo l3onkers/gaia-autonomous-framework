@@ -1,4 +1,4 @@
----
+﻿---
 name: git-workflow
 description: 'Use when: agent or user must create a branch, commit, or pull request that complies with Company git standards.'
 user-invocable: true
@@ -23,16 +23,16 @@ If the caller's intent cannot be mapped to one of the allowed branch prefixes or
 - Skill manifest: `./SKILL.md`
 - Owned `*.tpl.md` assets: `./assets/pull-request.tpl.md`
 - Owned `*.checklist.md` assets: `./assets/git-workflow.checklist.md`
-- Reference files (progressive disclosure — read on demand):
-  - `./references/gotchas.md` — common failure points and how to avoid them.
-  - `./references/commit-examples.md` — good and bad commit messages with explanations.
-  - `./references/branch-prefix-mapping.md` — change-type to branch-prefix mapping table.
+- Reference files (progressive disclosure â€” read on demand):
+  - `./references/gotchas.md` â€” common failure points and how to avoid them.
+  - `./references/commit-examples.md` â€” good and bad commit messages with explanations.
+  - `./references/branch-prefix-mapping.md` â€” change-type to branch-prefix mapping table.
 - Example outputs:
-  - `./examples/pr-body-standard.md` — filled PR template for a standard change.
-  - `./examples/pr-body-notebook.md` — filled PR template for a notebook-driven change.
+  - `./examples/pr-body-standard.md` â€” filled PR template for a standard change.
+  - `./examples/pr-body-notebook.md` â€” filled PR template for a notebook-driven change.
 - Validation scripts:
-  - `./scripts/validate-branch-name.sh <branch-name>` — deterministic regex check, exit 0 = valid.
-  - `./scripts/validate-commit-message.sh <subject>` — deterministic regex check, exit 0 = valid.
+  - `./scripts/validate-branch-name.sh <branch-name>` â€” deterministic regex check, exit 0 = valid.
+  - `./scripts/validate-commit-message.sh <subject>` â€” deterministic regex check, exit 0 = valid.
 
 ## When to Use
 - When creating a new topic branch.
@@ -45,7 +45,7 @@ If the caller's intent cannot be mapped to one of the allowed branch prefixes or
 2. Read `./references/gotchas.md` to prime awareness of common failure points.
 3. **Branch creation:**
    1. Switch to the base branch and pull latest: `git switch <base> && git pull`.
-   2. Derive the branch prefix from the change type using `./references/branch-prefix-mapping.md`. The mapping is **not 1:1** — see the reference for details.
+   2. Derive the branch prefix from the change type using `./references/branch-prefix-mapping.md`. The mapping is **not 1:1** â€” see the reference for details.
    3. Create topic branch: `git switch -c <prefix>/<short-description>`.
    4. Allowed prefixes: `feat`, `fix`, `hotfix`, `docs`, `chore`.
    5. Use lowercase kebab-case for `<short-description>`.
@@ -53,7 +53,7 @@ If the caller's intent cannot be mapped to one of the allowed branch prefixes or
 4. **Commit:**
    1. Format the subject line as `<type>(<scope>): <short explicit subject>` or `<type>: <short explicit subject>` when no scope applies.
    2. Allowed types: `feat`, `fix`, `docs`, `chore`, `refactor`, `test`.
-   3. Suggested scopes: `data`, `features`, `validation`, `metrics`, `modeling`, `io`, `ci`, `security`.
+   3. Suggested scopes: `data`, `features`, `validation`, `metrics`, `modeling`, `io`, `ci`, `minerva`.
    4. If the scope is not clearly evident from context, omit the parenthetical rather than guessing.
    5. If the change is breaking, include `BREAKING CHANGE:` in the commit body or footer.
    6. Run `./scripts/validate-commit-message.sh "<subject>"` to confirm compliance.
@@ -79,7 +79,7 @@ If the caller's intent cannot be mapped to one of the allowed branch prefixes or
 ## Evidence Rules
 - The caller must state, or the skill must infer from the staged diff or explicit instruction, the change type (`feat`, `fix`, `docs`, `chore`, `refactor`, `test`).
 - If no scope is evident from context, omit the scope parenthetical rather than guessing.
-- Branch prefix is derived from the change type using `./references/branch-prefix-mapping.md`. Key merges: `refactor` → `feat/`; `test` → `chore/`.
+- Branch prefix is derived from the change type using `./references/branch-prefix-mapping.md`. Key merges: `refactor` â†’ `feat/`; `test` â†’ `chore/`.
 - If the caller explicitly names a prefix, use it as-is provided it is in the allowed set.
 - When inference is used, label it: `Inferred (source: staged diff, confidence: High|Medium|Low)`.
 - Review `./references/gotchas.md` for known failure patterns before finalizing any output.

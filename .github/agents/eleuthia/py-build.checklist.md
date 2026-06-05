@@ -1,16 +1,16 @@
-# py-build Checklist
+﻿# py-build Checklist
 
-Quality and determinism checklist for `py-build` outputs.
+Quality and determinism checklist for `eleuthia` outputs.
 
 ---
 
 ## A. Bundle Integrity
 - [ ] Companion artifacts exist with matching basename:
-  - `py-build.agent.md`
+  - `py-hephaestus.agent.md`
   - `py-build.tpl.md`
   - `py-build.checklist.md`
-- [ ] `py-build.agent.md` references `py-build.tpl.md` and `py-build.checklist.md` as authoritative governed inputs
-- [ ] `py-build.agent.md` remains supervisory and keeps detailed routing rules in `py-build.tpl.md`
+- [ ] `py-hephaestus.agent.md` references `py-build.tpl.md` and `py-build.checklist.md` as authoritative governed inputs
+- [ ] `py-hephaestus.agent.md` remains supervisory and keeps detailed routing rules in `py-build.tpl.md`
 - [ ] Supported layer skills exist under `.github/skills/`:
   - `.github/skills/add-layer-py-environment/SKILL.md`
   - `.github/skills/add-layer-py-logger/SKILL.md`
@@ -33,16 +33,16 @@ Quality and determinism checklist for `py-build` outputs.
   6. Process Definition
   7. Validation Layer
 - [ ] Section 4 starts with `Determinism Strategy: Hybrid`
-- [ ] `py-build.agent.md` declares the shared template and checklist companions explicitly
+- [ ] `py-hephaestus.agent.md` declares the shared template and checklist companions explicitly
 
 ---
 
 ## C. Dependency Graph Integrity
-- [ ] The dependency graph is explicit in `py-build.agent.md` and `py-build.tpl.md`
-- [ ] `environment` is treated as a foundational layer with no prerequisite inside `py-build`
-- [ ] `logger` is treated as a foundational layer with no prerequisite inside `py-build`
-- [ ] `pytest` is treated as a foundational layer with no prerequisite inside `py-build`
-- [ ] `cicd` is treated as a standalone layer with no prerequisite inside `py-build`
+- [ ] The dependency graph is explicit in `py-hephaestus.agent.md` and `py-build.tpl.md`
+- [ ] `environment` is treated as a foundational layer with no prerequisite inside `eleuthia`
+- [ ] `logger` is treated as a foundational layer with no prerequisite inside `eleuthia`
+- [ ] `pytest` is treated as a foundational layer with no prerequisite inside `eleuthia`
+- [ ] `cicd` is treated as a standalone layer with no prerequisite inside `eleuthia`
 - [ ] `api` requires both `environment` and `logger`
 - [ ] `connectors` requires `environment`
 - [ ] `pytest-fastapi` requires `pytest`
@@ -75,12 +75,12 @@ Quality and determinism checklist for `py-build` outputs.
 - [ ] The FastAPI pytest skill owns only FastAPI test-extension bundles and does not take ownership of the pytest starter bundles
 - [ ] The CI/CD skill owns only Python CI/CD artifacts and does not take ownership of runtime, connectors, or tests
 - [ ] Missing or incomplete skill-owned assets trigger clarification instead of guessed content
-- [ ] No unsupported Python layers are introduced in normal `py-build` execution
+- [ ] No unsupported Python layers are introduced in normal `eleuthia` execution
 
 ---
 
 ## F. Final Validation
-- [ ] Validation runs against `py-build.checklist.md` together with Section 7 of `py-build.agent.md`
+- [ ] Validation runs against `py-build.checklist.md` together with Section 7 of `py-hephaestus.agent.md`
 - [ ] The final result uses only the minimum compatible layer sequence required by the dependency graph
 - [ ] Routing, sequencing, and ownership decisions remain deterministic for identical inputs and repository state
-- [ ] The final result remains attributable to the selected layer skills plus the shared `py-build` orchestration rules
+- [ ] The final result remains attributable to the selected layer skills plus the shared `eleuthia` orchestration rules

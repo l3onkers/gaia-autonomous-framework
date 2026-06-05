@@ -1,6 +1,6 @@
-# ng-build Template
+﻿# ng-build Template
 
-Shared Angular build, setup, configuration, layout, and quality rules for the `ng-build` coordinator.
+Shared Angular build, setup, configuration, layout, and quality rules for the `eleuthia` coordinator.
 
 ## Purpose
 
@@ -212,47 +212,47 @@ Folder and project structure:
 
 ```text
 application-name/
-├── src/
-│   ├── app/
-│   │   ├── core/
-│   │   │   ├── services/
-│   │   │   │   ├── auth.service.ts
-│   │   │   │   ├── token.service.ts
-│   │   │   │   └── msal-config.factory.ts
-│   │   │   ├── guards/
-│   │   │   ├── interceptors/
-│   │   ├── shared/
-│   │   │   ├── components/
-│   │   │   │   ├── header/
-│   │   │   │   │   ├── header.component.ts
-│   │   │   │   │   └── header.component.html
-│   │   │   │   └── sso-login/
-│   │   │   │       ├── sso-login.component.ts
-│   │   │   │       └── sso-login.component.html
-│   │   │   ├── models/
-│   │   ├── app.config.ts
-│   │   ├── app.component.ts
-│   │   └── app.component.html
-│   ├── assets/
-│   │   ├── ico/
-│   │   │   └── favicon.ico
-│   │   └── svg/
-│   │       └── sprite.svg
-│   ├── config/
-│   │   ├── config.dev.ts
-│   │   └── config.ts
-│   ├── styles/
-│   ├── main.ts
-│   └── styles.scss
-├── public/
-│   ├── favicon.ico
-│   ├── robots.txt
-│   └── ...
-├── package.json
-├── angular.json
-├── tsconfig.json
-├── ci-config.yml
-└── ...
+â”œâ”€â”€ src/
+â”‚   â”œâ”€â”€ app/
+â”‚   â”‚   â”œâ”€â”€ core/
+â”‚   â”‚   â”‚   â”œâ”€â”€ services/
+â”‚   â”‚   â”‚   â”‚   â”œâ”€â”€ auth.service.ts
+â”‚   â”‚   â”‚   â”‚   â”œâ”€â”€ token.service.ts
+â”‚   â”‚   â”‚   â”‚   â””â”€â”€ msal-config.factory.ts
+â”‚   â”‚   â”‚   â”œâ”€â”€ guards/
+â”‚   â”‚   â”‚   â”œâ”€â”€ interceptors/
+â”‚   â”‚   â”œâ”€â”€ shared/
+â”‚   â”‚   â”‚   â”œâ”€â”€ components/
+â”‚   â”‚   â”‚   â”‚   â”œâ”€â”€ header/
+â”‚   â”‚   â”‚   â”‚   â”‚   â”œâ”€â”€ header.component.ts
+â”‚   â”‚   â”‚   â”‚   â”‚   â””â”€â”€ header.component.html
+â”‚   â”‚   â”‚   â”‚   â””â”€â”€ sso-login/
+â”‚   â”‚   â”‚   â”‚       â”œâ”€â”€ sso-login.component.ts
+â”‚   â”‚   â”‚   â”‚       â””â”€â”€ sso-login.component.html
+â”‚   â”‚   â”‚   â”œâ”€â”€ models/
+â”‚   â”‚   â”œâ”€â”€ app.config.ts
+â”‚   â”‚   â”œâ”€â”€ app.component.ts
+â”‚   â”‚   â””â”€â”€ app.component.html
+â”‚   â”œâ”€â”€ assets/
+â”‚   â”‚   â”œâ”€â”€ ico/
+â”‚   â”‚   â”‚   â””â”€â”€ favicon.ico
+â”‚   â”‚   â””â”€â”€ svg/
+â”‚   â”‚       â””â”€â”€ sprite.svg
+â”‚   â”œâ”€â”€ config/
+â”‚   â”‚   â”œâ”€â”€ config.dev.ts
+â”‚   â”‚   â””â”€â”€ config.ts
+â”‚   â”œâ”€â”€ styles/
+â”‚   â”œâ”€â”€ main.ts
+â”‚   â””â”€â”€ styles.scss
+â”œâ”€â”€ public/
+â”‚   â”œâ”€â”€ favicon.ico
+â”‚   â”œâ”€â”€ robots.txt
+â”‚   â””â”€â”€ ...
+â”œâ”€â”€ package.json
+â”œâ”€â”€ angular.json
+â”œâ”€â”€ tsconfig.json
+â”œâ”€â”€ ci-config.yml
+â””â”€â”€ ...
 ```
 
 Structure notes:

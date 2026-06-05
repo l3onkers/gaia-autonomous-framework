@@ -1,4 +1,4 @@
----
+﻿---
 name: security-triage
 description: 'Use when: a security workflow must analyze security-relevant repository evidence (dependency manifests, CI configurations, security tooling configs, existing audit reports) and produce prioritized, evidence-based triage reports from static analysis.'
 ---
@@ -7,8 +7,8 @@ description: 'Use when: a security workflow must analyze security-relevant repos
 
 ## Purpose
 - This skill owns security evidence analysis and prioritized triage report generation from static repository evidence.
-- This skill is used by the `security` coordinator agent or invoked directly for triage requests.
-- This skill stays within static repository evidence — no runtime scanning, dynamic analysis, or cross-repository data.
+- This skill is used by the `minerva` coordinator agent or invoked directly for triage requests.
+- This skill stays within static repository evidence â€” no runtime scanning, dynamic analysis, or cross-repository data.
 
 ## Output Contract
 - Create or update exactly one report file: `SECURITY_TRIAGE.md` (repository root).
@@ -38,7 +38,7 @@ If no security-relevant files exist in the repository, stop and request clarific
 
 ## When to Use
 - The user requests a security triage, security evidence scan, or prioritized security assessment.
-- The `security` coordinator routes a triage or prioritization request.
+- The `minerva` coordinator routes a triage or prioritization request.
 - The repository contains at least one security-relevant file (dependency manifest, CI config, security tooling config, or existing audit report).
 - Optional scope narrowing to specific categories (e.g., "triage dependencies only").
 
@@ -47,7 +47,7 @@ If no security-relevant files exist in the repository, stop and request clarific
 2. **Evidence extraction:** for each discovered evidence source, extract security-relevant signals using static analysis. Record file path, anchor, and signal description for every observation.
 3. **Exposure assessment:** cross-reference extracted signals with repository configuration to assess actual exposure context (e.g., a misconfigured CI permission is higher severity if the workflow has write access).
 4. **Grouping and de-duplication:** group related findings (e.g., same unpinned action pattern across multiple workflows, same outdated dependency across multiple manifests). De-duplicate findings that share the same root cause.
-5. **Priority matrix construction:** assign severity to each finding group using the deterministic severity calibration rules. Produce priority matrix ordered: Critical → High → Medium → Low → Info.
+5. **Priority matrix construction:** assign severity to each finding group using the deterministic severity calibration rules. Produce priority matrix ordered: Critical â†’ High â†’ Medium â†’ Low â†’ Info.
 6. **Report generation:** copy `./assets/security-triage.tpl.md` verbatim, replace only template placeholders with evidence-based content or canonical missing-evidence tokens, and write `SECURITY_TRIAGE.md` while preserving headings and section order exactly.
 7. **Validation:** validate the assembled report against `./assets/security-triage.checklist.md` before finalizing. Any failed checklist item MUST be corrected before output. If validation cannot be completed, the skill MUST NOT produce final output.
 
@@ -69,9 +69,9 @@ If no security-relevant files exist in the repository, stop and request clarific
 - Fabricated evidence is strictly forbidden.
 
 Evidence anchor format (mandatory, preferred in order 1 > 2 > 3):
-1. Line anchor: `<path>:<line_start>-<line_end>` — use when files have stable line numbers.
-2. Structural anchor: `<path>#<structural_path>` — use when structural paths are more stable than line numbers.
-3. Content anchor: `<path>"<unique_snippet>"` — use only if neither line nor structural anchors are reliable. Snippet MUST be unique within the file and no longer than 120 characters.
+1. Line anchor: `<path>:<line_start>-<line_end>` â€” use when files have stable line numbers.
+2. Structural anchor: `<path>#<structural_path>` â€” use when structural paths are more stable than line numbers.
+3. Content anchor: `<path>"<unique_snippet>"` â€” use only if neither line nor structural anchors are reliable. Snippet MUST be unique within the file and no longer than 120 characters.
 
 Additional rules:
 - Always prefer anchor format order `1 > 2 > 3`.
@@ -104,4 +104,4 @@ If no findings exist, include exactly one `Info` finding with:
 - MUST NOT invent CVEs or claim specific vulnerability IDs without static evidence.
 - MUST NOT treat a chat-only review or summary as task completion when the report file can be written.
 - Patching, fixing, or auto-closing of findings is out of scope (use the `security-patch` skill).
-- Creating or updating `SECURITY_AUDIT.md` is out of scope (use the `security` agent).
+- Creating or updating `SECURITY_AUDIT.md` is out of scope (use the `minerva` agent).

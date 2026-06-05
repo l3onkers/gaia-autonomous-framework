@@ -1,12 +1,12 @@
-# Net Build Shared Governance Template
+﻿# Net Build Shared Governance Template
 
 ## Purpose
 
-This template defines the shared **C#** and **.NET** governance rules consumed by the `net-build` coordinator and its routed profile skills. It covers coding standards, naming conventions, design patterns, and dependency rules that apply across all supported .NET setup profiles.
+This template defines the shared **C#** and **.NET** governance rules consumed by the `eleuthia` coordinator and its routed profile skills. It covers coding standards, naming conventions, design patterns, and dependency rules that apply across all supported .NET setup profiles.
 
 The coordinator and routed skills must produce reusable solutions (libraries/services/components) and minimal examples without assuming a specific application type unless the resolved profile dictates one.
 
-The coordinator prepares the **scaffold** and conventions of a .NET application according to these shared rules and (where applicable) by `security`.
+The coordinator prepares the **scaffold** and conventions of a .NET application according to these shared rules and (where applicable) by `minerva`.
  - If the application requires a database, the database engine/provider is a required input and must be explicitly confirmed before choosing provider-specific packages or code.
 
 - Preserve the full legacy `net-setup` contract in a governed shared companion instead of embedding it in the top-level agent.
@@ -168,7 +168,7 @@ Propose and/or create the base structure:
 - Domain project: Company.{appName}.Domain.csproj
 - Test project type for each project: Company.{appName}.{projectName}.Tests.csproj 
 - Test project must have the same folder structure as the project it tests but with the suffix .Tests in the folders. For example, if there is a class Company.{appName}.Library/Services/SomeService.cs, the test class will be located in Company.{appName}.Library.Tests/Services/SomeServiceTests.cs.
-- Create the test project for each project even if it doesn’t contain any tests.
+- Create the test project for each project even if it doesnâ€™t contain any tests.
 -  Add project references: Api -> Library, Domain; Library -> Domain, Infrastructure; Infrastructure -> Domain; Tests -> corresponding project; Job -> Library, Domain.
 - When the application is a Modular monolith, the modules will be located in folders with the same name in the solution root, for example: Company.{appName}.{ModuleName}. Every module will have its own Application, Library and Domain project with the name pattern Company.{appName}.{ModuleName}.Application.csproj, Company.{appName}.{ModuleName}.Library.csproj and Company.{appName}.{ModuleName}.Domain.csproj respectively.
     - The applications namespace will match the project name, for example: Company.{appName}.Api, Company.{appName}.{ModuleName}.Application, Company.{appName}.{ModuleName}.Library and Company.{appName}.{ModuleName}.Domain.
@@ -259,8 +259,8 @@ Mandatory:
 Define proxy as the class with **the responsibility of calling ALL http endpoints**.
 
 Define **how the implementation must be resolved** depending on the proxy type:
-- **external API proxy** → use a external-API-specific implementation
-- **standard proxy** → use a generic proxy implementation. 
+- **external API proxy** â†’ use a external-API-specific implementation
+- **standard proxy** â†’ use a generic proxy implementation. 
 - If the proxy type is not specified, the standard proxy specification will be used.
 
 The agent must:

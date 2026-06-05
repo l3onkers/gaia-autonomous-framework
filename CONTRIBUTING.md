@@ -1,34 +1,34 @@
-# Contributing to Copilot Governance Framework
+﻿# Contributing to Copilot Governance Framework
 
-First off, thank you for considering contributing! 🎉
+First off, thank you for considering contributing! ðŸŽ‰
 
 ## How Can I Contribute?
 
-### 🐛 Reporting Bugs
+### ðŸ› Reporting Bugs
 
 - Use the [GitHub Issues](https://github.com/l3onkers/copilot-governance-framework/issues) tab
 - Include steps to reproduce, expected behavior, and actual behavior
 - Include your environment details (VS Code version, Copilot version)
 
-### 💡 Suggesting New Agents or Skills
+### ðŸ’¡ Suggesting New Agents or Skills
 
 Have an idea for a new agent or skill? Open an issue with:
 - **Title:** `[Agent]` or `[Skill]` prefix
 - **Description:** What problem it solves, what inputs/outputs it has
 - **Example request:** A sample user prompt that would trigger the agent/skill
 
-### 🔧 Pull Requests
+### ðŸ”§ Pull Requests
 
 1. **Fork** the repository
 2. **Create** a feature branch: `git checkout -b feature/my-new-skill`
 3. **Follow** the framework patterns:
    - Agents go in `.github/agents/`
    - Skills go in `.github/skills/`
-   - Use the `build` agent or the governance scaffolds to create new bundles
+   - Use the `hephaestus` agent or the governance scaffolds to create new bundles
 4. **Test** your changes by running the agent/skill through Copilot Chat
 5. **Submit** a PR with a clear description of the change
 
-### 📝 Documentation
+### ðŸ“ Documentation
 
 Documentation improvements are always welcome! Whether it's:
 - Fixing typos
@@ -54,8 +54,8 @@ See [docs/CREATING_AGENTS.md](docs/CREATING_AGENTS.md) for the full guide.
 ### Skill Structure
 
 Every skill must include:
-- `SKILL.md` — The skill manifest
-- `assets/` — Templates, checklists, and references
+- `SKILL.md` â€” The skill manifest
+- `assets/` â€” Templates, checklists, and references
 - Clear input/output contract
 - Validation layer
 
@@ -65,7 +65,7 @@ See [docs/CREATING_SKILLS.md](docs/CREATING_SKILLS.md) for the full guide.
 
 | Type | Pattern | Example |
 |------|---------|---------|
-| Agent | `{name}.agent.md` | `security.agent.md` |
+| Agent | `{name}.agent.md` | `minerva.agent.md` |
 | Agent companion | `{agent-name}/{agent-name}.tpl.md` | `ng-build/ng-build.tpl.md` |
 | Skill | `{skill-name}/SKILL.md` | `git-workflow/SKILL.md` |
 | Skill template | `{skill-name}/assets/{skill-name}.tpl.md` | `net-setup-api/assets/net-setup-api.tpl.md` |

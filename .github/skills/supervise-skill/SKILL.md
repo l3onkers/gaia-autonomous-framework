@@ -1,4 +1,4 @@
----
+﻿---
 name: supervise-skill
 description: 'Use when: build or supervisor resolves a run to validate one governed `.github/skills/<skill>/SKILL.md` bundle and emit a compliance report from the owned ./assets/supervise-skill.tpl.md template.'
 user-invocable: false
@@ -7,7 +7,7 @@ user-invocable: false
 # Supervise Skill Review Skill
 
 ## Purpose
-- This skill owns one reusable governed skill-bundle review path for `build` and `supervisor`.
+- This skill owns one reusable governed skill-bundle review path for `hephaestus` and `apollo`.
 - This skill owns target skill-bundle resolution, skill companion artifact binding, primary artifact validation, compliance decision rules, and report template binding for governed `SKILL.md` bundles.
 - This skill validates governed `SKILL.md` bundles against the neutral base scaffold and optional block catalog under `.github/governance/bundles/skill/` rather than owning those assets itself.
 
@@ -27,8 +27,8 @@ If the target designation does not resolve to exactly one governed skill bundle,
   - resolved `*.tpl.md` and `*.checklist.md` artifacts declared by the selected target skill bundle
 
 ## When to Use
-- `build` must validate an assembled governed skill bundle before finalization.
-- `supervisor` has resolved the run to a direct governed-skill review path.
+- `hephaestus` must validate an assembled governed skill bundle before finalization.
+- `apollo` has resolved the run to a direct governed-skill review path.
 - The target is exactly one governed `.github/skills/<skill>/SKILL.md` bundle and the output must be exactly one skill compliance report.
 - Direct neutral-governance review or other review resources are not sufficient to satisfy the run by themselves.
 - If the requested designation is not unambiguously a skill bundle, use an exact readable `.github/skills/<skill>/SKILL.md` path.
