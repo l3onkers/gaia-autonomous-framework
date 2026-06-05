@@ -1,5 +1,5 @@
 ﻿<p align="center">
-  <img src="path/to/your/image_3.png" alt="G.A.I.A. Autonomous Platform Engineering Framework - Live Interface" width="100%">
+  <img src="docs/assets/gaia-banner.png" alt="G.A.I.A. Autonomous Platform Engineering Framework - Live Interface" width="100%">
 </p>
 
 # G.A.I.A.
