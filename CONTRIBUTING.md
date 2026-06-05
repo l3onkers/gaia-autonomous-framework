@@ -54,8 +54,8 @@ See [docs/CREATING_AGENTS.md](docs/CREATING_AGENTS.md) for the full guide.
 ### Skill Structure
 
 Every skill must include:
-- `SKILL.md` â€” The skill manifest
-- `assets/` â€” Templates, checklists, and references
+- `SKILL.md` — The skill manifest
+- `assets/` — Templates, checklists, and references
 - Clear input/output contract
 - Validation layer
 
