@@ -25,7 +25,7 @@ The GAIA (Global Autonomous Infrastructure Architecture) ecosystem abandons mono
 
 ## 🏗️ Architecture
 
-`mermaid
+```mermaid
 graph TB
     subgraph "Entry Layer"
         U[User Request] --> G[GAIA Core Router]
@@ -67,7 +67,7 @@ graph TB
     style HAD fill:#F44336,color:#fff
     style POS fill:#3F51B5,color:#fff
     style ART fill:#8BC34A,color:#fff
-`
+```
 
 ## 📋 Sub-routine Catalog
 
@@ -92,10 +92,10 @@ graph TB
 
 ### 1. Clone the repository
 
-`ash
+```bash
 git clone https://github.com/l3onkers/copilot-governance-framework.git
 cd copilot-governance-framework
-`
+```
 
 ### 2. Open in VS Code with GitHub Copilot
 
@@ -105,7 +105,7 @@ The GAIA ecosystem operates through GitHub Copilot Chat. Open the repository in 
 
 Don't know which sub-routine to use? Ask GAIA:
 
-@workspace Use gaia to prepare the infrastructure and code for a new .NET microservice with a database.
+`@workspace Use gaia to prepare the infrastructure and code for a new .NET microservice with a database.`
 
 GAIA will automatically route the request to **ELEUTHIA** for code generation, **HEPHAESTUS** for pipelines, and **POSEIDON** for the database schema.
 
@@ -113,7 +113,7 @@ GAIA will automatically route the request to **ELEUTHIA** for code generation, *
 
 If you know the exact sub-routine:
 
-@workspace Use minerva to run a security review and secret scan on the latest commits.
+`@workspace Use minerva to run a security review and secret scan on the latest commits.`
 
 > 📖 **Detailed Guide:** [QUICKSTART.md](QUICKSTART.md)
 
