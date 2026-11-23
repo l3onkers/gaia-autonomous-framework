@@ -81,19 +81,34 @@ jobs:
           VERSION="${TAG#v}"
           echo "Extracting notes for version: $VERSION"
           
-          # Extract notes between ## [VERSION] and the next ## [
-          NOTES=$(awk -v ver="$VERSION" '
-            $0 ~ "^## \\[" ver "\\]" { flag=1; next }
-            flag && /^## \\[/ { flag=0 }
-            flag { print }
-          ' CHANGELOG.md)
-          
-          if [ -z "$NOTES" ]; then
-            NOTES="GAIA Autonomous Framework release $TAG."
-          fi
-          
+          python3 -c '
+import sys
+
+target = sys.argv[1]
+found = False
+notes = []
+
+with open("CHANGELOG.md", "r", encoding="utf-8") as f:
+    for line in f:
+        if line.startswith(f"## [{target}]"):
+            found = True
+            continue
+        elif found and line.startswith("## ["):
+            break
+        elif found:
+            notes.append(line)
+
+content = "".join(notes).strip()
+if not content:
+    content = f"GAIA Autonomous Framework release v{target}."
+
+with open("release_notes.txt", "w", encoding="utf-8") as out:
+    out.write(content)
+' "$VERSION"
+
           echo "notes<<EOF" >> $GITHUB_OUTPUT
-          echo "$NOTES" >> $GITHUB_OUTPUT
+          cat release_notes.txt >> $GITHUB_OUTPUT
+          echo "" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
