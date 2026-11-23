@@ -8,10 +8,34 @@
 
 <p align="center">
   <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg" alt="License: CC BY-NC 4.0">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
   </a>
-  <a href="https://github.com/features/copilot">
-    <img src="https://img.shields.io/badge/GitHub%20Copilot-Ready-8957e5?logo=github" alt="GitHub Copilot">
+  <a href="https://github.com/l3onkers/gaia-autonomous-framework/releases/tag/v1.1.0">
+    <img src="https://img.shields.io/badge/Release-v1.1.0-brightgreen.svg" alt="Version 1.1.0">
+  </a>
+  <a href="docs/PLATFORMS.md">
+    <img src="https://img.shields.io/badge/Zero%20Trust-Enforced-success.svg" alt="Zero Trust Governance">
+  </a>
+  <a href="mcp_config.json">
+    <img src="https://img.shields.io/badge/MCP-Enabled-6366f1.svg" alt="Model Context Protocol">
+  </a>
+</p>
+
+<p align="center">
+  <a href="docs/PLATFORMS.md#1-antigravity-20-desktop-app">
+    <img src="https://img.shields.io/badge/Antigravity%20App-Ready-4285F4?logo=google&logoColor=white" alt="Antigravity App Ready">
+  </a>
+  <a href="docs/PLATFORMS.md#2-antigravity-cli-agy">
+    <img src="https://img.shields.io/badge/Antigravity%20CLI%20(agy)-Ready-0F9D58?logo=gnubash&logoColor=white" alt="Antigravity CLI Ready">
+  </a>
+  <a href="docs/PLATFORMS.md#3-github-copilot">
+    <img src="https://img.shields.io/badge/GitHub%20Copilot-Ready-8957e5?logo=github&logoColor=white" alt="GitHub Copilot Ready">
+  </a>
+  <a href="docs/PLATFORMS.md#4-cursor-ai">
+    <img src="https://img.shields.io/badge/Cursor-Ready-000000?logo=cursor&logoColor=white" alt="Cursor Ready">
+  </a>
+  <a href="docs/PLATFORMS.md#5-claude-code-anthropic">
+    <img src="https://img.shields.io/badge/Claude%20Code-Ready-D97706?logo=anthropic&logoColor=white" alt="Claude Code Ready">
   </a>
 </p>
 
