@@ -1,4 +1,4 @@
-﻿---
+---
 name: hephaestus-build-agent
 description: 'Use when: build resolves a run to author exactly one governed `.github/agents/<bundle>.agent.md` bundle from explicit evidence, free-text requirements, and the neutral agent scaffold.'
 user-invocable: false

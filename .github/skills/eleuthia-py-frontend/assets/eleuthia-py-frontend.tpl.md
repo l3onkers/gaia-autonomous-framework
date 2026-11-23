@@ -1,4 +1,4 @@
-﻿# Python Frontend Layer Template
+# Python Frontend Layer Template
 
 Bundle: `eleuthia-py-frontend`
 Status: Active

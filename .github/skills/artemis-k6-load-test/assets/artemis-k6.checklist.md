@@ -1,4 +1,4 @@
-﻿---
+---
 name: artemis-k6-load-test
 description: 'Use when: artemis resolves a request to generate a k6 load and performance testing script.'
 user-invocable: false

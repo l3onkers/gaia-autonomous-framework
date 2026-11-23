@@ -1,4 +1,4 @@
-﻿# Net Setup API Profile Template
+# Net Setup API Profile Template
 
 Profile: `api`
 Status: Active

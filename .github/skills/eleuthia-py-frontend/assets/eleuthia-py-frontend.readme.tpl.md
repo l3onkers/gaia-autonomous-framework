@@ -1,4 +1,4 @@
-﻿# Python Frontend Usage Readme Bundle
+# Python Frontend Usage Readme Bundle
 
 Bundle: `eleuthia-py-frontend`
 Status: Active

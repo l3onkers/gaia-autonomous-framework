@@ -1,4 +1,4 @@
-﻿---
+---
 name: eleuthia-ui-components
 description: Curated list of corporate components available for mockup generation. Route to owned component reference bundles under ./assets/{name}/references/.
 ---

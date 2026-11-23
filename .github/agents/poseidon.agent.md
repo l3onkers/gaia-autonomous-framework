@@ -1,4 +1,4 @@
-﻿---
+---
 name: poseidon
 target: vscode
 description: Sovereign of Data. Manages persistent volumes, backups, schema migrations (Flyway/Liquibase), and Data Lakes.

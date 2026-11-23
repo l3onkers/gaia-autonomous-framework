@@ -1,4 +1,4 @@
-﻿---
+---
 name: poseidon-local-postgres
 description: 'Use when: a setup or orchestration workflow must add a governed local PostgreSQL Docker Compose layer with ordered init scripts and starter seed data.'
 user-invocable: false

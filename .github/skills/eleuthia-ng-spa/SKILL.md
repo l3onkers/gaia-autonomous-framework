@@ -1,4 +1,4 @@
-﻿---
+---
 name: eleuthia-ng-spa
 description: 'Use when: an Angular build workflow must apply the profile-specific rules for the `spa` Angular setup profile.'
 user-invocable: false

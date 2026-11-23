@@ -1,4 +1,4 @@
-﻿# Triage Coordination Checklist
+# Triage Coordination Checklist
 
 ## A. Catalogue Resolution
 - [ ] Agents were discovered only from `.github/agents/*.agent.md`

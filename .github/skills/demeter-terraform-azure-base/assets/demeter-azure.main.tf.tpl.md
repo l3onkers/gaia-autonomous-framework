@@ -1,4 +1,4 @@
-﻿module "vnet" {
+module "vnet" {
   source              = "Azure/vnet/azurerm"
   version             = "4.1.0"
   vnet_name           = "vnet-var.environment_name"

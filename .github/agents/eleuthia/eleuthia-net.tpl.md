@@ -1,4 +1,4 @@
-﻿# Net Build Shared Governance Template
+# Net Build Shared Governance Template
 
 ## Purpose
 

@@ -1,4 +1,4 @@
-﻿# Net Setup API Modular Profile Template
+# Net Setup API Modular Profile Template
 
 Profile: `api-modular`
 Status: Active

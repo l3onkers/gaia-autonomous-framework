@@ -1,4 +1,4 @@
-﻿# Python CI/CD Template
+# Python CI/CD Template
 
 Language: `py`
 Status: Active

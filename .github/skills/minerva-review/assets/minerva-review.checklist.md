@@ -1,4 +1,4 @@
-﻿# Security Review Agent Checklist
+# Security Review Agent Checklist
 
 Quality and determinism checklist for `minerva-review` agent outputs.
 

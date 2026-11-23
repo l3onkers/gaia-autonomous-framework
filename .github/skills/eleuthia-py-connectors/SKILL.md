@@ -1,4 +1,4 @@
-﻿---
+---
 name: eleuthia-py-connectors
 description: 'Use when: a setup or orchestration workflow must add a governed Python connectors layer from isolated owned support and code bundles.'
 user-invocable: false

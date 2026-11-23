@@ -1,4 +1,4 @@
-﻿---
+---
 name: eleuthia-net-api-modular
 description: 'Use when: net-build must apply the profile-specific rules for the `api-modular` .NET setup profile.'
 user-invocable: false

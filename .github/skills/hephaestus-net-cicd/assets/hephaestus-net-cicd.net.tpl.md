@@ -1,4 +1,4 @@
-﻿# Net CI/CD Template
+# Net CI/CD Template
 
 Language: `net`
 Status: Active

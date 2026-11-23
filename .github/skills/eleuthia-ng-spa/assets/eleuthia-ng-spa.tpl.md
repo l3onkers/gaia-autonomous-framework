@@ -1,4 +1,4 @@
-﻿# Angular SPA Profile Template
+# Angular SPA Profile Template
 
 Profile: `spa`
 Status: Active

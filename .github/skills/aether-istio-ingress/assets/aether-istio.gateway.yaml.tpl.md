@@ -1,4 +1,4 @@
-﻿---
+---
 name: aether-istio-ingress
 description: 'Use when: aether resolves a request to expose a Kubernetes service using an Istio Gateway and VirtualService with mTLS.'
 user-invocable: false

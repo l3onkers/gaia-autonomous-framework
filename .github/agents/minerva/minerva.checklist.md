@@ -1,4 +1,4 @@
-﻿# minerva agent Checklist
+# minerva agent Checklist
 
 Quality and determinism checklist for `minerva` agent outputs.
 

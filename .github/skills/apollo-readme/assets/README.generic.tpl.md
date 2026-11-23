@@ -1,4 +1,4 @@
-﻿# Project / Branch README
+# Project / Branch README
 
 > Bundled general-purpose template asset owned by `apollo-readme`. It remains a valid selection candidate and serves as the final fallback when no stronger bundled match or user-selected candidate is available.
 >

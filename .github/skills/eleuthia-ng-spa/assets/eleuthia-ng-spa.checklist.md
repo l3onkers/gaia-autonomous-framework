@@ -1,4 +1,4 @@
-﻿# eleuthia-ng-spa Checklist
+# eleuthia-ng-spa Checklist
 
 Quality and determinism checklist for `eleuthia-ng-spa` outputs.
 

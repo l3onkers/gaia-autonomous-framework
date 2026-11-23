@@ -1,4 +1,4 @@
-﻿# .NET CI/CD Skill Checklist
+# .NET CI/CD Skill Checklist
 
 Quality and determinism checklist for `hephaestus-net-cicd` outputs.
 

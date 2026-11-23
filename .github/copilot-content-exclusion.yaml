@@ -1,4 +1,4 @@
-﻿# Content Exclusion Policy for GitHub Copilot
+# Content Exclusion Policy for GitHub Copilot
 #
 # Files and directories that agents and skills MUST NOT read or include in outputs.
 # Per minerva agent Ecosystem design (SECURITY-AGENT-PLAN.md Â§7.2).

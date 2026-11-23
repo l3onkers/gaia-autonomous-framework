@@ -1,4 +1,4 @@
-﻿---
+---
 name: demeter-terraform-azure-base
 description: 'Use when: demeter resolves a request to provision base Azure infrastructure (VNet, AKS, Azure SQL) using Terraform with strict state management in Azure Blob Storage.'
 user-invocable: false

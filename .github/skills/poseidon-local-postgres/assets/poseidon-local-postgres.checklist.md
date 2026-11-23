@@ -1,4 +1,4 @@
-﻿# Local PostgreSQL Docker Compose Layer Skill Checklist
+# Local PostgreSQL Docker Compose Layer Skill Checklist
 
 Quality and determinism checklist for `poseidon-local-postgres` outputs.
 

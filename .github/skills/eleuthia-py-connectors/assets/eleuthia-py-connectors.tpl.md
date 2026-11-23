@@ -1,4 +1,4 @@
-﻿# Python Connectors Layer Template
+# Python Connectors Layer Template
 
 Bundle: `eleuthia-py-connectors`
 Status: Active

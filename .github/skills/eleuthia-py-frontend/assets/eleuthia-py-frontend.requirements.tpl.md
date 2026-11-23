@@ -1,4 +1,4 @@
-﻿# Python Frontend Dependency Bundle
+# Python Frontend Dependency Bundle
 
 Bundle: `eleuthia-py-frontend`
 Status: Active

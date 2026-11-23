@@ -1,4 +1,4 @@
-﻿---
+---
 name: hades
 target: vscode
 description: Chaos and Teardown Agent. Destroys ephemeral environments, simulates disasters (Chaos Mesh/AWS FIS), and executes rollbacks.

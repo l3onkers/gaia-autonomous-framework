@@ -1,4 +1,4 @@
-﻿# Python Pytest Layer Skill Checklist
+# Python Pytest Layer Skill Checklist
 
 Quality and determinism checklist for `eleuthia-py-pytest` outputs.
 
