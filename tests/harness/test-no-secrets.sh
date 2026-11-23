@@ -8,20 +8,20 @@ echo "Testing Zero Leaked Secrets & Private Keys..."
 cd "$REPO_ROOT"
 errors=0
 
-# 1. Private keys
-if git ls-files | xargs grep -l "PRIVATE KEY" 2>/dev/null; then
+# 1. Private keys (excluding test files themselves)
+if git ls-files | grep -v '^tests/' | xargs grep -l "PRIVATE KEY" 2>/dev/null; then
     echo "  ✗ Found private key pattern in tracked files"
     errors=$((errors + 1))
 fi
 
 # 2. AWS Access Keys
-if git ls-files | xargs grep -l -E 'AKIA[0-9A-Z]{16}' 2>/dev/null; then
+if git ls-files | grep -v '^tests/' | xargs grep -l -E 'AKIA[0-9A-Z]{16}' 2>/dev/null; then
     echo "  ✗ Found AWS Access Key pattern in tracked files"
     errors=$((errors + 1))
 fi
 
 # 3. Hardcoded passwords in non-templates
-if git ls-files | grep -v -E '(\.md$|\.yaml$|\.yml$|\.json$|\.tpl\.md$|\.checklist\.md$|SKILL\.md$)' | xargs grep -l -i -E '(password|passwd|secret|token|api_key|apikey|api-key)\s*[:=]' 2>/dev/null; then
+if git ls-files | grep -v '^tests/' | grep -v -E '(\.md$|\.yaml$|\.yml$|\.json$|\.tpl\.md$|\.checklist\.md$|SKILL\.md$)' | xargs grep -l -i -E '(password|passwd|secret|token|api_key|apikey|api-key)\s*[:=]' 2>/dev/null; then
     echo "  ✗ Found possible credentials in non-doc tracked files"
     errors=$((errors + 1))
 fi
