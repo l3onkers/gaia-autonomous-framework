@@ -1,4 +1,4 @@
-﻿---
+---
 name: apollo
 target: vscode
 description: The Knowledge Guardian. Coordinates technical documentation generation (runbooks, ADRs) and executes governance compliance checks.

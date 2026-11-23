@@ -1,4 +1,4 @@
-﻿---
+---
 name: poseidon-flyway-migration
 description: 'Use when: poseidon resolves a request to generate a SQL database schema migration using Flyway.'
 user-invocable: false

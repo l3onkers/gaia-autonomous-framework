@@ -1,4 +1,4 @@
-﻿---
+---
 name: hephaestus-build-skill
 description: 'Use when: build resolves a run to author exactly one governed `.github/skills/<skill>/SKILL.md` bundle from explicit evidence, free-text requirements, and the neutral skill scaffold.'
 user-invocable: false

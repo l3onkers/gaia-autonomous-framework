@@ -1,4 +1,4 @@
-﻿---
+---
 name: aether
 target: vscode
 description: Network layer controller. Configures Service Meshes (Istio), API Gateways, Ingress Controllers, DNS, and WAF policies.

@@ -1,4 +1,4 @@
-﻿---
+---
 name: pr-minerva-review
 description: 'Use when: a pull request is created or updated and changed files must be reviewed for security vulnerabilities before merge.'
 user-invocable: true

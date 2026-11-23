@@ -1,4 +1,4 @@
-﻿---
+---
 name: minerva-patch
 description: 'Use when: a security workflow must propose minimal, evidence-justified code patches for known security vulnerabilities without altering business logic, always requiring human approval before application.'
 ---

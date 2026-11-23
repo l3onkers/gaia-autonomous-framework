@@ -1,4 +1,4 @@
-﻿# Supervise Skill Compliance Report
+# Supervise Skill Compliance Report
 
 ## Run Metadata
 

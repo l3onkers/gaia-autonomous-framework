@@ -1,4 +1,4 @@
-﻿# Repository Agent Guide
+# Repository Agent Guide
 
 ## Purpose
 

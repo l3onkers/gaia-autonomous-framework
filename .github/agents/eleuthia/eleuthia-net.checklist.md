@@ -1,4 +1,4 @@
-﻿# Net Build Checklist
+# Net Build Checklist
 
 Quality and determinism checklist for `eleuthia` outputs.
 

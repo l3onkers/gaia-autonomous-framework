@@ -1,4 +1,4 @@
-﻿# Python FastAPI Pytest Extension Template
+# Python FastAPI Pytest Extension Template
 
 Bundle: `eleuthia-py-pytest-fastapi`
 Status: Active

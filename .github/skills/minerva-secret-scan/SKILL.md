@@ -1,4 +1,4 @@
-﻿---
+---
 name: minerva-secret-scan
 description: 'Use when: commits are pushed and must be scanned for accidentally committed secrets, credentials, or sensitive tokens.'
 ---

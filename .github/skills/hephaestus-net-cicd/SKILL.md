@@ -1,4 +1,4 @@
-﻿---
+---
 name: hephaestus-net-cicd
 description: 'Use when: a setup or orchestration workflow must add a governed .NET CI/CD layer.'
 user-invocable: false

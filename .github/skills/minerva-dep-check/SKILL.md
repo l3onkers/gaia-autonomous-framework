@@ -1,4 +1,4 @@
-﻿---
+---
 name: minerva-dep-check
 description: 'Use when: dependency manifest files are changed and must be checked for known vulnerable dependencies before merge.'
 ---

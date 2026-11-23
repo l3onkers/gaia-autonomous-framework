@@ -1,4 +1,4 @@
-﻿---
+---
 name: eleuthia-py-frontend
 description: 'Use when: a setup or orchestration workflow must add a governed Python frontend layer for interactive use against an existing backend API.'
 user-invocable: false

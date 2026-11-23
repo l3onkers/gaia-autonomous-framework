@@ -1,4 +1,4 @@
-﻿---
+---
 name: demeter-terraform-aws-base
 description: 'Use when: demeter resolves a request to provision base AWS infrastructure (VPC, EKS, RDS) using Terraform with strict state management and least-privilege IAM.'
 user-invocable: false

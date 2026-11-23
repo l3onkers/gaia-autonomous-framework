@@ -1,4 +1,4 @@
-﻿# Gotchas — Git Workflow
+# Gotchas — Git Workflow
 
 Common failure points when using this skill. Read this before creating branches, commits, or PRs.
 

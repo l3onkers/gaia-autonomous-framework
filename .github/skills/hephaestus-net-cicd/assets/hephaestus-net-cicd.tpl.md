@@ -1,4 +1,4 @@
-﻿# CI/CD Shared Template
+# CI/CD Shared Template
 
 Bundle: `hephaestus-net-cicd`
 Status: Active

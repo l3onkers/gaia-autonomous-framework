@@ -1,4 +1,4 @@
-﻿---
+---
 name: apollo-readme
 description: 'Use when: documentator must generate or refresh one in-repository README.md artifact from one caller-provided Markdown template or the best-fitting bundled ./assets/README*.tpl.md asset.'
 user-invocable: false

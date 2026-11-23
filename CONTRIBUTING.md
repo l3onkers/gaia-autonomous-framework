@@ -1,4 +1,4 @@
-﻿# Contributing to Copilot Governance Framework
+# Contributing to Copilot Governance Framework
 
 First off, thank you for considering contributing! ðŸŽ‰
 

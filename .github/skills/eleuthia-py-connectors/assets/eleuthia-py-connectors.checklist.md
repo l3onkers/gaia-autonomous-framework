@@ -1,4 +1,4 @@
-﻿# Python Connectors Layer Skill Checklist
+# Python Connectors Layer Skill Checklist
 
 Quality and determinism checklist for `eleuthia-py-connectors` outputs.
 

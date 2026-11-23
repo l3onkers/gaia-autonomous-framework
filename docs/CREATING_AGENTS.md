@@ -1,4 +1,4 @@
-﻿# Creating Custom Agents
+# Creating Custom Agents
 
 > Step-by-step guide to creating your own agent in the Copilot Governance Framework.
 

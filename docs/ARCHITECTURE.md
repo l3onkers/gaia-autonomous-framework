@@ -1,4 +1,4 @@
-﻿# 🏛️ GAIA Ecosystem Architecture
+# 🏛️ GAIA Ecosystem Architecture
 
 The framework adopts a hierarchical, **Event-Driven** approach. Instead of a large monolithic prompt, we divide responsibilities into hyper-specialized sub-routines that collaborate via governed skills.
 

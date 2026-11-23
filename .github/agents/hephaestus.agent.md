@@ -1,4 +1,4 @@
-﻿---
+---
 name: hephaestus
 target: vscode
 description: The Builder. Forges pipelines, CI/CD, and maintains the GAIA framework itself. Strictly enforces "No Placeholder" rules when building skills.

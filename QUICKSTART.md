@@ -1,4 +1,4 @@
-﻿# 🚀 Quick Start
+# 🚀 Quick Start
 
 > Get up and running with the GAIA Platform Engineering Framework in 5 minutes.
 

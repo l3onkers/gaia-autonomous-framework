@@ -1,4 +1,4 @@
-﻿# Python Frontend Metadata Bundle
+# Python Frontend Metadata Bundle
 
 Bundle: `eleuthia-py-frontend`
 Status: Active

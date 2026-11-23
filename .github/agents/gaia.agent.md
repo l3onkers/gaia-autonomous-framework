@@ -1,4 +1,4 @@
-﻿---
+---
 name: gaia
 target: vscode
 description: The Central Orchestrator. Analyzes ambiguous user requests and routes them to the appropriate specialized sub-routine.

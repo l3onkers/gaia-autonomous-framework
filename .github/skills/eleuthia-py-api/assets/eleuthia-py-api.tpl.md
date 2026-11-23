@@ -1,4 +1,4 @@
-﻿# Python API Layer Template
+# Python API Layer Template
 
 Bundle: `eleuthia-py-api`
 Status: Active

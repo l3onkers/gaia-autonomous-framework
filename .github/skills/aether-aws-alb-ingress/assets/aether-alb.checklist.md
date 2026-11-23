@@ -1,4 +1,4 @@
-﻿---
+---
 name: aether-aws-alb-ingress
 description: 'Use when: aether resolves a request to expose a Kubernetes service via AWS Application Load Balancer (ALB) using the AWS Load Balancer Controller.'
 user-invocable: false

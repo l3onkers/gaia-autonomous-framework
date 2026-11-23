@@ -1,4 +1,4 @@
-﻿# Security Patch Proposal — <Vulnerability Reference>
+# Security Patch Proposal — <Vulnerability Reference>
 
 ## 1. Metadata
 - Report artifact: `SECURITY_PATCH.md`

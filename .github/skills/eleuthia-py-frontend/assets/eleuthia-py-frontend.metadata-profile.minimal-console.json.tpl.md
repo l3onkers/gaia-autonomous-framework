@@ -1,4 +1,4 @@
-﻿# Python Frontend Sample Metadata Profile
+# Python Frontend Sample Metadata Profile
 
 Bundle: `eleuthia-py-frontend`
 Status: Active

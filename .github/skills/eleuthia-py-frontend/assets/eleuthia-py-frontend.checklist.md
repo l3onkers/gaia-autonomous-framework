@@ -1,4 +1,4 @@
-﻿# Python Frontend Layer Skill Checklist
+# Python Frontend Layer Skill Checklist
 
 Quality and determinism checklist for `eleuthia-py-frontend` outputs.
 

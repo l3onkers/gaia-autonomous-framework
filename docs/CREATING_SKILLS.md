@@ -1,4 +1,4 @@
-﻿# Creating Custom Skills
+# Creating Custom Skills
 
 > Step-by-step guide to creating your own skill in the Copilot Governance Framework.
 

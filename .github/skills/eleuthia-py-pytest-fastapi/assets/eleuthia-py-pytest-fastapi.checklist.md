@@ -1,4 +1,4 @@
-﻿# Python FastAPI Pytest Extension Checklist
+# Python FastAPI Pytest Extension Checklist
 
 Quality and determinism checklist for `eleuthia-py-pytest-fastapi` outputs.
 

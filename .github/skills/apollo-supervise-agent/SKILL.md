@@ -1,4 +1,4 @@
-﻿---
+---
 name: apollo-supervise-agent
 description: 'Use when: build or supervisor resolves a run to validate one governed `*.agent.md` bundle and emit a compliance report from the owned ./assets/apollo-supervise-agent.tpl.md template.'
 user-invocable: false

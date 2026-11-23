@@ -1,4 +1,4 @@
-﻿# Security Patch Agent Checklist
+# Security Patch Agent Checklist
 
 Quality and determinism checklist for `minerva-patch` agent outputs.
 

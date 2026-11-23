@@ -1,4 +1,4 @@
-﻿# Python CI/CD Skill Checklist
+# Python CI/CD Skill Checklist
 
 Quality and determinism checklist for `hephaestus-py-cicd` outputs.
 

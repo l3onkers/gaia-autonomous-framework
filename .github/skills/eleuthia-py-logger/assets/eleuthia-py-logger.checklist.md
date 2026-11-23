@@ -1,4 +1,4 @@
-﻿# Python Logger Layer Skill Checklist
+# Python Logger Layer Skill Checklist
 
 Quality and determinism checklist for `eleuthia-py-logger` outputs.
 

@@ -1,4 +1,4 @@
-﻿# Net Setup Job Profile Template
+# Net Setup Job Profile Template
 
 Profile: `job`
 Status: Active

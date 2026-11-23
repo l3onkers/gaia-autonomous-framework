@@ -1,4 +1,4 @@
-﻿# Python Environment Layer Skill Checklist
+# Python Environment Layer Skill Checklist
 
 Quality and determinism checklist for `eleuthia-py-environment` outputs.
 

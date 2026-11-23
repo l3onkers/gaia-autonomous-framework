@@ -1,4 +1,4 @@
-﻿terraform {
+terraform {
   backend "s3" {
     bucket         = "company-terraform-state-bucket"
     key            = "infrastructure/aws/terraform.tfstate"

@@ -1,4 +1,4 @@
-﻿# Local PostgreSQL Docker Compose Layer Template
+# Local PostgreSQL Docker Compose Layer Template
 
 Bundle: `poseidon-local-postgres`
 Status: Active

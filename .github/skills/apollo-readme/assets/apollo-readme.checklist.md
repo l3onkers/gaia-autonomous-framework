@@ -1,4 +1,4 @@
-﻿# Create Or Update README Checklist
+# Create Or Update README Checklist
 
 ## Template Resolution
 - [ ] Exactly one output path was resolved for the run

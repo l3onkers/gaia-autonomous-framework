@@ -1,4 +1,4 @@
-﻿---
+---
 name: eleuthia
 target: vscode
 description: The Life Forger. Coordinates code scaffolding and application bootstrapping across multiple tech stacks (.NET, Angular, Python).

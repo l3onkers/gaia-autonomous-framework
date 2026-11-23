@@ -1,4 +1,4 @@
-﻿# Python Frontend Application Bundle
+# Python Frontend Application Bundle
 
 Bundle: `eleuthia-py-frontend`
 Status: Active

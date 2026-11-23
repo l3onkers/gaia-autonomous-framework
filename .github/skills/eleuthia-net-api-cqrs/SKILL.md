@@ -1,4 +1,4 @@
-﻿---
+---
 name: eleuthia-net-api-cqrs
 description: 'Use when: net-build must apply the profile-specific rules for the `api-cqrs` .NET setup profile.'
 user-invocable: false

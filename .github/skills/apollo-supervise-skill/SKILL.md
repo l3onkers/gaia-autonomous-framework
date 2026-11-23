@@ -1,4 +1,4 @@
-﻿---
+---
 name: apollo-supervise-skill
 description: 'Use when: build or supervisor resolves a run to validate one governed `.github/skills/<skill>/SKILL.md` bundle and emit a compliance report from the owned ./assets/apollo-supervise-skill.tpl.md template.'
 user-invocable: false

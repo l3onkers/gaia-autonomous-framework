@@ -1,4 +1,4 @@
-﻿# Python Environment Layer Template
+# Python Environment Layer Template
 
 Bundle: `eleuthia-py-environment`
 Status: Active
