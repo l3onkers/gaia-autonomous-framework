@@ -35,43 +35,7 @@ jobs:
 
       - name: Run governance validation
         shell: bash
-        run: |
-          set -euo pipefail
-          echo "Running GAIA Governance Pre-Release Checks..."
-          
-          required_files=(
-            "README.md"
-            "QUICKSTART.md"
-            "CONTRIBUTING.md"
-            "CODE_OF_CONDUCT.md"
-            "CHANGELOG.md"
-            "AGENTS.md"
-            "docs/AGENTS.md"
-            "docs/ARCHITECTURE.md"
-            "docs/CREATING_AGENTS.md"
-            "docs/CREATING_SKILLS.md"
-            "docs/CUSTOMIZATION.md"
-            "docs/INTERNAL_REFERENCE.md"
-            "docs/PLATFORMS.md"
-            "docs/SKILLS.md"
-            ".github/AGENT.md"
-          )
-
-          for file in "${required_files[@]}"; do
-            if [[ ! -f "$file" ]]; then
-              echo "::error file=$file::Missing required governed file"
-              exit 1
-            fi
-          done
-
-          expected_agents=10
-          actual_agents=$(find .github/agents -maxdepth 1 -name "*.agent.md" | wc -l | tr -d " ")
-          if [[ "$actual_agents" -ne "$expected_agents" ]]; then
-            echo "::error file=.github/agents::Expected ${expected_agents} agent entrypoints but found ${actual_agents}"
-            exit 1
-          fi
-
-          echo "Pre-release governance check passed successfully."
+        run: bash .github/workflows/scripts/validate-structure.sh
 
       - name: Extract Release Notes from CHANGELOG.md
         id: release_notes
@@ -80,32 +44,7 @@ jobs:
           TAG="${{ github.ref_name || github.event.inputs.tag }}"
           VERSION="${TAG#v}"
           echo "Extracting notes for version: $VERSION"
-          
-          python3 -c '
-import sys
-
-target = sys.argv[1]
-found = False
-notes = []
-
-with open("CHANGELOG.md", "r", encoding="utf-8") as f:
-    for line in f:
-        if line.startswith(f"## [{target}]"):
-            found = True
-            continue
-        elif found and line.startswith("## ["):
-            break
-        elif found:
-            notes.append(line)
-
-content = "".join(notes).strip()
-if not content:
-    content = f"GAIA Autonomous Framework release v{target}."
-
-with open("release_notes.txt", "w", encoding="utf-8") as out:
-    out.write(content)
-' "$VERSION"
-
+          python3 .github/workflows/scripts/extract-release-notes.py "$VERSION" > release_notes.txt
           echo "notes<<EOF" >> $GITHUB_OUTPUT
           cat release_notes.txt >> $GITHUB_OUTPUT
           echo "" >> $GITHUB_OUTPUT
