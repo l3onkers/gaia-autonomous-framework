@@ -7,22 +7,45 @@ echo "Testing Specific Governed Skills & Validation Tools..."
 
 errors=0
 
-# 1. Test gaia-knowledge-ingest
-SKILL_DIR="$REPO_ROOT/.github/skills/gaia-knowledge-ingest"
-if [[ ! -f "$SKILL_DIR/SKILL.md" ]]; then
-    echo "  ✗ gaia-knowledge-ingest is missing SKILL.md"
-    errors=$((errors + 1))
-fi
+# 1. Test governed platform skills (SKILL.md + tpl.md + checklist.md + 6 required headings)
+GOVERNED_SKILLS=(
+    "gaia-knowledge-ingest"
+    "aether-k8s-gateway-api"
+    "hephaestus-argocd-gitops"
+    "apollo-observability-stack"
+)
 
-if [[ ! -f "$SKILL_DIR/assets/gaia-knowledge-ingest.tpl.md" ]]; then
-    echo "  ✗ gaia-knowledge-ingest is missing assets/gaia-knowledge-ingest.tpl.md"
-    errors=$((errors + 1))
-fi
+REQUIRED_HEADINGS=(
+    "## Purpose"
+    "## Output Contract"
+    "## Governance Inputs"
+    "## When to Use"
+    "## Procedure"
+    "## Validation and Compliance Decision Rules"
+)
 
-if [[ ! -f "$SKILL_DIR/assets/gaia-knowledge-ingest.checklist.md" ]]; then
-    echo "  ✗ gaia-knowledge-ingest is missing assets/gaia-knowledge-ingest.checklist.md"
-    errors=$((errors + 1))
-fi
+for s in "${GOVERNED_SKILLS[@]}"; do
+    SKILL_DIR="$REPO_ROOT/.github/skills/$s"
+    if [[ ! -f "$SKILL_DIR/SKILL.md" ]]; then
+        echo "  ✗ $s is missing SKILL.md"
+        errors=$((errors + 1))
+        continue
+    fi
+    if [[ ! -f "$SKILL_DIR/assets/${s}.tpl.md" ]]; then
+        echo "  ✗ $s is missing assets/${s}.tpl.md"
+        errors=$((errors + 1))
+    fi
+    if [[ ! -f "$SKILL_DIR/assets/${s}.checklist.md" ]]; then
+        echo "  ✗ $s is missing assets/${s}.checklist.md"
+        errors=$((errors + 1))
+    fi
+    for h in "${REQUIRED_HEADINGS[@]}"; do
+        if ! grep -q "^${h}$" "$SKILL_DIR/SKILL.md"; then
+            echo "  ✗ $s SKILL.md missing required heading: $h"
+            errors=$((errors + 1))
+        fi
+    done
+done
 
 # 2. Test apollo-git-workflow validation scripts
 APOLLO_DIR="$REPO_ROOT/.github/skills/apollo-git-workflow"
