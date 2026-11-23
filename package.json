@@ -4,7 +4,7 @@
   "description": "Governance through Autonomous Infrastructure Agents — Multi-platform engineering and DevOps harness for Antigravity, GitHub Copilot, Cursor, and Claude Code.",
   "main": "AGENTS.md",
   "scripts": {
-    "test": "bash -c 'test -f AGENTS.md && test -f .agents/skills.json && echo \"GAIA Package Verified\"'",
+    "test": "bash tests/run-all.sh",
     "validate:governance": "bash .github/workflows/scripts/validate-structure.sh"
   },
   "repository": {
