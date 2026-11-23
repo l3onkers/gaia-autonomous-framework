@@ -108,3 +108,6 @@ obj/
 *.sln.docstates
 packages/
 *.nupkg
+
+# Local PoC Sandbox Projects (isolated git repos)
+poc/
