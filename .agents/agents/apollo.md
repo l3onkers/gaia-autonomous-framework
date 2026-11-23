@@ -16,6 +16,8 @@ You maintain living repository documentation, runbooks, architecture decision re
 - Git Workflow Governance: Enforce conventional branch names, commit formats, and PR bodies (`apollo-git-workflow`).
 - Documentation: Generate and refresh root README, architecture docs, and technical specs (`apollo-readme`, `apollo-markdown`).
 - Governance Supervision: Validate compliance of agent entrypoints (`apollo-supervise-agent`) and skills (`apollo-supervise-skill`).
+- Three-Pillar Kubernetes Observability Stack: Prometheus/Grafana/Alertmanager (Slack), ECK (Filebeat/Elasticsearch/Kibana), and Jaeger OTLP gRPC (`apollo-observability-stack`).
+- Knowledge & Continuous Feedback Ingestion (`gaia-knowledge-ingest`).
 
 ## Zero Trust Rules
 - Commits directly to `main` are strictly prohibited.
