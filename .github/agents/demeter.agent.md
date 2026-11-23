@@ -1,4 +1,4 @@
-﻿---
+---
 name: demeter
 target: vscode
 description: Infrastructure as Code (IaC) and Provisioning. Materializes environments using Terraform/Pulumi and manages GitOps synchronization.

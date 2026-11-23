@@ -1,4 +1,4 @@
-﻿---
+---
 name: apollo-markdown
 description: 'Use when: a user or agent must convert one Markdown file into HTML, PDF, DOCX, TEX, or EPUB with Pandoc using the skill-bundled Pandoc reference and the owned HTML head, template, and logo assets for HTML output.'
 user-invocable: true

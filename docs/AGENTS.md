@@ -1,4 +1,4 @@
-﻿# 🤖 GAIA Agents Ecosystem
+# 🤖 GAIA Agents Ecosystem
 
 This document details the orchestrator agents that make up the GAIA ecosystem. Each agent is a governed coordinator that reads user intent and routes work to the appropriate skills, following **Zero Trust**, deterministic routing, and repository-level compliance rules.
 

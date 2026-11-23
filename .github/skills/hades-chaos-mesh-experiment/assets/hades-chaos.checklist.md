@@ -1,4 +1,4 @@
-﻿---
+---
 name: hades-chaos-mesh-experiment
 description: 'Use when: hades resolves a request to generate a chaos engineering experiment using Chaos Mesh for Pod or Network failures.'
 user-invocable: false

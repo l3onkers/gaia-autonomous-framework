@@ -1,4 +1,4 @@
-﻿-- Migration: V1_0_1__Create_users_table.sql
+-- Migration: V1_0_1__Create_users_table.sql
 
 CREATE TABLE IF NOT EXISTS users (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

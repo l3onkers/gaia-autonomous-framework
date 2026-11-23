@@ -1,4 +1,4 @@
-﻿---
+---
 name: eleuthia-ui-mockups
 description: Layout patterns and HTML composition guidelines for building views with the corporate component library. Based on analysis of real mockup templates.
 ---

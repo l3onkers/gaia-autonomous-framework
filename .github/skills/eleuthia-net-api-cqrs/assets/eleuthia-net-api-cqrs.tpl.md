@@ -1,4 +1,4 @@
-﻿# Net Setup API CQRS Profile Template
+# Net Setup API CQRS Profile Template
 
 Profile: `api-cqrs`
 Status: Active

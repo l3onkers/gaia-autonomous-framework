@@ -1,4 +1,4 @@
-﻿---
+---
 name: eleuthia-ui-styles
 description: Utility classnames, grid layout systems, and design tokens for the corporate Angular component library. Use when composing views with company-* components.
 ---

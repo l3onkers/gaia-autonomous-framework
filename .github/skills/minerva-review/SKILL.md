@@ -1,4 +1,4 @@
-﻿---
+---
 name: minerva-review
 description: 'Use when: a security workflow must perform evidence-based code-level vulnerability discovery on new or changed files, producing structured findings without modifying code.'
 ---

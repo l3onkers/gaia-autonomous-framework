@@ -1,4 +1,4 @@
-﻿# Python Frontend API Client Bundle
+# Python Frontend API Client Bundle
 
 Bundle: `eleuthia-py-frontend`
 Status: Active

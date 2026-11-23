@@ -1,4 +1,4 @@
-﻿---
+---
 name: minerva-triage
 description: 'Use when: a security workflow must analyze security-relevant repository evidence (dependency manifests, CI configurations, security tooling configs, existing audit reports) and produce prioritized, evidence-based triage reports from static analysis.'
 ---

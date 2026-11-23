@@ -1,4 +1,4 @@
-﻿# Security Triage Agent Checklist
+# Security Triage Agent Checklist
 
 Quality and determinism checklist for `minerva-triage` agent outputs.
 

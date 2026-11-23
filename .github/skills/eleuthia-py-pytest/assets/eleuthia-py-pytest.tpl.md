@@ -1,4 +1,4 @@
-﻿# Python Pytest Layer Template
+# Python Pytest Layer Template
 
 Bundle: `eleuthia-py-pytest`
 Status: Active

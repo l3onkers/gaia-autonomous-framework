@@ -1,4 +1,4 @@
-﻿# Python API Layer Skill Checklist
+# Python API Layer Skill Checklist
 
 Quality and determinism checklist for `eleuthia-py-api` outputs.
 

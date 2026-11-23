@@ -1,4 +1,4 @@
-﻿# Skills Catalog
+# Skills Catalog
 
 > Detailed documentation for all 42 governed skills in the Copilot Governance Framework.
 

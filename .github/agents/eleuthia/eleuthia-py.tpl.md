@@ -1,4 +1,4 @@
-﻿# py-build Template
+# py-build Template
 
 Shared routing, dependency-graph, and sequential execution rules for the `eleuthia` Python layer coordinator.
 

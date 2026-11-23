@@ -1,4 +1,4 @@
-﻿# ng-build Checklist
+# ng-build Checklist
 
 Quality and determinism checklist for `eleuthia` outputs.
 

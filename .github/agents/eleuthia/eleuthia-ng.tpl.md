@@ -1,4 +1,4 @@
-﻿# ng-build Template
+# ng-build Template
 
 Shared Angular build, setup, configuration, layout, and quality rules for the `eleuthia` coordinator.
 

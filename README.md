@@ -1,4 +1,4 @@
-﻿<p align="center">
+<p align="center">
   <img src="docs/assets/gaia-banner.png" alt="G.A.I.A. Autonomous Platform Engineering Framework - Live Interface" width="100%">
 </p>
 
@@ -117,7 +117,9 @@ graph TB
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Start & Multi-Platform Usage
+
+The GAIA ecosystem operates seamlessly across multiple AI developer platforms, including **Antigravity 2.0 App**, **Antigravity CLI (`agy`)**, **GitHub Copilot**, **Cursor**, and **Claude Code**.
 
 ### 1. Clone the repository
 
@@ -126,15 +128,20 @@ git clone https://github.com/l3onkers/gaia-autonomous-framework.git
 cd gaia-autonomous-framework
 ```
 
-### 2. Open in VS Code with GitHub Copilot
+### 2. Choose Your Platform
 
-The GAIA ecosystem operates through GitHub Copilot Chat. Open the repository in VS Code and ensure Copilot is active.
+- **Antigravity 2.0 App:** Open the repository folder directly. Antigravity automatically detects root `AGENTS.md`, subagents under `.agents/agents/`, and exposes the 40+ governed skills.
+- **Antigravity CLI (`agy`):** Run `agy` in your terminal to start an interactive orchestration session or execute headless commands (`agy -p "prompt"`).
+- **GitHub Copilot (VS Code):** Use `@workspace Use gaia <prompt>` in Copilot Chat.
+- **Cursor / Claude Code:** Project rules and MCP servers are discovered via root `AGENTS.md` and `.mcp.json`.
+
+> 📖 **Complete Multi-Platform Setup Guide:** [docs/PLATFORMS.md](docs/PLATFORMS.md)
 
 ### 3. Contact GAIA
 
 Don't know which sub-routine to use? Ask GAIA:
 
-`@workspace Use gaia to prepare the infrastructure and code for a new .NET microservice with a database.`
+`Use gaia to prepare the infrastructure and code for a new .NET microservice with a database.`
 
 GAIA will automatically route the request to **ELEUTHIA** for code generation, **HEPHAESTUS** for pipelines, and **POSEIDON** for the database schema.
 
@@ -142,7 +149,7 @@ GAIA will automatically route the request to **ELEUTHIA** for code generation, *
 
 If you know the exact sub-routine:
 
-`@workspace Use minerva to run a security review and secret scan on the latest commits.`
+`Use minerva to run a security review and secret scan on the latest commits.`
 
 > 📖 **Detailed Guide:** [QUICKSTART.md](QUICKSTART.md)
 

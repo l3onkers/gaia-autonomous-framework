@@ -1,11 +1,16 @@
-﻿# 🚀 Quick Start
+# 🚀 Quick Start
 
 > Get up and running with the GAIA Platform Engineering Framework in 5 minutes.
 
-## Prerequisites
+## Prerequisites & Supported Environments
 
-- [VS Code](https://code.visualstudio.com/) with [GitHub Copilot](https://github.com/features/copilot) enabled
-- GitHub Copilot Chat extension installed
+GAIA supports multiple development environments:
+- **Antigravity 2.0 App:** Desktop GUI with native subagent orchestration and MCP toolsets.
+- **Antigravity CLI (`agy`):** Terminal TUI and headless background tasks.
+- **VS Code:** With GitHub Copilot & GitHub Copilot Chat enabled.
+- **Cursor / Claude Code:** Automated discovery via `AGENTS.md` and `.mcp.json`.
+
+> 📖 See [docs/PLATFORMS.md](docs/PLATFORMS.md) for full configuration details on each platform.
 
 ## Setup
 
@@ -16,15 +21,11 @@ git clone https://github.com/l3onkers/gaia-autonomous-framework.git
 cd gaia-autonomous-framework
 ```
 
-### 2. Open in VS Code
+### 2. Launch Your Preferred Tool
 
-```bash
-code .
-```
-
-### 3. Verify Copilot is active
-
-Open GitHub Copilot Chat (Ctrl+Shift+I or Cmd+Shift+I) and verify it's connected.
+- **Antigravity 2.0 App:** Open the `gaia-autonomous-framework` directory.
+- **Antigravity CLI:** Run `agy` in your terminal.
+- **VS Code:** Run `code .` and open GitHub Copilot Chat.
 
 ---
 

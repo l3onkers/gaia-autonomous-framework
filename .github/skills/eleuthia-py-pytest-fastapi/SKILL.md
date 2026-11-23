@@ -1,4 +1,4 @@
-﻿---
+---
 name: eleuthia-py-pytest-fastapi
 description: 'Use when: a setup or orchestration workflow must add a governed FastAPI-specific pytest extension layer on top of the Python pytest starter.'
 user-invocable: false

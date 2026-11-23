@@ -1,4 +1,4 @@
-﻿# <Repository README>
+# <Repository README>
 
 > Bundled specialized template asset owned by `apollo-readme` for repositories organized around thin agent entrypoints, reusable shared skills, and neutral governance assets.
 >

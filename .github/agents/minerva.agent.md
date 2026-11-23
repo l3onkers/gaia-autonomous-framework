@@ -1,4 +1,4 @@
-﻿---
+---
 name: minerva
 target: vscode
 description: Tactical Guardian (DevSecOps). Audits code for vulnerabilities, scans for leaked secrets, and manages PR security.

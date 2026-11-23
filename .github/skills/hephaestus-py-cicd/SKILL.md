@@ -1,4 +1,4 @@
-﻿---
+---
 name: hephaestus-py-cicd
 description: 'Use when: a setup or orchestration workflow must add a governed Python CI/CD layer.'
 user-invocable: false

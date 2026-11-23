@@ -1,4 +1,4 @@
-﻿---
+---
 name: apollo-git-workflow
 description: 'Use when: agent or user must create a branch, commit, or pull request that complies with Company git standards.'
 user-invocable: true

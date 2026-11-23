@@ -1,4 +1,4 @@
-﻿# py-build Checklist
+# py-build Checklist
 
 Quality and determinism checklist for `eleuthia` outputs.
 

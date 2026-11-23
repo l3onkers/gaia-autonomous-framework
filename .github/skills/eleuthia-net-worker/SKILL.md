@@ -1,4 +1,4 @@
-﻿---
+---
 name: eleuthia-net-worker
 description: 'Use when: net-build must apply the profile-specific rules for the `worker` .NET setup profile.'
 user-invocable: false

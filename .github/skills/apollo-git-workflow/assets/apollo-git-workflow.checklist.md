@@ -1,4 +1,4 @@
-﻿# Git Workflow Checklist
+# Git Workflow Checklist
 
 ## Branch
 - [ ] Branch was created from the correct base branch (not committed directly to `main`).

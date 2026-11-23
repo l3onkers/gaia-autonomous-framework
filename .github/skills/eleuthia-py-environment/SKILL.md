@@ -1,4 +1,4 @@
-﻿---
+---
 name: eleuthia-py-environment
 description: 'Use when: a setup or orchestration workflow must add a governed Python environment layer from isolated owned support and code bundles.'
 user-invocable: false

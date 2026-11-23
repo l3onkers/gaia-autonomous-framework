@@ -1,4 +1,4 @@
-﻿---
+---
 name: artemis
 target: vscode
 description: Quality Assurance (QA). Executes load tests (k6), E2E tests (Playwright), and hunts functional vulnerabilities.

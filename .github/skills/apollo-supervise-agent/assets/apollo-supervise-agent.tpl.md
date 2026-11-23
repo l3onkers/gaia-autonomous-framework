@@ -1,4 +1,4 @@
-﻿# Supervise Agent Compliance Report
+# Supervise Agent Compliance Report
 
 ## Run Metadata
 

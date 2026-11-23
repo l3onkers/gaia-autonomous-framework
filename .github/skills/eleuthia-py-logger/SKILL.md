@@ -1,4 +1,4 @@
-﻿---
+---
 name: eleuthia-py-logger
 description: 'Use when: a setup or orchestration workflow must add a governed Python logger layer from isolated owned support and code bundles.'
 user-invocable: false

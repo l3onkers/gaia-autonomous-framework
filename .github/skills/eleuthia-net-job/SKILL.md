@@ -1,4 +1,4 @@
-﻿---
+---
 name: eleuthia-net-job
 description: 'Use when: net-build must apply the profile-specific rules for the `job` .NET setup profile.'
 user-invocable: false

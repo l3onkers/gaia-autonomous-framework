@@ -1,4 +1,4 @@
-﻿# Customization Guide
+# Customization Guide
 
 > How to adapt the Copilot Governance Framework to your organization.
 

@@ -1,4 +1,4 @@
-﻿# Python Logger Layer Template
+# Python Logger Layer Template
 
 Bundle: `eleuthia-py-logger`
 Status: Active

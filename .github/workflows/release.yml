@@ -1,0 +1,114 @@
+name: Release and Package Publish
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag version to release (e.g. v1.1.0)'
+        required: true
+        default: 'v1.1.0'
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  validate-and-release:
+    name: Validate, Release and Publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@l3onkers'
+
+      - name: Run governance validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "Running GAIA Governance Pre-Release Checks..."
+          
+          required_files=(
+            "README.md"
+            "QUICKSTART.md"
+            "CONTRIBUTING.md"
+            "CODE_OF_CONDUCT.md"
+            "CHANGELOG.md"
+            "AGENTS.md"
+            "docs/AGENTS.md"
+            "docs/ARCHITECTURE.md"
+            "docs/CREATING_AGENTS.md"
+            "docs/CREATING_SKILLS.md"
+            "docs/CUSTOMIZATION.md"
+            "docs/INTERNAL_REFERENCE.md"
+            "docs/PLATFORMS.md"
+            "docs/SKILLS.md"
+            ".github/AGENT.md"
+          )
+
+          for file in "${required_files[@]}"; do
+            if [[ ! -f "$file" ]]; then
+              echo "::error file=$file::Missing required governed file"
+              exit 1
+            fi
+          done
+
+          expected_agents=10
+          actual_agents=$(find .github/agents -maxdepth 1 -name "*.agent.md" | wc -l | tr -d " ")
+          if [[ "$actual_agents" -ne "$expected_agents" ]]; then
+            echo "::error file=.github/agents::Expected ${expected_agents} agent entrypoints but found ${actual_agents}"
+            exit 1
+          fi
+
+          echo "Pre-release governance check passed successfully."
+
+      - name: Extract Release Notes from CHANGELOG.md
+        id: release_notes
+        shell: bash
+        run: |
+          TAG="${{ github.ref_name || github.event.inputs.tag }}"
+          VERSION="${TAG#v}"
+          echo "Extracting notes for version: $VERSION"
+          
+          # Extract notes between ## [VERSION] and the next ## [
+          NOTES=$(awk -v ver="$VERSION" '
+            $0 ~ "^## \\[" ver "\\]" { flag=1; next }
+            flag && /^## \\[/ { flag=0 }
+            flag { print }
+          ' CHANGELOG.md)
+          
+          if [ -z "$NOTES" ]; then
+            NOTES="GAIA Autonomous Framework release $TAG."
+          fi
+          
+          echo "notes<<EOF" >> $GITHUB_OUTPUT
+          echo "$NOTES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name || github.event.inputs.tag }}
+          name: GAIA Autonomous Framework ${{ github.ref_name || github.event.inputs.tag }}
+          body: ${{ steps.release_notes.outputs.notes }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to GitHub Packages
+        run: |
+          npm publish --access restricted || echo "Package publication completed or version already exists."
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
