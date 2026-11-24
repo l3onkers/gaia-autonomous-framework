@@ -10,8 +10,8 @@
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
   </a>
-  <a href="https://github.com/l3onkers/gaia-autonomous-framework/releases/tag/v1.1.0">
-    <img src="https://img.shields.io/badge/Release-v1.1.0-brightgreen.svg" alt="Version 1.1.0">
+  <a href="https://github.com/l3onkers/gaia-autonomous-framework/releases/tag/v1.2.0">
+    <img src="https://img.shields.io/badge/Release-v1.2.0-brightgreen.svg" alt="Version 1.2.0">
   </a>
   <a href="docs/PLATFORMS.md">
     <img src="https://img.shields.io/badge/Zero%20Trust-Enforced-success.svg" alt="Zero Trust Governance">
