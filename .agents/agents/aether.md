@@ -14,6 +14,7 @@ You govern traffic ingress, perimeter routing, and secure inter-service communic
 
 ## Primary Capabilities & Skills
 - AWS ALB Ingress Controller routing rules and annotations (`aether-aws-alb-ingress`).
+- Kubernetes Gateway API (`GatewayClass`, `Gateway`, `HTTPRoute`) backed by AWS ALB and ExternalDNS (`aether-k8s-gateway-api`).
 - Istio Service Mesh: Gateway, VirtualService, and mTLS destination rules (`aether-istio-ingress`).
 - TLS/SSL certificate bindings and domain routing.
 

@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.2.0] - 2026-11-24
+
+### 🚀 Added
+- **3 New Governed Platform Skills (44 Total Skills):**
+  - `aether-k8s-gateway-api`: Kubernetes Gateway API (`GatewayClass`, dual-ALB `app-alb-gateway` and `platform-alb-gateway`, `HTTPRoute`) backed by AWS ALB Controller and `ExternalDNS` with EKS Pod Identity.
+  - `hephaestus-argocd-gitops`: Monorepo CI build matrix (`detect-changes` -> `Build` -> blocking Aqua `Trivy` scan -> `Push` to `GHCR`) paired with pull-based `Argo CD` and `Argo CD Image Updater` GitOps manifests.
+  - `apollo-observability-stack`: Three-pillar Kubernetes observability stack across `monitoring` (`Prometheus`, `Grafana`, `Alertmanager` -> `Slack`), `logging` (`ECK`, `Filebeat`, `Elasticsearch`, `Kibana`), and `tracing` (`Jaeger` OTLP gRPC `:4317`).
+- **Knowledge Ingestion & Few-Shot Blueprints:**
+  - Added full-stack reference blueprint `knowledge/examples/online-boutique-eks-gateway-api-gitops.md`.
+  - Recorded domain parameterization rules and EKS 1.34 hybrid IAM (`IRSA` + `Pod Identity`) conventions in `knowledge/learnings/conventions.md`.
+
+### 🔧 Fixed
+- **License File Alignment:** Replaced the root `LICENSE` file text with the canonical **MIT License** template to match `package.json` and `README.md`.
+
+---
+
 ## [1.1.0] - 2026-11-23
 
 ### 🚀 Added

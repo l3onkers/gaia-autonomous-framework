@@ -18,11 +18,11 @@ with open('$PKG') as f:
     pkg = json.load(f)
 
 assert pkg.get('name') == '@l3onkers/gaia-autonomous-framework', 'Invalid package name'
-assert pkg.get('version') == '1.1.0', f'Invalid version: {pkg.get(\"version\")}'
+assert pkg.get('version') == '1.2.0', f'Invalid version: {pkg.get(\"version\")}'
 assert 'publishConfig' in pkg, 'Missing publishConfig'
 assert pkg['publishConfig'].get('registry') == 'https://npm.pkg.github.com', 'Invalid registry'
 assert 'scripts' in pkg, 'Missing scripts'
-print('  ✓ package.json matches release specification v1.1.0')
+print('  ✓ package.json matches release specification v1.2.0')
 "
 
 exit 0

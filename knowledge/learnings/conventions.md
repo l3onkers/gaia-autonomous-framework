@@ -14,3 +14,8 @@
 ## 3. Resilience & Security
 - **Strict Zero Trust:** Secrets must never be logged or echoed in markdown.
 - **Destructive Actions:** Teardowns, schema drops, and chaos injections require explicit user approval.
+
+## 4. Cloud Topology & Domain Parameterization (Ingested via `gaia-knowledge-ingest`)
+- **Generic Parameterized Domains:** Never hardcode personal or diagram-example domain names (e.g., `*.oliver14.com`) as defaults in Terraform, ExternalDNS, ACM, or Gateway API manifests. Always expose a parameterized variable (`domain_name` in Terraform with default `boutique.example.com` and `${DOMAIN_NAME}` in Kubernetes overlays).
+- **EKS Hybrid Identity Pattern:** When provisioning EKS 1.34+ clusters, combine **IRSA** (for `aws-load-balancer-controller` and `cluster-autoscaler`) with **EKS Pod Identity** (for `aws-ebs-csi-driver` with `gp3` storage and `external-dns`).
+- **Gateway API Blast-Radius Isolation:** Separate external application traffic (`app-alb-gateway`) from administrative/observability platform traffic (`platform-alb-gateway`) using Kubernetes Gateway API `Gateway` and `HTTPRoute` resources with namespace selector policies.
