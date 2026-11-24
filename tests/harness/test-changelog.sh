@@ -11,6 +11,11 @@ if [[ ! -f "$CHANGELOG" ]]; then
     exit 1
 fi
 
+if ! grep -q "\[1.2.0\]" "$CHANGELOG"; then
+    echo "  ✗ CHANGELOG.md missing [1.2.0] release entry"
+    exit 1
+fi
+
 if ! grep -q "\[1.1.0\]" "$CHANGELOG"; then
     echo "  ✗ CHANGELOG.md missing [1.1.0] release entry"
     exit 1
@@ -21,5 +26,5 @@ if ! grep -q "\[1.0.0\]" "$CHANGELOG"; then
     exit 1
 fi
 
-echo "  ✓ CHANGELOG.md contains entries for [1.1.0] and [1.0.0]"
+echo "  ✓ CHANGELOG.md contains entries for [1.2.0], [1.1.0] and [1.0.0]"
 exit 0
