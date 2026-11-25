@@ -30,7 +30,7 @@ If the Slack webhook URL or storage class is not explicitly specified, bind Aler
 1. Load `./assets/apollo-observability-stack.tpl.md` and `./assets/apollo-observability-stack.checklist.md`.
 2. Generate `k8s/observability/monitoring/prometheus-grafana-alertmanager.yaml`:
    - Namespace `monitoring` labeled with `gateway-access: platform`.
-   - Prometheus scrape configs for `boutique-app` pods and `kube-system` metrics.
+   - Prometheus scrape configs for application workload pods and `kube-system` metrics.
    - Alertmanager configuration routing critical and warning alerts to Slack via `slack_api_url_file` secret mount (never plaintext webhook URLs).
    - Grafana deployment and Service ready for `platform-alb-gateway` exposure.
 3. Generate `k8s/observability/logging/eck-filebeat-elasticsearch-kibana.yaml`:
@@ -44,4 +44,4 @@ If the Slack webhook URL or storage class is not explicitly specified, bind Aler
 ## Validation and Compliance Decision Rules
 - Alertmanager Slack webhooks MUST be referenced from a Kubernetes Secret (`slack_api_url_file`), never hardcoded in plaintext ConfigMaps.
 - Stateful observability components (Prometheus, Elasticsearch) MUST request `gp3` persistent storage and explicit memory/CPU limits.
-- Jaeger MUST expose port `4317` (`otlp-grpc`) so microservices in `boutique-app` can export OpenTelemetry spans directly to `jaeger-collector.tracing.svc.cluster.local:4317`.
+- Jaeger MUST expose port `4317` (`otlp-grpc`) so application microservices can export OpenTelemetry spans directly to `jaeger-collector.tracing.svc.cluster.local:4317`.

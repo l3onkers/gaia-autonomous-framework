@@ -14,7 +14,7 @@ user-invocable: true
 ## Output Contract
 - `.github/workflows/ci-build-matrix.yml`
 - `k8s/argocd/project.yaml`
-- `k8s/argocd/application-boutique.yaml`
+- `k8s/argocd/application-workloads.yaml`
 - `k8s/argocd/application-observability.yaml`
 
 If the target container registry or repository owner is not explicitly provided, parameterize using `${GITHUB_REPOSITORY_OWNER}` and `ghcr.io`.
@@ -32,8 +32,8 @@ If the target container registry or repository owner is not explicitly provided,
 2. Generate `.github/workflows/ci-build-matrix.yml` with two jobs:
    - `detect-changes`: determines modified microservice directories and outputs a JSON matrix of affected services.
    - `build-scan-push`: runs across the matrix, builds the multi-stage Docker image, scans it with Aqua Security `Trivy` (`exit-code: '1'` on `CRITICAL,HIGH` unfixed CVEs), and pushes signed/tagged images (`sha-<short>` and `latest`) to `ghcr.io`.
-3. Generate `k8s/argocd/project.yaml` restricting allowed source repositories, target namespaces (`boutique-app`, `monitoring`, `logging`, `tracing`, `external-dns`), and cluster resources.
-4. Generate `k8s/argocd/application-boutique.yaml` with `argocd-image-updater.argoproj.io` annotations configured to track `ghcr.io` image digests/tags and write back or sync automatically with `prune: true` and `selfHeal: true`.
+3. Generate `k8s/argocd/project.yaml` restricting allowed source repositories, target namespaces (`app-workloads`, `monitoring`, `logging`, `tracing`, `external-dns`), and cluster resources.
+4. Generate `k8s/argocd/application-workloads.yaml` with `argocd-image-updater.argoproj.io` annotations configured to track `ghcr.io` image digests/tags and write back or sync automatically with `prune: true` and `selfHeal: true`.
 5. Validate all outputs against `./assets/hephaestus-argocd-gitops.checklist.md`.
 
 ## Validation and Compliance Decision Rules

@@ -30,10 +30,10 @@ If the target hostname pattern or certificate configuration is unresolvable, use
 
 ## Procedure
 1. Load `./assets/aether-k8s-gateway-api.tpl.md` and `./assets/aether-k8s-gateway-api.checklist.md`.
-2. Ensure domain names are parameterized (e.g., `${DOMAIN_NAME}`, default `boutique.example.com`) and never hardcoded to personal reference domains.
+2. Ensure domain names are parameterized (e.g., `${DOMAIN_NAME}`, default `app.example.com`) and never hardcoded to vendor or personal domains.
 3. Define the `GatewayClass` bound to `aws-alb` controller class.
 4. Define `app-alb-gateway` and `platform-alb-gateway` in the target namespace with HTTPS 443 listeners, TLS termination via ACM certificate ARN parameter, and HTTP 80 to HTTPS 443 redirect rules.
-5. Define `HTTPRoute` resources mapping hostnames (`shop.${DOMAIN_NAME}`, `argocd.${DOMAIN_NAME}`, `grafana.${DOMAIN_NAME}`, `kibana.${DOMAIN_NAME}`, `jaeger.${DOMAIN_NAME}`) to their corresponding backend Kubernetes `Service` endpoints.
+5. Define `HTTPRoute` resources mapping hostnames (`app.${DOMAIN_NAME}`, `argocd.${DOMAIN_NAME}`, `grafana.${DOMAIN_NAME}`, `kibana.${DOMAIN_NAME}`, `jaeger.${DOMAIN_NAME}`) to their corresponding backend Kubernetes `Service` endpoints.
 6. Define the `external-dns` deployment in the `external-dns` namespace configured for EKS Pod Identity and Gateway API sources (`--source=gateway-httproute`).
 7. Validate all generated manifests against `./assets/aether-k8s-gateway-api.checklist.md`.
 

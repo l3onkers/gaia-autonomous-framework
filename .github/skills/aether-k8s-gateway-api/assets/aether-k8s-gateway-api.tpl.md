@@ -26,12 +26,12 @@ spec:
     - name: https
       protocol: HTTPS
       port: 443
-      hostname: "shop.${DOMAIN_NAME}"
+      hostname: "app.${DOMAIN_NAME}"
       tls:
         mode: Terminate
         certificateRefs:
           - kind: Secret
-            name: acm-tls-placeholder
+            name: acm-tls-secret
       allowedRoutes:
         namespaces:
           from: Selector
@@ -60,7 +60,7 @@ spec:
         mode: Terminate
         certificateRefs:
           - kind: Secret
-            name: acm-tls-placeholder
+            name: acm-tls-secret
       allowedRoutes:
         namespaces:
           from: Selector
@@ -72,15 +72,15 @@ spec:
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: boutique-frontend-route
-  namespace: boutique-app
+  name: web-frontend-route
+  namespace: app-workloads
 spec:
   parentRefs:
     - name: app-alb-gateway
       namespace: default
       sectionName: https
   hostnames:
-    - "shop.${DOMAIN_NAME}"
+    - "app.${DOMAIN_NAME}"
   rules:
     - matches:
         - path:

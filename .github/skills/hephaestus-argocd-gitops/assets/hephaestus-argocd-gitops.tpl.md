@@ -30,7 +30,7 @@ jobs:
       - name: Compute affected services
         id: set-matrix
         run: |
-          SERVICES=("frontend" "cartservice" "productcatalogservice" "checkoutservice")
+          SERVICES=("frontend" "api-service" "worker-service")
           CHANGED=()
           for svc in "${SERVICES[@]}"; do
             if git diff --name-only HEAD~1 HEAD | grep -q "^services/${svc}/"; then
@@ -38,7 +38,7 @@ jobs:
             fi
           done
           if [ ${#CHANGED[@]} -eq 0 ]; then
-            CHANGED=("\"frontend\"" "\"cartservice\"" "\"productcatalogservice\"" "\"checkoutservice\"")
+            CHANGED=("\"frontend\"" "\"api-service\"" "\"worker-service\"")
           fi
           JSON_ARRAY="[$(IFS=,; echo "${CHANGED[*]}")]"
           echo "matrix=${JSON_ARRAY}" >> "$GITHUB_OUTPUT"
@@ -73,13 +73,13 @@ jobs:
           context: ./services/${{ matrix.service }}
           load: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/online-boutique-${{ matrix.service }}:sha-${{ github.sha }}
-            ghcr.io/${{ github.repository_owner }}/online-boutique-${{ matrix.service }}:latest
+            ghcr.io/${{ github.repository_owner }}/platform-${{ matrix.service }}:sha-${{ github.sha }}
+            ghcr.io/${{ github.repository_owner }}/platform-${{ matrix.service }}:latest
 
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.35.0
         with:
-          image-ref: ghcr.io/${{ github.repository_owner }}/online-boutique-${{ matrix.service }}:sha-${{ github.sha }}
+          image-ref: ghcr.io/${{ github.repository_owner }}/platform-${{ matrix.service }}:sha-${{ github.sha }}
           format: table
           exit-code: '1'
           ignore-unfixed: true
@@ -93,31 +93,30 @@ jobs:
           context: ./services/${{ matrix.service }}
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/online-boutique-${{ matrix.service }}:sha-${{ github.sha }}
-            ghcr.io/${{ github.repository_owner }}/online-boutique-${{ matrix.service }}:latest
+            ghcr.io/${{ github.repository_owner }}/platform-${{ matrix.service }}:sha-${{ github.sha }}
+            ghcr.io/${{ github.repository_owner }}/platform-${{ matrix.service }}:latest
 ---
-# k8s/argocd/application-boutique.yaml
+# k8s/argocd/application-workloads.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: online-boutique-app
+  name: platform-app-workloads
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/image-list: >-
-      frontend=ghcr.io/${GITHUB_OWNER}/online-boutique-frontend,
-      cartservice=ghcr.io/${GITHUB_OWNER}/online-boutique-cartservice,
-      productcatalogservice=ghcr.io/${GITHUB_OWNER}/online-boutique-productcatalogservice,
-      checkoutservice=ghcr.io/${GITHUB_OWNER}/online-boutique-checkoutservice
+      frontend=ghcr.io/${GITHUB_OWNER}/platform-frontend,
+      api-service=ghcr.io/${GITHUB_OWNER}/platform-api-service,
+      worker-service=ghcr.io/${GITHUB_OWNER}/platform-worker-service
     argocd-image-updater.argoproj.io/write-back-method: argocd
 spec:
-  project: online-boutique-project
+  project: platform-workloads-project
   source:
-    repoURL: https://github.com/${GITHUB_OWNER}/online-boutique-aws-platform.git
+    repoURL: https://github.com/${GITHUB_OWNER}/${REPOSITORY_NAME}.git
     targetRevision: main
-    path: k8s/boutique-app
+    path: k8s/app-workloads
   destination:
     server: https://kubernetes.default.svc
-    namespace: boutique-app
+    namespace: app-workloads
   syncPolicy:
     automated:
       prune: true
