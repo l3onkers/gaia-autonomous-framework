@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.2.1] - 2026-11-25
+
+### 🔧 Fixed & Improved
+- **Domain-Agnostic Skills & Templates:** Enforced strict domain-agnostic naming across all governed skill manifests (`aether-k8s-gateway-api`, `hephaestus-argocd-gitops`, `apollo-observability-stack`), checklists, and templates (`app-workloads`, `platform-es`, `api-service`, `app.example.com`).
+- **Knowledge Base Hygiene:** Generalized the reference architecture blueprint (`knowledge/examples/eks-gateway-api-and-argocd-gitops.md`) and recorded the mandatory Domain-Agnostic Skills & Documentation rule in `knowledge/learnings/conventions.md`.
+
+---
+
 ## [1.2.0] - 2026-11-24
 
 ### 🚀 Added
