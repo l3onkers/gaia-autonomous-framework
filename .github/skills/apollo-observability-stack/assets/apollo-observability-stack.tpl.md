@@ -44,7 +44,7 @@ metadata:
 apiVersion: elasticsearch.k8s.elastic.co/v1
 kind: Elasticsearch
 metadata:
-  name: boutique-es
+  name: platform-es
   namespace: logging
 spec:
   version: 8.15.0
@@ -67,13 +67,13 @@ spec:
 apiVersion: kibana.k8s.elastic.co/v1
 kind: Kibana
 metadata:
-  name: boutique-kibana
+  name: platform-kibana
   namespace: logging
 spec:
   version: 8.15.0
   count: 1
   elasticsearchRef:
-    name: boutique-es
+    name: platform-es
 ---
 # k8s/observability/tracing/jaeger-otlp.yaml
 apiVersion: v1
