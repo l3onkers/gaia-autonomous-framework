@@ -1,39 +1,40 @@
-# Contributing to Copilot Governance Framework
+# Contributing to G.A.I.A. Autonomous Framework
 
-First off, thank you for considering contributing! ðŸŽ‰
+First off, thank you for considering contributing! 🎉
 
 ## How Can I Contribute?
 
-### ðŸ› Reporting Bugs
+### 🐛 Reporting Bugs
 
 - Use the [GitHub Issues](https://github.com/l3onkers/gaia-autonomous-framework/issues) tab
 - Include steps to reproduce, expected behavior, and actual behavior
-- Include your environment details (VS Code version, Copilot version)
+- Include your environment details (Antigravity App / `agy` CLI, VS Code / GitHub Copilot, Cursor, or Claude Code)
 
-### ðŸ’¡ Suggesting New Agents or Skills
+### 💡 Suggesting New Agents or Skills
 
 Have an idea for a new agent or skill? Open an issue with:
 - **Title:** `[Agent]` or `[Skill]` prefix
 - **Description:** What problem it solves, what inputs/outputs it has
 - **Example request:** A sample user prompt that would trigger the agent/skill
 
-### ðŸ”§ Pull Requests
+### 🔧 Pull Requests
 
 1. **Fork** the repository
-2. **Create** a feature branch: `git checkout -b feature/my-new-skill`
+2. **Create** a governed feature branch from `develop`: `git checkout -b feat/my-new-skill`
 3. **Follow** the framework patterns:
-   - Agents go in `.github/agents/`
-   - Skills go in `.github/skills/`
-   - Use the `hephaestus` agent or the governance scaffolds to create new bundles
-4. **Test** your changes by running the agent/skill through Copilot Chat
-5. **Submit** a PR with a clear description of the change
+   - Agents go in `.github/agents/` (with subagent bridges in `.agents/agents/`)
+   - Skills go in `.github/skills/` (exposed via `.agents/skills`)
+   - Knowledge & few-shot examples go in `knowledge/`
+   - Use the `hephaestus` agent (`hephaestus-build-skill` / `hephaestus-build-agent`) and `apollo` supervisor to create new bundles
+4. **Test** your changes locally by running `bash tests/run-all.sh`
+5. **Submit** a PR targeting `develop` with a clear description of the change
 
-### ðŸ“ Documentation
+### 📝 Documentation
 
 Documentation improvements are always welcome! Whether it's:
 - Fixing typos
-- Improving explanations
-- Adding examples
+- Improving explanations or platform deployment guides ([docs/PLATFORMS.md](docs/PLATFORMS.md))
+- Adding domain-agnostic few-shot examples in `knowledge/examples/`
 - Translating content
 
 ## Development Guidelines
@@ -53,9 +54,9 @@ See [docs/CREATING_AGENTS.md](docs/CREATING_AGENTS.md) for the full guide.
 
 ### Skill Structure
 
-Every skill must include:
-- `SKILL.md` — The skill manifest
-- `assets/` — Templates, checklists, and references
+Every skill must remain **100% domain-agnostic** and include:
+- `SKILL.md` — The skill manifest with the 6 required governance headings
+- `assets/` — Templates (`*.tpl.md`) and checklists (`*.checklist.md`)
 - Clear input/output contract
 - Validation layer
 
@@ -69,7 +70,7 @@ See [docs/CREATING_SKILLS.md](docs/CREATING_SKILLS.md) for the full guide.
 
 ### Structural Validation
 
-- Repository-level consistency checks should live in the dedicated structure validation workflow.
+- Repository-level consistency checks live in `.github/workflows/scripts/validate-structure.sh` and the local test suite (`bash tests/run-all.sh`).
 - Do not fold repository governance checks into product-specific pipelines unless the workflow explicitly requires it.
 
 ### Naming Conventions
@@ -77,18 +78,21 @@ See [docs/CREATING_SKILLS.md](docs/CREATING_SKILLS.md) for the full guide.
 | Type | Pattern | Example |
 |------|---------|---------|
 | Agent | `{name}.agent.md` | `minerva.agent.md` |
-| Agent companion | `{agent-name}/{agent-name}.tpl.md` | `ng-build/eleuthia-ng.tpl.md` |
+| Subagent bridge | `.agents/agents/{name}.md` | `.agents/agents/minerva.md` |
 | Skill | `{skill-name}/SKILL.md` | `apollo-git-workflow/SKILL.md` |
 | Skill template | `{skill-name}/assets/{skill-name}.tpl.md` | `eleuthia-net-api/assets/eleuthia-net-api.tpl.md` |
 | Skill checklist | `{skill-name}/assets/{skill-name}.checklist.md` | `minerva-review/assets/minerva-review.checklist.md` |
 
-### Commit Messages
+### Commit Messages & Branch Prefixes
 
-Use conventional commit format:
-```
+Follow the rules enforced by `apollo-git-workflow`:
+- Allowed branch prefixes: `feat/`, `fix/`, `hotfix/`, `docs/`, `chore/`
+- Allowed conventional commit types: `feat`, `fix`, `docs`, `chore`, `refactor`, `test`
+
+```text
 feat(agent): add new data-pipeline coordinator
 fix(skill): correct layer dependency in py-build
-docs: update ARCHITECTURE.md with new diagram
+docs(readme): update ARCHITECTURE.md with new diagram
 ```
 
 ## Code of Conduct
@@ -98,4 +102,3 @@ This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.
 ## Questions?
 
 Open a [Discussion](https://github.com/l3onkers/gaia-autonomous-framework/discussions) for questions or ideas that aren't ready for an issue yet.
-
